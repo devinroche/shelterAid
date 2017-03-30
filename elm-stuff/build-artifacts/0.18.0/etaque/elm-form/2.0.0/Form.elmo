@@ -1,0 +1,288 @@
+var _etaque$elm_form$Form$getChangedFields = function (_p0) {
+	var _p1 = _p0;
+	return _p1._0.changedFields;
+};
+var _etaque$elm_form$Form$getFocus = function (_p2) {
+	var _p3 = _p2;
+	return _p3._0.focus;
+};
+var _etaque$elm_form$Form$isDirtyAt = F2(
+	function (qualifiedName, _p4) {
+		var _p5 = _p4;
+		return A2(_elm_lang$core$Set$member, qualifiedName, _p5._0.dirtyFields);
+	});
+var _etaque$elm_form$Form$isChangedAt = F2(
+	function (qualifiedName, _p6) {
+		var _p7 = _p6;
+		return A2(_elm_lang$core$Set$member, qualifiedName, _p7._0.changedFields);
+	});
+var _etaque$elm_form$Form$getErrorAt = F2(
+	function (path, _p8) {
+		var _p9 = _p8;
+		return A2(
+			_elm_lang$core$Maybe$andThen,
+			_etaque$elm_form$Form_Tree$asValue,
+			A2(_etaque$elm_form$Form_Tree$getAtPath, path, _p9._0.errors));
+	});
+var _etaque$elm_form$Form$getErrors = function (_p10) {
+	var _p11 = _p10;
+	return _etaque$elm_form$Form_Tree$valuesWithPath(_p11._0.errors);
+};
+var _etaque$elm_form$Form$isSubmitted = function (_p12) {
+	var _p13 = _p12;
+	return _p13._0.isSubmitted;
+};
+var _etaque$elm_form$Form$getLiveErrorAt = F2(
+	function (name, form) {
+		return (_etaque$elm_form$Form$isSubmitted(form) || (A2(_etaque$elm_form$Form$isChangedAt, name, form) && (!A2(_etaque$elm_form$Form$isDirtyAt, name, form)))) ? A2(_etaque$elm_form$Form$getErrorAt, name, form) : _elm_lang$core$Maybe$Nothing;
+	});
+var _etaque$elm_form$Form$getOutput = function (_p14) {
+	var _p15 = _p14;
+	return _p15._0.output;
+};
+var _etaque$elm_form$Form$setFieldAt = F3(
+	function (path, field, model) {
+		return A3(_etaque$elm_form$Form_Tree$setAtPath, path, field, model.fields);
+	});
+var _etaque$elm_form$Form$getFieldAt = F2(
+	function (qualifiedName, model) {
+		return A2(_etaque$elm_form$Form_Tree$getAtPath, qualifiedName, model.fields);
+	});
+var _etaque$elm_form$Form$getStringAt = F2(
+	function (name, _p16) {
+		var _p17 = _p16;
+		return A2(
+			_elm_lang$core$Maybe$andThen,
+			_etaque$elm_form$Form_Field$asString,
+			A2(_etaque$elm_form$Form$getFieldAt, name, _p17._0));
+	});
+var _etaque$elm_form$Form$getBoolAt = F2(
+	function (name, _p18) {
+		var _p19 = _p18;
+		return A2(
+			_elm_lang$core$Maybe$andThen,
+			_etaque$elm_form$Form_Field$asBool,
+			A2(_etaque$elm_form$Form$getFieldAt, name, _p19._0));
+	});
+var _etaque$elm_form$Form$updateValidate = F2(
+	function (validation, model) {
+		var _p20 = validation(model.fields);
+		if (_p20.ctor === 'Ok') {
+			return _elm_lang$core$Native_Utils.update(
+				model,
+				{
+					errors: _etaque$elm_form$Form_Tree$group(
+						{ctor: '[]'}),
+					output: _elm_lang$core$Maybe$Just(_p20._0)
+				});
+		} else {
+			return _elm_lang$core$Native_Utils.update(
+				model,
+				{errors: _p20._0, output: _elm_lang$core$Maybe$Nothing});
+		}
+	});
+var _etaque$elm_form$Form$getListIndexes = F2(
+	function (path, _p21) {
+		var _p22 = _p21;
+		var length = A2(
+			_elm_lang$core$Maybe$withDefault,
+			0,
+			A2(
+				_elm_lang$core$Maybe$map,
+				function (_p23) {
+					return _elm_lang$core$List$length(
+						_etaque$elm_form$Form_Tree$asList(_p23));
+				},
+				A2(_etaque$elm_form$Form$getFieldAt, path, _p22._0)));
+		return A2(_elm_lang$core$List$range, 0, length - 1);
+	});
+var _etaque$elm_form$Form$getField = F3(
+	function (getValue, path, form) {
+		return {
+			path: path,
+			value: A2(getValue, path, form),
+			error: A2(_etaque$elm_form$Form$getErrorAt, path, form),
+			liveError: A2(_etaque$elm_form$Form$getLiveErrorAt, path, form),
+			isDirty: A2(_etaque$elm_form$Form$isDirtyAt, path, form),
+			isChanged: A2(_etaque$elm_form$Form$isChangedAt, path, form),
+			hasFocus: _elm_lang$core$Native_Utils.eq(
+				_etaque$elm_form$Form$getFocus(form),
+				_elm_lang$core$Maybe$Just(path))
+		};
+	});
+var _etaque$elm_form$Form$getFieldAsBool = _etaque$elm_form$Form$getField(_etaque$elm_form$Form$getBoolAt);
+var _etaque$elm_form$Form$getFieldAsString = _etaque$elm_form$Form$getField(_etaque$elm_form$Form$getStringAt);
+var _etaque$elm_form$Form$Model = F7(
+	function (a, b, c, d, e, f, g) {
+		return {fields: a, focus: b, dirtyFields: c, changedFields: d, isSubmitted: e, output: f, errors: g};
+	});
+var _etaque$elm_form$Form$FieldState = F7(
+	function (a, b, c, d, e, f, g) {
+		return {path: a, value: b, error: c, liveError: d, isDirty: e, isChanged: f, hasFocus: g};
+	});
+var _etaque$elm_form$Form$F = function (a) {
+	return {ctor: 'F', _0: a};
+};
+var _etaque$elm_form$Form$initial = F2(
+	function (initialFields, validation) {
+		var model = {
+			fields: _etaque$elm_form$Form_Tree$group(initialFields),
+			focus: _elm_lang$core$Maybe$Nothing,
+			dirtyFields: _elm_lang$core$Set$empty,
+			changedFields: _elm_lang$core$Set$empty,
+			isSubmitted: false,
+			output: _elm_lang$core$Maybe$Nothing,
+			errors: _etaque$elm_form$Form_Tree$group(
+				{ctor: '[]'})
+		};
+		return _etaque$elm_form$Form$F(
+			A2(_etaque$elm_form$Form$updateValidate, validation, model));
+	});
+var _etaque$elm_form$Form$update = F3(
+	function (validation, msg, _p24) {
+		var _p25 = _p24;
+		var _p32 = _p25._0;
+		var _p26 = msg;
+		switch (_p26.ctor) {
+			case 'NoOp':
+				return _etaque$elm_form$Form$F(_p32);
+			case 'Focus':
+				var newModel = _elm_lang$core$Native_Utils.update(
+					_p32,
+					{
+						focus: _elm_lang$core$Maybe$Just(_p26._0)
+					});
+				return _etaque$elm_form$Form$F(newModel);
+			case 'Blur':
+				var newDirtyFields = A2(_elm_lang$core$Set$remove, _p26._0, _p32.dirtyFields);
+				var newModel = _elm_lang$core$Native_Utils.update(
+					_p32,
+					{focus: _elm_lang$core$Maybe$Nothing, dirtyFields: newDirtyFields});
+				return _etaque$elm_form$Form$F(
+					A2(_etaque$elm_form$Form$updateValidate, validation, newModel));
+			case 'Input':
+				var _p28 = _p26._0;
+				var newChangedFields = A2(_elm_lang$core$Set$insert, _p28, _p32.changedFields);
+				var isDirty = function () {
+					var _p27 = _p26._1;
+					switch (_p27.ctor) {
+						case 'Text':
+							return true;
+						case 'Textarea':
+							return true;
+						default:
+							return false;
+					}
+				}();
+				var newDirtyFields = isDirty ? A2(_elm_lang$core$Set$insert, _p28, _p32.dirtyFields) : _p32.dirtyFields;
+				var newFields = A3(
+					_etaque$elm_form$Form$setFieldAt,
+					_p28,
+					_etaque$elm_form$Form_Tree$Value(_p26._2),
+					_p32);
+				var newModel = _elm_lang$core$Native_Utils.update(
+					_p32,
+					{fields: newFields, dirtyFields: newDirtyFields, changedFields: newChangedFields});
+				return _etaque$elm_form$Form$F(
+					A2(_etaque$elm_form$Form$updateValidate, validation, newModel));
+			case 'Append':
+				var _p29 = _p26._0;
+				var listFields = A2(
+					_elm_lang$core$Maybe$withDefault,
+					{ctor: '[]'},
+					A2(
+						_elm_lang$core$Maybe$map,
+						_etaque$elm_form$Form_Tree$asList,
+						A2(_etaque$elm_form$Form$getFieldAt, _p29, _p32)));
+				var newListFields = A2(
+					_elm_lang$core$Basics_ops['++'],
+					listFields,
+					{
+						ctor: '::',
+						_0: _etaque$elm_form$Form_Tree$Value(_etaque$elm_form$Form_Field$EmptyField),
+						_1: {ctor: '[]'}
+					});
+				var newModel = _elm_lang$core$Native_Utils.update(
+					_p32,
+					{
+						fields: A3(
+							_etaque$elm_form$Form$setFieldAt,
+							_p29,
+							_etaque$elm_form$Form_Tree$List(newListFields),
+							_p32)
+					});
+				return _etaque$elm_form$Form$F(newModel);
+			case 'RemoveItem':
+				var _p31 = _p26._0;
+				var _p30 = _p26._1;
+				var listFields = A2(
+					_elm_lang$core$Maybe$withDefault,
+					{ctor: '[]'},
+					A2(
+						_elm_lang$core$Maybe$map,
+						_etaque$elm_form$Form_Tree$asList,
+						A2(_etaque$elm_form$Form$getFieldAt, _p31, _p32)));
+				var newListFields = A2(
+					_elm_lang$core$Basics_ops['++'],
+					A2(_elm_lang$core$List$take, _p30, listFields),
+					A2(_elm_lang$core$List$drop, _p30 + 1, listFields));
+				var newModel = _elm_lang$core$Native_Utils.update(
+					_p32,
+					{
+						fields: A3(
+							_etaque$elm_form$Form$setFieldAt,
+							_p31,
+							_etaque$elm_form$Form_Tree$List(newListFields),
+							_p32)
+					});
+				return _etaque$elm_form$Form$F(newModel);
+			case 'Submit':
+				var validatedModel = A2(_etaque$elm_form$Form$updateValidate, validation, _p32);
+				return _etaque$elm_form$Form$F(
+					_elm_lang$core$Native_Utils.update(
+						validatedModel,
+						{isSubmitted: true}));
+			case 'Validate':
+				return _etaque$elm_form$Form$F(
+					A2(_etaque$elm_form$Form$updateValidate, validation, _p32));
+			default:
+				var newModel = _elm_lang$core$Native_Utils.update(
+					_p32,
+					{
+						fields: _etaque$elm_form$Form_Tree$group(_p26._0),
+						dirtyFields: _elm_lang$core$Set$empty,
+						changedFields: _elm_lang$core$Set$empty,
+						isSubmitted: false
+					});
+				return _etaque$elm_form$Form$F(
+					A2(_etaque$elm_form$Form$updateValidate, validation, newModel));
+		}
+	});
+var _etaque$elm_form$Form$Reset = function (a) {
+	return {ctor: 'Reset', _0: a};
+};
+var _etaque$elm_form$Form$Validate = {ctor: 'Validate'};
+var _etaque$elm_form$Form$Submit = {ctor: 'Submit'};
+var _etaque$elm_form$Form$RemoveItem = F2(
+	function (a, b) {
+		return {ctor: 'RemoveItem', _0: a, _1: b};
+	});
+var _etaque$elm_form$Form$Append = function (a) {
+	return {ctor: 'Append', _0: a};
+};
+var _etaque$elm_form$Form$Input = F3(
+	function (a, b, c) {
+		return {ctor: 'Input', _0: a, _1: b, _2: c};
+	});
+var _etaque$elm_form$Form$Blur = function (a) {
+	return {ctor: 'Blur', _0: a};
+};
+var _etaque$elm_form$Form$Focus = function (a) {
+	return {ctor: 'Focus', _0: a};
+};
+var _etaque$elm_form$Form$NoOp = {ctor: 'NoOp'};
+var _etaque$elm_form$Form$Checkbox = {ctor: 'Checkbox'};
+var _etaque$elm_form$Form$Radio = {ctor: 'Radio'};
+var _etaque$elm_form$Form$Select = {ctor: 'Select'};
+var _etaque$elm_form$Form$Textarea = {ctor: 'Textarea'};
+var _etaque$elm_form$Form$Text = {ctor: 'Text'};

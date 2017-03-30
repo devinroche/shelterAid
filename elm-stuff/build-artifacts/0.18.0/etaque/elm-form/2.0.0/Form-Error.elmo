@@ -1,0 +1,32 @@
+var _etaque$elm_form$Form_Error$value = _etaque$elm_form$Form_Tree$Value;
+var _etaque$elm_form$Form_Error$CustomError = function (a) {
+	return {ctor: 'CustomError', _0: a};
+};
+var _etaque$elm_form$Form_Error$NotIncludedIn = {ctor: 'NotIncludedIn'};
+var _etaque$elm_form$Form_Error$LongerStringThan = function (a) {
+	return {ctor: 'LongerStringThan', _0: a};
+};
+var _etaque$elm_form$Form_Error$ShorterStringThan = function (a) {
+	return {ctor: 'ShorterStringThan', _0: a};
+};
+var _etaque$elm_form$Form_Error$GreaterFloatThan = function (a) {
+	return {ctor: 'GreaterFloatThan', _0: a};
+};
+var _etaque$elm_form$Form_Error$SmallerFloatThan = function (a) {
+	return {ctor: 'SmallerFloatThan', _0: a};
+};
+var _etaque$elm_form$Form_Error$GreaterIntThan = function (a) {
+	return {ctor: 'GreaterIntThan', _0: a};
+};
+var _etaque$elm_form$Form_Error$SmallerIntThan = function (a) {
+	return {ctor: 'SmallerIntThan', _0: a};
+};
+var _etaque$elm_form$Form_Error$InvalidDate = {ctor: 'InvalidDate'};
+var _etaque$elm_form$Form_Error$InvalidBool = {ctor: 'InvalidBool'};
+var _etaque$elm_form$Form_Error$InvalidFloat = {ctor: 'InvalidFloat'};
+var _etaque$elm_form$Form_Error$InvalidInt = {ctor: 'InvalidInt'};
+var _etaque$elm_form$Form_Error$InvalidFormat = {ctor: 'InvalidFormat'};
+var _etaque$elm_form$Form_Error$InvalidUrl = {ctor: 'InvalidUrl'};
+var _etaque$elm_form$Form_Error$InvalidEmail = {ctor: 'InvalidEmail'};
+var _etaque$elm_form$Form_Error$InvalidString = {ctor: 'InvalidString'};
+var _etaque$elm_form$Form_Error$Empty = {ctor: 'Empty'};

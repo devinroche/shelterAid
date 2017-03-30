@@ -1,0 +1,32 @@
+var _etaque$elm_form$Form_Init$setList = F2(
+	function (name, items) {
+		return {
+			ctor: '_Tuple2',
+			_0: name,
+			_1: _etaque$elm_form$Form_Field$list(items)
+		};
+	});
+var _etaque$elm_form$Form_Init$setGroup = F2(
+	function (name, pairs) {
+		return {
+			ctor: '_Tuple2',
+			_0: name,
+			_1: _etaque$elm_form$Form_Field$group(pairs)
+		};
+	});
+var _etaque$elm_form$Form_Init$setString = F2(
+	function (name, str) {
+		return {
+			ctor: '_Tuple2',
+			_0: name,
+			_1: _etaque$elm_form$Form_Field$string(str)
+		};
+	});
+var _etaque$elm_form$Form_Init$setBool = F2(
+	function (name, b) {
+		return {
+			ctor: '_Tuple2',
+			_0: name,
+			_1: _etaque$elm_form$Form_Field$bool(b)
+		};
+	});

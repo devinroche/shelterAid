@@ -1,0 +1,207 @@
+var _etaque$elm_form$Form_Tree$updateListAtIndex = F2(
+	function (index, updater) {
+		return _elm_lang$core$List$indexedMap(
+			F2(
+				function (i, f) {
+					return _elm_lang$core$Native_Utils.eq(i, index) ? updater(f) : f;
+				}));
+	});
+var _etaque$elm_form$Form_Tree$asList = function (value) {
+	var _p0 = value;
+	if (_p0.ctor === 'List') {
+		return _p0._0;
+	} else {
+		return {ctor: '[]'};
+	}
+};
+var _etaque$elm_form$Form_Tree$asValue = function (node) {
+	var _p1 = node;
+	if (_p1.ctor === 'Value') {
+		return _elm_lang$core$Maybe$Just(_p1._0);
+	} else {
+		return _elm_lang$core$Maybe$Nothing;
+	}
+};
+var _etaque$elm_form$Form_Tree$valuesWithPath = function (tree) {
+	var mapGroupItem = F2(
+		function (path, _p2) {
+			var _p3 = _p2;
+			return A2(
+				walkTree,
+				A2(
+					_elm_lang$core$Basics_ops['++'],
+					path,
+					{
+						ctor: '::',
+						_0: _p3._0,
+						_1: {ctor: '[]'}
+					}),
+				_p3._1);
+		});
+	var walkTree = F2(
+		function (path, value) {
+			var _p4 = value;
+			switch (_p4.ctor) {
+				case 'Group':
+					return A2(
+						_elm_lang$core$List$concatMap,
+						mapGroupItem(path),
+						_elm_lang$core$Dict$toList(_p4._0));
+				case 'List':
+					return A2(
+						_elm_lang$core$List$concatMap,
+						mapGroupItem(path),
+						A2(
+							_elm_lang$core$List$indexedMap,
+							F2(
+								function (index, item) {
+									return {
+										ctor: '_Tuple2',
+										_0: _elm_lang$core$Basics$toString(index),
+										_1: item
+									};
+								}),
+							_p4._0));
+				default:
+					return {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: A2(_elm_lang$core$String$join, '.', path),
+							_1: _p4._0
+						},
+						_1: {ctor: '[]'}
+					};
+			}
+		});
+	return A2(
+		walkTree,
+		{ctor: '[]'},
+		tree);
+};
+var _etaque$elm_form$Form_Tree$getAtIndex = F2(
+	function (index, value) {
+		return _elm_lang$core$List$head(
+			A2(
+				_elm_lang$core$List$drop,
+				index,
+				_etaque$elm_form$Form_Tree$asList(value)));
+	});
+var _etaque$elm_form$Form_Tree$getAtName = F2(
+	function (name, value) {
+		var _p5 = value;
+		if (_p5.ctor === 'Group') {
+			return A2(_elm_lang$core$Dict$get, name, _p5._0);
+		} else {
+			return _elm_lang$core$Maybe$Nothing;
+		}
+	});
+var _etaque$elm_form$Form_Tree$Value = function (a) {
+	return {ctor: 'Value', _0: a};
+};
+var _etaque$elm_form$Form_Tree$List = function (a) {
+	return {ctor: 'List', _0: a};
+};
+var _etaque$elm_form$Form_Tree$Group = function (a) {
+	return {ctor: 'Group', _0: a};
+};
+var _etaque$elm_form$Form_Tree$group = function (items) {
+	return _etaque$elm_form$Form_Tree$Group(
+		_elm_lang$core$Dict$fromList(items));
+};
+var _etaque$elm_form$Form_Tree$merge = F2(
+	function (t1, t2) {
+		var _p6 = {ctor: '_Tuple2', _0: t1, _1: t2};
+		if (((_p6.ctor === '_Tuple2') && (_p6._0.ctor === 'Group')) && (_p6._1.ctor === 'Group')) {
+			return _etaque$elm_form$Form_Tree$Group(
+				A2(_elm_lang$core$Dict$union, _p6._0._0, _p6._1._0));
+		} else {
+			return t1;
+		}
+	});
+var _etaque$elm_form$Form_Tree$recursiveSet = F3(
+	function (fragments, node, tree) {
+		var _p7 = fragments;
+		if (_p7.ctor === '::') {
+			var _p10 = _p7._1;
+			var _p8 = _p7._0;
+			if (_p8.ctor === 'IntFragment') {
+				return _etaque$elm_form$Form_Tree$List(
+					A3(
+						_etaque$elm_form$Form_Tree$updateListAtIndex,
+						_p8._0,
+						A2(_etaque$elm_form$Form_Tree$recursiveSet, _p10, node),
+						_etaque$elm_form$Form_Tree$asList(tree)));
+			} else {
+				var _p9 = _p8._0;
+				var target = A2(
+					_elm_lang$core$Maybe$withDefault,
+					_etaque$elm_form$Form_Tree$Group(_elm_lang$core$Dict$empty),
+					A2(_etaque$elm_form$Form_Tree$getAtName, _p9, tree));
+				var childNode = A3(_etaque$elm_form$Form_Tree$recursiveSet, _p10, node, target);
+				return A2(
+					_etaque$elm_form$Form_Tree$merge,
+					_etaque$elm_form$Form_Tree$Group(
+						_elm_lang$core$Dict$fromList(
+							{
+								ctor: '::',
+								_0: {ctor: '_Tuple2', _0: _p9, _1: childNode},
+								_1: {ctor: '[]'}
+							})),
+					tree);
+			}
+		} else {
+			return node;
+		}
+	});
+var _etaque$elm_form$Form_Tree$IntFragment = function (a) {
+	return {ctor: 'IntFragment', _0: a};
+};
+var _etaque$elm_form$Form_Tree$StringFragment = function (a) {
+	return {ctor: 'StringFragment', _0: a};
+};
+var _etaque$elm_form$Form_Tree$toFragment = function (s) {
+	var _p11 = _elm_lang$core$String$toInt(s);
+	if (_p11.ctor === 'Ok') {
+		return _etaque$elm_form$Form_Tree$IntFragment(_p11._0);
+	} else {
+		return _etaque$elm_form$Form_Tree$StringFragment(s);
+	}
+};
+var _etaque$elm_form$Form_Tree$extractFragments = function (name) {
+	return A2(
+		_elm_lang$core$List$map,
+		_etaque$elm_form$Form_Tree$toFragment,
+		A2(_elm_lang$core$String$split, '.', name));
+};
+var _etaque$elm_form$Form_Tree$getAtPath = F2(
+	function (path, tree) {
+		var walkPath = F2(
+			function (fragment, maybeField) {
+				var _p12 = fragment;
+				if (_p12.ctor === 'IntFragment') {
+					return A2(
+						_elm_lang$core$Maybe$andThen,
+						_etaque$elm_form$Form_Tree$getAtIndex(_p12._0),
+						maybeField);
+				} else {
+					return A2(
+						_elm_lang$core$Maybe$andThen,
+						_etaque$elm_form$Form_Tree$getAtName(_p12._0),
+						maybeField);
+				}
+			});
+		return A3(
+			_elm_lang$core$List$foldl,
+			walkPath,
+			_elm_lang$core$Maybe$Just(tree),
+			_etaque$elm_form$Form_Tree$extractFragments(path));
+	});
+var _etaque$elm_form$Form_Tree$setAtPath = F3(
+	function (path, node, tree) {
+		return A3(
+			_etaque$elm_form$Form_Tree$recursiveSet,
+			_etaque$elm_form$Form_Tree$extractFragments(path),
+			node,
+			tree);
+	});

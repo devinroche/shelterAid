@@ -1,0 +1,249 @@
+var _etaque$elm_form$Form_Input$dumpErrors = function (form) {
+	var line = function (_p0) {
+		var _p1 = _p0;
+		return A2(
+			_elm_lang$core$Basics_ops['++'],
+			_p1._0,
+			A2(
+				_elm_lang$core$Basics_ops['++'],
+				': ',
+				_elm_lang$core$Basics$toString(_p1._1)));
+	};
+	var content = A2(
+		_elm_lang$core$String$join,
+		'\n',
+		A2(
+			_elm_lang$core$List$map,
+			line,
+			_etaque$elm_form$Form$getErrors(form)));
+	return A2(
+		_elm_lang$html$Html$pre,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html$text(content),
+			_1: {ctor: '[]'}
+		});
+};
+var _etaque$elm_form$Form_Input$radioInput = F3(
+	function (value, state, attrs) {
+		var formAttrs = {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$type_('radio'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$name(state.path),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$value(value),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$checked(
+							_elm_lang$core$Native_Utils.eq(
+								state.value,
+								_elm_lang$core$Maybe$Just(value))),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onFocus(
+								_etaque$elm_form$Form$Focus(state.path)),
+							_1: {
+								ctor: '::',
+								_0: _elm_lang$html$Html_Events$onBlur(
+									_etaque$elm_form$Form$Blur(state.path)),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html_Events$on,
+										'change',
+										A2(
+											_elm_lang$core$Json_Decode$map,
+											function (_p2) {
+												return A3(
+													_etaque$elm_form$Form$Input,
+													state.path,
+													_etaque$elm_form$Form$Radio,
+													_etaque$elm_form$Form_Field$String(_p2));
+											},
+											_elm_lang$html$Html_Events$targetValue)),
+									_1: {ctor: '[]'}
+								}
+							}
+						}
+					}
+				}
+			}
+		};
+		return A2(
+			_elm_lang$html$Html$input,
+			A2(_elm_lang$core$Basics_ops['++'], formAttrs, attrs),
+			{ctor: '[]'});
+	});
+var _etaque$elm_form$Form_Input$checkboxInput = F2(
+	function (state, attrs) {
+		var formAttrs = {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$type_('checkbox'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$checked(
+					A2(_elm_lang$core$Maybe$withDefault, false, state.value)),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onCheck(
+						function (_p3) {
+							return A3(
+								_etaque$elm_form$Form$Input,
+								state.path,
+								_etaque$elm_form$Form$Checkbox,
+								_etaque$elm_form$Form_Field$Bool(_p3));
+						}),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onFocus(
+							_etaque$elm_form$Form$Focus(state.path)),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onBlur(
+								_etaque$elm_form$Form$Blur(state.path)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		};
+		return A2(
+			_elm_lang$html$Html$input,
+			A2(_elm_lang$core$Basics_ops['++'], formAttrs, attrs),
+			{ctor: '[]'});
+	});
+var _etaque$elm_form$Form_Input$selectInput = F3(
+	function (options, state, attrs) {
+		var buildOption = function (_p4) {
+			var _p5 = _p4;
+			var _p6 = _p5._0;
+			return A2(
+				_elm_lang$html$Html$option,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$value(_p6),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$selected(
+							_elm_lang$core$Native_Utils.eq(
+								state.value,
+								_elm_lang$core$Maybe$Just(_p6))),
+						_1: {ctor: '[]'}
+					}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(_p5._1),
+					_1: {ctor: '[]'}
+				});
+		};
+		var formAttrs = {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html_Events$on,
+				'change',
+				A2(
+					_elm_lang$core$Json_Decode$map,
+					function (_p7) {
+						return A3(
+							_etaque$elm_form$Form$Input,
+							state.path,
+							_etaque$elm_form$Form$Select,
+							_etaque$elm_form$Form_Field$String(_p7));
+					},
+					_elm_lang$html$Html_Events$targetValue)),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onFocus(
+					_etaque$elm_form$Form$Focus(state.path)),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onBlur(
+						_etaque$elm_form$Form$Blur(state.path)),
+					_1: {ctor: '[]'}
+				}
+			}
+		};
+		return A2(
+			_elm_lang$html$Html$select,
+			A2(_elm_lang$core$Basics_ops['++'], formAttrs, attrs),
+			A2(_elm_lang$core$List$map, buildOption, options));
+	});
+var _etaque$elm_form$Form_Input$textArea = F2(
+	function (state, attrs) {
+		var formAttrs = {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$defaultValue(
+				A2(_elm_lang$core$Maybe$withDefault, '', state.value)),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onInput(
+					function (_p8) {
+						return A3(
+							_etaque$elm_form$Form$Input,
+							state.path,
+							_etaque$elm_form$Form$Textarea,
+							_etaque$elm_form$Form_Field$String(_p8));
+					}),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onFocus(
+						_etaque$elm_form$Form$Focus(state.path)),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onBlur(
+							_etaque$elm_form$Form$Blur(state.path)),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		};
+		return A2(
+			_elm_lang$html$Html$textarea,
+			A2(_elm_lang$core$Basics_ops['++'], formAttrs, attrs),
+			{ctor: '[]'});
+	});
+var _etaque$elm_form$Form_Input$baseInput = F5(
+	function (t, toFieldValue, inputType, state, attrs) {
+		var formAttrs = {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$type_(t),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$defaultValue(
+					A2(_elm_lang$core$Maybe$withDefault, '', state.value)),
+				_1: {
+					ctor: '::',
+					_0: _elm_lang$html$Html_Events$onInput(
+						function (_p9) {
+							return A3(
+								_etaque$elm_form$Form$Input,
+								state.path,
+								inputType,
+								toFieldValue(_p9));
+						}),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onFocus(
+							_etaque$elm_form$Form$Focus(state.path)),
+						_1: {
+							ctor: '::',
+							_0: _elm_lang$html$Html_Events$onBlur(
+								_etaque$elm_form$Form$Blur(state.path)),
+							_1: {ctor: '[]'}
+						}
+					}
+				}
+			}
+		};
+		return A2(
+			_elm_lang$html$Html$input,
+			A2(_elm_lang$core$Basics_ops['++'], formAttrs, attrs),
+			{ctor: '[]'});
+	});
+var _etaque$elm_form$Form_Input$textInput = A3(_etaque$elm_form$Form_Input$baseInput, 'text', _etaque$elm_form$Form_Field$String, _etaque$elm_form$Form$Text);
+var _etaque$elm_form$Form_Input$passwordInput = A3(_etaque$elm_form$Form_Input$baseInput, 'password', _etaque$elm_form$Form_Field$String, _etaque$elm_form$Form$Text);

@@ -1,0 +1,34 @@
+var _etaque$elm_form$Form_Field$asString = function (field) {
+	var _p0 = field;
+	if ((_p0.ctor === 'Value') && (_p0._0.ctor === 'String')) {
+		return _elm_lang$core$Maybe$Just(_p0._0._0);
+	} else {
+		return _elm_lang$core$Maybe$Nothing;
+	}
+};
+var _etaque$elm_form$Form_Field$asBool = function (field) {
+	var _p1 = field;
+	if ((_p1.ctor === 'Value') && (_p1._0.ctor === 'Bool')) {
+		return _elm_lang$core$Maybe$Just(_p1._0._0);
+	} else {
+		return _elm_lang$core$Maybe$Nothing;
+	}
+};
+var _etaque$elm_form$Form_Field$list = _etaque$elm_form$Form_Tree$List;
+var _etaque$elm_form$Form_Field$group = _etaque$elm_form$Form_Tree$group;
+var _etaque$elm_form$Form_Field$value = _etaque$elm_form$Form_Tree$Value;
+var _etaque$elm_form$Form_Field$EmptyField = {ctor: 'EmptyField'};
+var _etaque$elm_form$Form_Field$Bool = function (a) {
+	return {ctor: 'Bool', _0: a};
+};
+var _etaque$elm_form$Form_Field$bool = function (_p2) {
+	return _etaque$elm_form$Form_Tree$Value(
+		_etaque$elm_form$Form_Field$Bool(_p2));
+};
+var _etaque$elm_form$Form_Field$String = function (a) {
+	return {ctor: 'String', _0: a};
+};
+var _etaque$elm_form$Form_Field$string = function (_p3) {
+	return _etaque$elm_form$Form_Tree$Value(
+		_etaque$elm_form$Form_Field$String(_p3));
+};

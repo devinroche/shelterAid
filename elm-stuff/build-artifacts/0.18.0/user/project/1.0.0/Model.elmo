@@ -1,0 +1,5 @@
+var _user$project$Model$CurrResident = F4(
+	function (a, b, c, d) {
+		return {name: a, dob: b, id: c, checkin: d};
+	});
+var _user$project$Model$init = A4(_user$project$Model$CurrResident, '', '', '', '');

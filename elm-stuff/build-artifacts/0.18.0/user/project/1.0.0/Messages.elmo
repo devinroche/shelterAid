@@ -1,0 +1,6 @@
+var _user$project$Messages$OnLocationChange = function (a) {
+	return {ctor: 'OnLocationChange', _0: a};
+};
+var _user$project$Messages$OnFetchResidents = function (a) {
+	return {ctor: 'OnFetchResidents', _0: a};
+};

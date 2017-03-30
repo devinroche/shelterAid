@@ -1,0 +1,16 @@
+var _user$project$Models$initialModel = function (route) {
+	return {residents: _krisajenkins$remotedata$RemoteData$Loading, route: route};
+};
+var _user$project$Models$Model = F2(
+	function (a, b) {
+		return {residents: a, route: b};
+	});
+var _user$project$Models$Resident = F4(
+	function (a, b, c, d) {
+		return {name: a, dob: b, age: c, id: d};
+	});
+var _user$project$Models$NoMatchingRoute = {ctor: 'NoMatchingRoute'};
+var _user$project$Models$ResidentRoute = function (a) {
+	return {ctor: 'ResidentRoute', _0: a};
+};
+var _user$project$Models$ResidentsRoute = {ctor: 'ResidentsRoute'};
