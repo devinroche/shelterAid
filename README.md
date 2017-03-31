@@ -7,7 +7,7 @@ npm install
 yarn install
 ```
 
-#How to run
+# How to run
 ```
 yarn start
 ```
