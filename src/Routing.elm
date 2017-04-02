@@ -20,3 +20,10 @@ parseLocation location =
 
     Nothing ->
       NoMatchingRoute
+
+residentsPath: String
+residentsPath = "#residents"
+
+residentPath: ResidentID -> String
+residentPath id = 
+  "#residents/" ++ id

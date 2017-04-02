@@ -1,10 +1,11 @@
 module Residents.List exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (class)
+import Html.Attributes exposing (class, href)
 import Messages exposing (Msg)
 import Models exposing (Resident)
 import RemoteData exposing (WebData)
+import Routing exposing (residentPath)
 
 view : WebData (List Resident)-> Html Msg
 view response =
@@ -43,7 +44,7 @@ residentRow resident =
       , td [] [ text resident.age ]
       , td [] [ text resident.id]
       , td[]
-            []
+            [editButton resident]
       ]
 
 maybeList : WebData (List Resident) -> Html Msg
@@ -60,3 +61,15 @@ maybeList response =
 
       RemoteData.Failure error ->
         text (toString error)
+
+editButton: Resident -> Html Msg
+editButton resident=
+  let path =
+    residentPath resident.id
+
+  in
+    a
+      [ class "btn regular"
+      , href path
+      ]
+      [i [class "fa fa-pencil mr1"] [], text "Edit"]

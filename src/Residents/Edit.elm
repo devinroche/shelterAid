@@ -4,6 +4,7 @@ import Html exposing(..)
 import Html.Attributes exposing (..)
 import Messages exposing(Msg)
 import Models exposing(Resident)
+import Routing exposing (residentsPath)
 
 view : Resident -> Html.Html Msg
 view model =
@@ -16,7 +17,7 @@ view model =
 nav : Resident -> Html.Html Msg
 nav model =
     div [ class "clearfix mb2 white bg-black p1" ]
-        []
+        [listButton]
 
 
 form : Resident -> Html.Html Msg
@@ -32,7 +33,7 @@ formLevel resident =
     div
         [ class "clearfix py1"
         ]
-        [ div [ class "col col-5" ] [ text "Level" ]
+        [ div [ class "col col-5" ] [ text "Name" ]
         , div [ class "col col-7" ]
             [ span [ class "h2 bold" ] [ text resident.name ]
             , btnLevelDecrease resident
@@ -51,3 +52,11 @@ btnLevelIncrease : Resident -> Html.Html Msg
 btnLevelIncrease resident =
     a [ class "btn ml1 h1" ]
         [ i [ class "fa fa-plus-circle" ] [] ]
+
+listButton : Html Msg
+listButton =
+      a
+        [ class "btn regular"
+        , href residentsPath
+        ]
+        [ i [ class "fa fa-chevron-left mr1" ] [], text "List" ]

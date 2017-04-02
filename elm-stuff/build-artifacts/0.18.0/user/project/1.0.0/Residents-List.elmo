@@ -1,3 +1,33 @@
+var _user$project$Residents_List$editButton = function (resident) {
+	var path = _user$project$Routing$residentPath(resident.id);
+	return A2(
+		_elm_lang$html$Html$a,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('btn regular'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$href(path),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-pencil mr1'),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Edit'),
+				_1: {ctor: '[]'}
+			}
+		});
+};
 var _user$project$Residents_List$residentRow = function (resident) {
 	return A2(
 		_elm_lang$html$Html$tr,
@@ -47,7 +77,11 @@ var _user$project$Residents_List$residentRow = function (resident) {
 							_0: A2(
 								_elm_lang$html$Html$td,
 								{ctor: '[]'},
-								{ctor: '[]'}),
+								{
+									ctor: '::',
+									_0: _user$project$Residents_List$editButton(resident),
+									_1: {ctor: '[]'}
+								}),
 							_1: {ctor: '[]'}
 						}
 					}

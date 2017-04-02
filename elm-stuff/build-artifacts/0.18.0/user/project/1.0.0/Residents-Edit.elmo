@@ -1,3 +1,30 @@
+var _user$project$Residents_Edit$listButton = A2(
+	_elm_lang$html$Html$a,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('btn regular'),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$residentsPath),
+			_1: {ctor: '[]'}
+		}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$i,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class('fa fa-chevron-left mr1'),
+				_1: {ctor: '[]'}
+			},
+			{ctor: '[]'}),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('List'),
+			_1: {ctor: '[]'}
+		}
+	});
 var _user$project$Residents_Edit$btnLevelIncrease = function (resident) {
 	return A2(
 		_elm_lang$html$Html$a,
@@ -59,7 +86,7 @@ var _user$project$Residents_Edit$formLevel = function (resident) {
 				},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('Level'),
+					_0: _elm_lang$html$Html$text('Name'),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -132,7 +159,11 @@ var _user$project$Residents_Edit$nav = function (model) {
 			_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black p1'),
 			_1: {ctor: '[]'}
 		},
-		{ctor: '[]'});
+		{
+			ctor: '::',
+			_0: _user$project$Residents_Edit$listButton,
+			_1: {ctor: '[]'}
+		});
 };
 var _user$project$Residents_Edit$view = function (model) {
 	return A2(
