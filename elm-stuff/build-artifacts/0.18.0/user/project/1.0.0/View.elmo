@@ -1,5 +1,48 @@
+var _user$project$View$noViewFound = A2(
+	_elm_lang$html$Html$div,
+	{ctor: '[]'},
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html$text('View not found'),
+		_1: {ctor: '[]'}
+	});
+var _user$project$View$residentEditPage = F2(
+	function (model, residentID) {
+		var _p0 = model.residents;
+		switch (_p0.ctor) {
+			case 'NotAsked':
+				return _elm_lang$html$Html$text('');
+			case 'Loading':
+				return _elm_lang$html$Html$text('Loading.....');
+			case 'Failure':
+				return _elm_lang$html$Html$text(
+					_elm_lang$core$Basics$toString(_p0._0));
+			default:
+				var maybeResident = _elm_lang$core$List$head(
+					A2(
+						_elm_lang$core$List$filter,
+						function (resident) {
+							return _elm_lang$core$Native_Utils.eq(resident.id, residentID);
+						},
+						_p0._0));
+				var _p1 = maybeResident;
+				if (_p1.ctor === 'Just') {
+					return _user$project$Residents_Edit$view(_p1._0);
+				} else {
+					return _user$project$View$noViewFound;
+				}
+		}
+	});
 var _user$project$View$page = function (model) {
-	return _user$project$Residents_List$view(model.residents);
+	var _p2 = model.route;
+	switch (_p2.ctor) {
+		case 'ResidentsRoute':
+			return _user$project$Residents_List$view(model.residents);
+		case 'ResidentRoute':
+			return A2(_user$project$View$residentEditPage, model, _p2._0);
+		default:
+			return _user$project$View$noViewFound;
+	}
 };
 var _user$project$View$view = function (model) {
 	return A2(

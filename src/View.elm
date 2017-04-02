@@ -20,7 +20,7 @@ page model =
     Models.ResidentsRoute ->
       Residents.List.view model.residents
 
-    Models.ResidentsRoute id ->
+    Models.ResidentRoute id ->
       residentEditPage model id
 
     Models.NoMatchingRoute ->
@@ -47,7 +47,7 @@ residentEditPage model residentID =
       in
         case maybeResident of
           Just resident ->
-            Resident.Edit.view resident
+            Residents.Edit.view resident
 
           Nothing ->
             noViewFound
