@@ -1,13 +1,16 @@
 # shelterAid
-Web application to assist homeless shelters with inventory and other tedious tasks.
+Web application to assist homeless shelters with inventory and other tedious tasks. This is a final project for Organization of Programming Languages at Gonzaga University
 
-Before you try to run the program do the following....
+## Before running
 ```
 npm install
 yarn install
 ```
 
-# How to run
+### How to run
 ```
 yarn start
 ```
+
+## TODO
+Everything.......but nothing
