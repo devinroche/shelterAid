@@ -1,0 +1,141 @@
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Element = F7(
+	function (a, b, c, d, e, f, g) {
+		return {style: a, $float: b, alignment: c, sizing: d, display: e, visibility: f, interaction: g};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Content = F2(
+	function (a, b) {
+		return {container: a, size: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Image = F2(
+	function (a, b) {
+		return {container: a, size: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Heading = F3(
+	function (a, b, c) {
+		return {title: a, subtitle: b, size: c};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Icon = F2(
+	function (a, b) {
+		return {container: a, size: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Button = F6(
+	function (a, b, c, d, e, f) {
+		return {ui: a, style: b, size: c, state: d, color: e, addon: f};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Control = F8(
+	function (a, b, c, d, e, f, g, h) {
+		return {container: a, label: b, isGrouped: c, hasAddons: d, hasIcon: e, layout: f, state: g, addon: h};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Input = F6(
+	function (a, b, c, d, e, f) {
+		return {ui: a, display: b, size: c, state: d, color: e, addon: f};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Textarea = F5(
+	function (a, b, c, d, e) {
+		return {ui: a, display: b, size: c, state: d, color: e};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Checkbox = F2(
+	function (a, b) {
+		return {ui: a, state: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Radio = F2(
+	function (a, b) {
+		return {ui: a, state: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Select = F4(
+	function (a, b, c, d) {
+		return {ui: a, size: b, state: c, addon: d};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Label = function (a) {
+	return {ui: a};
+};
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Help = F2(
+	function (a, b) {
+		return {ui: a, color: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Delete = F2(
+	function (a, b) {
+		return {ui: a, size: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Notification = F2(
+	function (a, b) {
+		return {ui: a, color: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Progress = F3(
+	function (a, b, c) {
+		return {ui: a, size: b, color: c};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Tag = F3(
+	function (a, b, c) {
+		return {ui: a, size: b, color: c};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Number = function (a) {
+	return {ui: a};
+};
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Section = F2(
+	function (a, b) {
+		return {container: a, spacing: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Nav = F8(
+	function (a, b, c, d, e, f, g, h) {
+		return {container: a, left: b, center: c, right: d, toggle: e, menu: f, item: g, style: h};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Footer = function (a) {
+	return {container: a};
+};
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Hero = F9(
+	function (a, b, c, d, e, f, g, h, i) {
+		return {container: a, head: b, body: c, foot: d, video: e, buttons: f, style: g, size: h, color: i};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Feature = F2(
+	function (a, b) {
+		return {container: a, sizing: b};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Columns = F5(
+	function (a, b, c, d, e) {
+		return {container: a, column: b, alignment: c, spacing: d, display: e};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Level = F5(
+	function (a, b, c, d, e) {
+		return {container: a, left: b, right: c, item: d, mobile: e};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Table = F3(
+	function (a, b, c) {
+		return {container: a, style: b, spacing: c};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Tile = F4(
+	function (a, b, c, d) {
+		return {container: a, level: b, orientation: c, width: d};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Menu = F3(
+	function (a, b, c) {
+		return {container: a, label: b, list: c};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Tabs = F4(
+	function (a, b, c, d) {
+		return {container: a, style: b, alignment: c, size: d};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Panel = F4(
+	function (a, b, c, d) {
+		return {container: a, heading: b, tabs: c, block: d};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Pagination = F5(
+	function (a, b, c, d, e) {
+		return {container: a, previous: b, next: c, list: d, position: e};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Card = F5(
+	function (a, b, c, d, e) {
+		return {container: a, image: b, content: c, header: d, footer: e};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Media = F5(
+	function (a, b, c, d, e) {
+		return {container: a, left: b, right: c, content: d, size: e};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Message = F4(
+	function (a, b, c, d) {
+		return {container: a, header: b, body: c, color: d};
+	});
+var _danielnarey$elm_bulma_classes$Internal_RecordTypes$Modal = F6(
+	function (a, b, c, d, e, f) {
+		return {container: a, background: b, content: c, close: d, card: e, state: f};
+	});

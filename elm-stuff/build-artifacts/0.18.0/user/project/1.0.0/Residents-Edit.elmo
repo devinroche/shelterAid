@@ -25,54 +25,52 @@ var _user$project$Residents_Edit$listButton = A2(
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$Residents_Edit$btnLevelIncrease = function (resident) {
+var _user$project$Residents_Edit$nameEdit = function (resident) {
 	return A2(
 		_elm_lang$html$Html$a,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('btn ml1 h1'),
+			_0: _elm_lang$html$Html_Attributes$class('form block col-6'),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
 			_0: A2(
-				_elm_lang$html$Html$i,
+				_elm_lang$html$Html$input,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('fa fa-plus-circle'),
-					_1: {ctor: '[]'}
+					_0: _elm_lang$html$Html_Attributes$class('field block col-3 mt2'),
+					_1: {
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$placeholder('Edit Name'),
+						_1: {ctor: '[]'}
+					}
 				},
 				{ctor: '[]'}),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$button,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('btn btn-primary mt2'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('submit'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
 		});
 };
-var _user$project$Residents_Edit$btnLevelDecrease = function (resident) {
-	return A2(
-		_elm_lang$html$Html$a,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('btn ml1 h1'),
-			_1: {ctor: '[]'}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$i,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('fa fa-minus-circle'),
-					_1: {ctor: '[]'}
-				},
-				{ctor: '[]'}),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Residents_Edit$formLevel = function (resident) {
+var _user$project$Residents_Edit$formName = function (resident) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('clearfix py1'),
+			_0: _elm_lang$html$Html_Attributes$class('clearfix py1 border'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -81,12 +79,12 @@ var _user$project$Residents_Edit$formLevel = function (resident) {
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('col col-5'),
+					_0: _elm_lang$html$Html_Attributes$class('col col-1 bold '),
 					_1: {ctor: '[]'}
 				},
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html$text('Name'),
+					_0: _elm_lang$html$Html$text('Name: '),
 					_1: {ctor: '[]'}
 				}),
 			_1: {
@@ -95,16 +93,16 @@ var _user$project$Residents_Edit$formLevel = function (resident) {
 					_elm_lang$html$Html$div,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('col col-7'),
+						_0: _elm_lang$html$Html_Attributes$class('col col-10'),
 						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
 						_0: A2(
-							_elm_lang$html$Html$span,
+							_elm_lang$html$Html$label,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('h2 bold'),
+								_0: _elm_lang$html$Html_Attributes$class('left-align'),
 								_1: {ctor: '[]'}
 							},
 							{
@@ -114,12 +112,8 @@ var _user$project$Residents_Edit$formLevel = function (resident) {
 							}),
 						_1: {
 							ctor: '::',
-							_0: _user$project$Residents_Edit$btnLevelDecrease(resident),
-							_1: {
-								ctor: '::',
-								_0: _user$project$Residents_Edit$btnLevelIncrease(resident),
-								_1: {ctor: '[]'}
-							}
+							_0: _user$project$Residents_Edit$nameEdit(resident),
+							_1: {ctor: '[]'}
 						}
 					}),
 				_1: {ctor: '[]'}
@@ -146,7 +140,7 @@ var _user$project$Residents_Edit$form = function (resident) {
 				}),
 			_1: {
 				ctor: '::',
-				_0: _user$project$Residents_Edit$formLevel(resident),
+				_0: _user$project$Residents_Edit$formName(resident),
 				_1: {ctor: '[]'}
 			}
 		});

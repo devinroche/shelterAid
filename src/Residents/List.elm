@@ -7,6 +7,7 @@ import Models exposing (Resident)
 import RemoteData exposing (WebData)
 import Routing exposing (residentPath)
 
+
 view : WebData (List Resident)-> Html Msg
 view response =
     div []
@@ -16,13 +17,13 @@ view response =
 
 nav: Html Msg
 nav =
-  div []
-    [ div [] [ text "Residents" ] ]
+  div [class "clearfix mb2 white bg-black"]
+    [ div [class "left p2"] [ text "Residents" ] ]
 
 list : List Resident -> Html Msg
 list residents =
     div []
-        [ table []
+        [ table [class "table is-stripped"]
             [ thead []
                 [ tr []
                     [ th [] [ text "Name" ]

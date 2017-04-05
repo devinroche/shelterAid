@@ -2,6 +2,7 @@ module Residents.Edit exposing (..)
 
 import Html exposing(..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (..)
 import Messages exposing(Msg)
 import Models exposing(Resident)
 import Routing exposing (residentsPath)
@@ -24,34 +25,32 @@ form : Resident -> Html.Html Msg
 form resident =
     div [ class "m3" ]
         [ h1 [] [ text resident.name ]
-        , formLevel resident
+        , formName resident
         ]
 
 
-formLevel : Resident -> Html.Html Msg
-formLevel resident =
+formName : Resident -> Html.Html Msg
+formName resident =
     div
-        [ class "clearfix py1"
+        [ class "clearfix py1 border"
         ]
-        [ div [ class "col col-5" ] [ text "Name" ]
-        , div [ class "col col-7" ]
-            [ span [ class "h2 bold" ] [ text resident.name ]
-            , btnLevelDecrease resident
-            , btnLevelIncrease resident
+        [ div [ class "col col-1 bold " ] [ text "Name: " ]
+        , div [ class "col col-10" ]
+            [ label [class "left-align"] [ text resident.name ]
+            , nameEdit resident
             ]
         ]
 
 
-btnLevelDecrease : Resident -> Html.Html Msg
-btnLevelDecrease resident =
-    a [ class "btn ml1 h1" ]
-        [ i [ class "fa fa-minus-circle" ] [] ]
-
-
-btnLevelIncrease : Resident -> Html.Html Msg
-btnLevelIncrease resident =
-    a [ class "btn ml1 h1" ]
-        [ i [ class "fa fa-plus-circle" ] [] ]
+nameEdit : Resident -> Html.Html Msg
+nameEdit resident =
+  --let
+    --message = Messages.updateResident resident
+  --in  onClick updateResident
+    a [ class "form block col-6" ]
+        [ input [ class "field block col-3 mt2", placeholder "Edit Name" ] []
+        , button [class "btn btn-primary mt2"][text "submit"]
+        ]
 
 listButton : Html Msg
 listButton =
