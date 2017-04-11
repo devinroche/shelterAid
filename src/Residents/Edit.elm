@@ -2,7 +2,7 @@ module Residents.Edit exposing (..)
 
 import Html exposing(..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (..)
+import Html.Events exposing (onInput)
 import Messages exposing(Msg)
 import Models exposing(Resident)
 import Routing exposing (residentsPath)
@@ -17,45 +17,49 @@ view model =
 
 nav : Resident -> Html.Html Msg
 nav model =
-    div [ class "clearfix mb2 white bg-black p1" ]
-        [listButton]
+    div [ class "hero is-primary is-bold" ]
+      [ div [class "hero-body container"]
+        [ h1 [class "title"] [text "Edit Information"]
+        , listButton
+        ]
+      ]
 
 
 form : Resident -> Html.Html Msg
 form resident =
-    div [ class "m3" ]
-        [ h1 [] [ text resident.name ]
+    div [ class "box" ]
+        [ h1[class "title has-text-centered"] [text resident.name]
         , formName resident
         ]
 
 
 formName : Resident -> Html.Html Msg
 formName resident =
-    div
-        [ class "clearfix py1 border"
+    div[ class "columns"]
+      [ div [ class "column is-3 is-offset-3" ]
+        [ text "Name: "
+        , label [class ""] [ text resident.name ]
         ]
-        [ div [ class "col col-1 bold " ] [ text "Name: " ]
-        , div [ class "col col-10" ]
-            [ label [class "left-align"] [ text resident.name ]
-            , nameEdit resident
-            ]
+      , div [ class "column is-3 is-offset-1" ]
+        [ nameEdit resident
         ]
+      ]
 
 
 nameEdit : Resident -> Html.Html Msg
 nameEdit resident =
-  --let
-    --message = Messages.updateResident resident
-  --in  onClick updateResident
-    a [ class "form block col-6" ]
-        [ input [ class "field block col-3 mt2", placeholder "Edit Name" ] []
-        , button [class "btn btn-primary mt2"][text "submit"]
-        ]
+  let
+    message = Messages.ChangeName resident content
+  in
+    div [ class "columns" ]
+      [ input [ class "input", onInput message, placeholder "Edit Name" ] []
+      , button [class "button is-success"][text "Submit"]
+      ]
+
 
 listButton : Html Msg
 listButton =
-      a
-        [ class "btn regular"
+      a [ class "btn regular"
         , href residentsPath
         ]
-        [ i [ class "fa fa-chevron-left mr1" ] [], text "List" ]
+        [ i [ class "fa fa-chevron-left" ] [], text "  Return to List" ]

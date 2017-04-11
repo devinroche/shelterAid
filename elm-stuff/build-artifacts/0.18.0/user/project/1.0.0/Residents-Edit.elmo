@@ -15,22 +15,22 @@ var _user$project$Residents_Edit$listButton = A2(
 			_elm_lang$html$Html$i,
 			{
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class('fa fa-chevron-left mr1'),
+				_0: _elm_lang$html$Html_Attributes$class('fa fa-chevron-left'),
 				_1: {ctor: '[]'}
 			},
 			{ctor: '[]'}),
 		_1: {
 			ctor: '::',
-			_0: _elm_lang$html$Html$text('List'),
+			_0: _elm_lang$html$Html$text('  Return to List'),
 			_1: {ctor: '[]'}
 		}
 	});
 var _user$project$Residents_Edit$nameEdit = function (resident) {
 	return A2(
-		_elm_lang$html$Html$a,
+		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('form block col-6'),
+			_0: _elm_lang$html$Html_Attributes$class('columns'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -39,7 +39,7 @@ var _user$project$Residents_Edit$nameEdit = function (resident) {
 				_elm_lang$html$Html$input,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('field block col-3 mt2'),
+					_0: _elm_lang$html$Html_Attributes$class('input'),
 					_1: {
 						ctor: '::',
 						_0: _elm_lang$html$Html_Attributes$placeholder('Edit Name'),
@@ -53,12 +53,12 @@ var _user$project$Residents_Edit$nameEdit = function (resident) {
 					_elm_lang$html$Html$button,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('btn btn-primary mt2'),
+						_0: _elm_lang$html$Html_Attributes$class('button is-success'),
 						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('submit'),
+						_0: _elm_lang$html$Html$text('Submit'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {ctor: '[]'}
@@ -70,7 +70,7 @@ var _user$project$Residents_Edit$formName = function (resident) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('clearfix py1 border'),
+			_0: _elm_lang$html$Html_Attributes$class('columns'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -79,30 +79,19 @@ var _user$project$Residents_Edit$formName = function (resident) {
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('col col-1 bold '),
+					_0: _elm_lang$html$Html_Attributes$class('column is-3 is-offset-3'),
 					_1: {ctor: '[]'}
 				},
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html$text('Name: '),
-					_1: {ctor: '[]'}
-				}),
-			_1: {
-				ctor: '::',
-				_0: A2(
-					_elm_lang$html$Html$div,
-					{
-						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('col col-10'),
-						_1: {ctor: '[]'}
-					},
-					{
+					_1: {
 						ctor: '::',
 						_0: A2(
 							_elm_lang$html$Html$label,
 							{
 								ctor: '::',
-								_0: _elm_lang$html$Html_Attributes$class('left-align'),
+								_0: _elm_lang$html$Html_Attributes$class(''),
 								_1: {ctor: '[]'}
 							},
 							{
@@ -110,11 +99,22 @@ var _user$project$Residents_Edit$formName = function (resident) {
 								_0: _elm_lang$html$Html$text(resident.name),
 								_1: {ctor: '[]'}
 							}),
-						_1: {
-							ctor: '::',
-							_0: _user$project$Residents_Edit$nameEdit(resident),
-							_1: {ctor: '[]'}
-						}
+						_1: {ctor: '[]'}
+					}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('column is-3 is-offset-1'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _user$project$Residents_Edit$nameEdit(resident),
+						_1: {ctor: '[]'}
 					}),
 				_1: {ctor: '[]'}
 			}
@@ -125,14 +125,18 @@ var _user$project$Residents_Edit$form = function (resident) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('m3'),
+			_0: _elm_lang$html$Html_Attributes$class('box'),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
 			_0: A2(
 				_elm_lang$html$Html$h1,
-				{ctor: '[]'},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('title has-text-centered'),
+					_1: {ctor: '[]'}
+				},
 				{
 					ctor: '::',
 					_0: _elm_lang$html$Html$text(resident.name),
@@ -150,12 +154,38 @@ var _user$project$Residents_Edit$nav = function (model) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black p1'),
+			_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-bold'),
 			_1: {ctor: '[]'}
 		},
 		{
 			ctor: '::',
-			_0: _user$project$Residents_Edit$listButton,
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('hero-body container'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$h1,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('title'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Edit Information'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {
+						ctor: '::',
+						_0: _user$project$Residents_Edit$listButton,
+						_1: {ctor: '[]'}
+					}
+				}),
 			_1: {ctor: '[]'}
 		});
 };

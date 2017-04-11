@@ -4,7 +4,6 @@
   "description": "homeless shelter system",
   "main": "api.js",
   "dependencies": {
-    "ace-css": "1.1",
     "css-loader": "^0.28.0",
     "elm-webpack-loader": "^4.3.0",
     "file-loader": "^0.10.1",

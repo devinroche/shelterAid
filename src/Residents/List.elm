@@ -17,25 +17,40 @@ view response =
 
 nav: Html Msg
 nav =
-  div [class "clearfix mb2 white bg-black"]
-    [ div [class "left p2"] [ text "Residents" ] ]
+  div [ class "hero is-primary is-bold" ]
+    [ div [class "hero-body container"]
+      [ h1[class "title"][text "shelterAid"]
+      , h2[class "subtitle"] [text "Residents"]
+      ]
+    ]
+
 
 list : List Resident -> Html Msg
 list residents =
-    div []
-        [ table [class "table is-stripped"]
-            [ thead []
-                [ tr []
-                    [ th [] [ text "Name" ]
-                    , th [] [ text "DOB" ]
-                    , th [] [ text "Age" ]
-                    , th [] [ text "ID" ]
-                    , th [] [ text "Actions" ]
-                    ]
-                ]
-            , tbody [] (List.map residentRow residents)
-            ]
+    div [class "columns"]
+      [
+      div[class "column is-6"]
+        [ listResident residents
         ]
+      ]
+
+listResident : List Resident -> Html Msg
+listResident residents =
+  div[class ""]
+    [ table [class "table is-striped"]
+      [ thead []
+        [ tr []
+          [ th [] [ text "Name" ]
+          , th [] [ text "DOB" ]
+          , th [] [ text "Age" ]
+          , th [] [ text "ID" ]
+          , th [] [ text "Actions" ]
+          ]
+        ]
+        , tbody [] (List.map residentRow residents)
+      ]
+    ]
+
 
 residentRow : Resident -> Html Msg
 residentRow resident =
@@ -73,4 +88,6 @@ editButton resident=
       [ class "btn regular"
       , href path
       ]
-      [i [class "fa fa-pencil mr1"] [], text "Edit"]
+      [ i [class ""] []
+      , text "Edit"
+      ]

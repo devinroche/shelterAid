@@ -1,22 +1,55 @@
+var _user$project$Update$updateResident = F2(
+	function (model, updatedResident) {
+		var pick = function (currentResident) {
+			return _elm_lang$core$Native_Utils.eq(updatedResident.name, currentResident.name) ? updatedResident : currentResident;
+		};
+		var updateResidentList = function (residents) {
+			return A2(_elm_lang$core$List$map, pick, residents);
+		};
+		var updatedResidents = A2(_krisajenkins$remotedata$RemoteData$map, updateResidentList, model.residents);
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{residents: updatedResidents});
+	});
 var _user$project$Update$update = F2(
 	function (msg, model) {
 		var _p0 = msg;
-		if (_p0.ctor === 'OnFetchResidents') {
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_Utils.update(
-					model,
-					{residents: _p0._0}),
-				_1: _elm_lang$core$Platform_Cmd$none
-			};
-		} else {
-			var newRoute = _user$project$Routing$parseLocation(_p0._0);
-			return {
-				ctor: '_Tuple2',
-				_0: _elm_lang$core$Native_Utils.update(
-					model,
-					{route: newRoute}),
-				_1: _elm_lang$core$Platform_Cmd$none
-			};
+		switch (_p0.ctor) {
+			case 'OnFetchResidents':
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{residents: _p0._0}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'OnLocationChange':
+				var newRoute = _user$project$Routing$parseLocation(_p0._0);
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{route: newRoute}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'ChangeName':
+				var updatedResident = _elm_lang$core$Native_Utils.update(
+					_p0._0,
+					{name: _p0._1});
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _user$project$Commands$saveResidentCmd(updatedResident)
+				};
+			default:
+				if (_p0._0.ctor === 'Ok') {
+					return {
+						ctor: '_Tuple2',
+						_0: A2(_user$project$Update$updateResident, model, _p0._0._0),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
 		}
 	});

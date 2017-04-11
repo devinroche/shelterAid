@@ -16,6 +16,64 @@ var _user$project$Commands$residentDecoder = A3(
 				_elm_lang$core$Json_Decode$string,
 				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Resident)))));
 var _user$project$Commands$residentsDecoder = _elm_lang$core$Json_Decode$list(_user$project$Commands$residentDecoder);
+var _user$project$Commands$residentEncoder = function (resident) {
+	var attributes = {
+		ctor: '::',
+		_0: {
+			ctor: '_Tuple2',
+			_0: 'name',
+			_1: _elm_lang$core$Json_Encode$string(resident.name)
+		},
+		_1: {
+			ctor: '::',
+			_0: {
+				ctor: '_Tuple2',
+				_0: 'DOB',
+				_1: _elm_lang$core$Json_Encode$string(resident.dob)
+			},
+			_1: {
+				ctor: '::',
+				_0: {
+					ctor: '_Tuple2',
+					_0: 'age',
+					_1: _elm_lang$core$Json_Encode$string(resident.age)
+				},
+				_1: {
+					ctor: '::',
+					_0: {
+						ctor: '_Tuple2',
+						_0: 'id',
+						_1: _elm_lang$core$Json_Encode$string(resident.id)
+					},
+					_1: {ctor: '[]'}
+				}
+			}
+		}
+	};
+	return _elm_lang$core$Json_Encode$object(attributes);
+};
+var _user$project$Commands$saveResidentUrl = function (residentID) {
+	return A2(_elm_lang$core$Basics_ops['++'], 'http://localhost:4000/residents/', residentID);
+};
+var _user$project$Commands$saveResidentRequest = function (resident) {
+	return _elm_lang$http$Http$request(
+		{
+			body: _elm_lang$http$Http$jsonBody(
+				_user$project$Commands$residentEncoder(resident)),
+			expect: _elm_lang$http$Http$expectJson(_user$project$Commands$residentDecoder),
+			headers: {ctor: '[]'},
+			method: 'PATCH',
+			timeout: _elm_lang$core$Maybe$Nothing,
+			url: _user$project$Commands$saveResidentUrl(resident.id),
+			withCredentials: false
+		});
+};
+var _user$project$Commands$saveResidentCmd = function (resident) {
+	return A2(
+		_elm_lang$http$Http$send,
+		_user$project$Messages$OnResidentSave,
+		_user$project$Commands$saveResidentRequest(resident));
+};
 var _user$project$Commands$fetchResidentsUrl = 'http://localhost:4000/residents';
 var _user$project$Commands$fetchResidents = A2(
 	_elm_lang$core$Platform_Cmd$map,

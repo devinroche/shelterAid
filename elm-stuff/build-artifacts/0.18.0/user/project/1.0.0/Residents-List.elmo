@@ -17,7 +17,7 @@ var _user$project$Residents_List$editButton = function (resident) {
 				_elm_lang$html$Html$i,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('fa fa-pencil mr1'),
+					_0: _elm_lang$html$Html_Attributes$class(''),
 					_1: {ctor: '[]'}
 				},
 				{ctor: '[]'}),
@@ -89,17 +89,21 @@ var _user$project$Residents_List$residentRow = function (resident) {
 			}
 		});
 };
-var _user$project$Residents_List$list = function (residents) {
+var _user$project$Residents_List$listResident = function (residents) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class(''),
+			_1: {ctor: '[]'}
+		},
 		{
 			ctor: '::',
 			_0: A2(
 				_elm_lang$html$Html$table,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('table is-stripped'),
+					_0: _elm_lang$html$Html_Attributes$class('table is-striped'),
 					_1: {ctor: '[]'}
 				},
 				{
@@ -182,6 +186,31 @@ var _user$project$Residents_List$list = function (residents) {
 			_1: {ctor: '[]'}
 		});
 };
+var _user$project$Residents_List$list = function (residents) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('columns'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('column is-6'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _user$project$Residents_List$listResident(residents),
+					_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		});
+};
 var _user$project$Residents_List$maybeList = function (response) {
 	var _p0 = response;
 	switch (_p0.ctor) {
@@ -200,7 +229,7 @@ var _user$project$Residents_List$nav = A2(
 	_elm_lang$html$Html$div,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('clearfix mb2 white bg-black'),
+		_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-bold'),
 		_1: {ctor: '[]'}
 	},
 	{
@@ -209,13 +238,39 @@ var _user$project$Residents_List$nav = A2(
 			_elm_lang$html$Html$div,
 			{
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class('left p2'),
+				_0: _elm_lang$html$Html_Attributes$class('hero-body container'),
 				_1: {ctor: '[]'}
 			},
 			{
 				ctor: '::',
-				_0: _elm_lang$html$Html$text('Residents'),
-				_1: {ctor: '[]'}
+				_0: A2(
+					_elm_lang$html$Html$h1,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('title'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('shelterAid'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$h2,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('subtitle'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Residents'),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}
 			}),
 		_1: {ctor: '[]'}
 	});
