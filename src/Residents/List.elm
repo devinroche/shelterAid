@@ -57,7 +57,7 @@ residentRow resident =
     tr []
       [ td [] [ text resident.name ]
       , td [] [ text resident.dob ]
-      , td [] [ text resident.age ]
+      , td [] [ text (toString resident.age) ]
       , td [] [ text resident.id]
       , td[]
             [editButton resident]
@@ -84,10 +84,9 @@ editButton resident=
     residentPath resident.id
 
   in
-    a
-      [ class "btn regular"
+    a [ class "btn regular"
       , href path
       ]
       [ i [class ""] []
-      , text "Edit"
+      , text "Details"
       ]

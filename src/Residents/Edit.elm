@@ -2,7 +2,7 @@ module Residents.Edit exposing (..)
 
 import Html exposing(..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onInput)
+import Html.Events exposing (onClick)
 import Messages exposing(Msg)
 import Models exposing(Resident)
 import Routing exposing (residentsPath)
@@ -25,37 +25,48 @@ nav model =
       ]
 
 
-form : Resident -> Html.Html Msg
+form : Resident -> Html Msg
 form resident =
     div [ class "box" ]
-        [ h1[class "title has-text-centered"] [text resident.name]
+        [ h1 [class "title has-text-centered"] [text resident.name]
         , formName resident
         ]
 
 
-formName : Resident -> Html.Html Msg
+formName : Resident -> Html Msg
 formName resident =
-    div[ class "columns"]
-      [ div [ class "column is-3 is-offset-3" ]
-        [ text "Name: "
-        , label [class ""] [ text resident.name ]
-        ]
-      , div [ class "column is-3 is-offset-1" ]
-        [ nameEdit resident
-        ]
+  div []
+  [ div[ class "columns"]
+    [ div [ class "column is-3 is-offset-3" ]
+      [ text "Age: "
+      , label [class ""] [ text (toString resident.age) ]
       ]
+    , div [ class "column is-3 is-offset-1" ]
+      [ increaseAge resident
+      , decreaseAge resident
+      ]
+    ]
+  ]
 
-
-nameEdit : Resident -> Html.Html Msg
-nameEdit resident =
+increaseAge : Resident -> Html Msg
+increaseAge resident =
   let
-    message = Messages.ChangeName resident content
+    message = Messages.ChangeAge resident 1
   in
-    div [ class "columns" ]
-      [ input [ class "input", onInput message, placeholder "Edit Name" ] []
-      , button [class "button is-success"][text "Submit"]
+    div [ class "" ]
+      [ a[ class "", onClick message ]
+          [ i [ class "fa fa-plus-circle" ] [] ]
       ]
 
+decreaseAge : Resident -> Html Msg
+decreaseAge resident =
+  let
+    message = Messages.ChangeAge resident -1
+  in
+    div [ class "" ]
+      [ a[ class "", onClick message ]
+          [ i [ class "fa fa-minus-circle" ] [] ]
+      ]
 
 listButton : Html Msg
 listButton =

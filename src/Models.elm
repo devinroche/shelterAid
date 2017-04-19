@@ -19,7 +19,7 @@ type alias ResidentID =
 type alias Resident =
   { name: String
   , dob: String
-  , age: String
+  , age: Int
   , id: ResidentID
   }
 

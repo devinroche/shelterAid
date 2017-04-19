@@ -1,7 +1,7 @@
 var _user$project$Update$updateResident = F2(
 	function (model, updatedResident) {
 		var pick = function (currentResident) {
-			return _elm_lang$core$Native_Utils.eq(updatedResident.name, currentResident.name) ? updatedResident : currentResident;
+			return _elm_lang$core$Native_Utils.eq(updatedResident.id, currentResident.id) ? updatedResident : currentResident;
 		};
 		var updateResidentList = function (residents) {
 			return A2(_elm_lang$core$List$map, pick, residents);
@@ -32,10 +32,11 @@ var _user$project$Update$update = F2(
 						{route: newRoute}),
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
-			case 'ChangeName':
+			case 'ChangeAge':
+				var _p1 = _p0._0;
 				var updatedResident = _elm_lang$core$Native_Utils.update(
-					_p0._0,
-					{name: _p0._1});
+					_p1,
+					{age: _p1.age + _p0._1});
 				return {
 					ctor: '_Tuple2',
 					_0: model,

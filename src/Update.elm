@@ -19,9 +19,9 @@ update msg model =
       in
         ({model | route = newRoute}, Cmd.none)
 
-    Messages.ChangeName resident newName ->
+    Messages.ChangeAge resident newAge ->
       let updatedResident =
-        {resident | name = newName}
+        {resident | age = resident.age + newAge}
 
       in
         (model, saveResidentCmd updatedResident)
@@ -36,7 +36,7 @@ updateResident : Model -> Resident -> Model
 updateResident model updatedResident =
   let
     pick currentResident =
-      if updatedResident.name == currentResident.name then
+      if updatedResident.id == currentResident.id then
         updatedResident
       else
         currentResident

@@ -8,5 +8,5 @@ import Http
 type Msg
   = OnFetchResidents (WebData (List Resident))
   | OnLocationChange Location
-  | ChangeName Resident String
+  | ChangeAge Resident Int
   | OnResidentSave (Result Http.Error Resident)

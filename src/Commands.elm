@@ -40,7 +40,7 @@ saveResidentRequest resident =
     }
 
 
-saveResidentCmd: Resident ->Cmd Msg
+saveResidentCmd: Resident -> Cmd Msg
 saveResidentCmd resident =
   saveResidentRequest resident
     |> Http.send Messages.OnResidentSave
@@ -51,7 +51,7 @@ residentEncoder resident =
     attributes =
       [ ( "name", Encode.string resident.name )
       , ( "DOB", Encode.string resident.dob )
-      , ( "age", Encode.string resident.age)
+      , ( "age", Encode.int resident.age)
       , ( "id", Encode.string resident.id )
       ]
 
@@ -69,5 +69,5 @@ residentDecoder =
   decode Resident
     |> required "name" Decode.string
     |> required "dob" Decode.string
-    |> required "age" Decode.string
+    |> required "age" Decode.int
     |> required "ID" Decode.string
