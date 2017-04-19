@@ -25,77 +25,55 @@ var _user$project$Residents_Edit$listButton = A2(
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$Residents_Edit$decreaseAge = function (resident) {
+var _user$project$Residents_Edit$btnDecreaseAge = function (resident) {
 	var message = A2(_user$project$Messages$ChangeAge, resident, -1);
 	return A2(
-		_elm_lang$html$Html$div,
+		_elm_lang$html$Html$a,
 		{
 			ctor: '::',
 			_0: _elm_lang$html$Html_Attributes$class(''),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(message),
+				_1: {ctor: '[]'}
+			}
 		},
 		{
 			ctor: '::',
 			_0: A2(
-				_elm_lang$html$Html$a,
+				_elm_lang$html$Html$i,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class(''),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Events$onClick(message),
-						_1: {ctor: '[]'}
-					}
-				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$i,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('fa fa-minus-circle'),
-							_1: {ctor: '[]'}
-						},
-						{ctor: '[]'}),
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-minus-circle'),
 					_1: {ctor: '[]'}
-				}),
+				},
+				{ctor: '[]'}),
 			_1: {ctor: '[]'}
 		});
 };
-var _user$project$Residents_Edit$increaseAge = function (resident) {
+var _user$project$Residents_Edit$btnIncreaseAge = function (resident) {
 	var message = A2(_user$project$Messages$ChangeAge, resident, 1);
 	return A2(
-		_elm_lang$html$Html$div,
+		_elm_lang$html$Html$a,
 		{
 			ctor: '::',
 			_0: _elm_lang$html$Html_Attributes$class(''),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(message),
+				_1: {ctor: '[]'}
+			}
 		},
 		{
 			ctor: '::',
 			_0: A2(
-				_elm_lang$html$Html$a,
+				_elm_lang$html$Html$i,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class(''),
-					_1: {
-						ctor: '::',
-						_0: _elm_lang$html$Html_Events$onClick(message),
-						_1: {ctor: '[]'}
-					}
-				},
-				{
-					ctor: '::',
-					_0: A2(
-						_elm_lang$html$Html$i,
-						{
-							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('fa fa-plus-circle'),
-							_1: {ctor: '[]'}
-						},
-						{ctor: '[]'}),
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-plus-circle'),
 					_1: {ctor: '[]'}
-				}),
+				},
+				{ctor: '[]'}),
 			_1: {ctor: '[]'}
 		});
 };
@@ -153,10 +131,10 @@ var _user$project$Residents_Edit$formName = function (resident) {
 							},
 							{
 								ctor: '::',
-								_0: _user$project$Residents_Edit$increaseAge(resident),
+								_0: _user$project$Residents_Edit$btnIncreaseAge(resident),
 								_1: {
 									ctor: '::',
-									_0: _user$project$Residents_Edit$decreaseAge(resident),
+									_0: _user$project$Residents_Edit$btnDecreaseAge(resident),
 									_1: {ctor: '[]'}
 								}
 							}),

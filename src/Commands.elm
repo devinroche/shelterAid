@@ -21,7 +21,7 @@ fetchResidentsUrl =
   "http://localhost:4000/residents"
 
 
---Save Resident Changes
+--Save Resident Edits
 saveResidentUrl: ResidentID -> String
 saveResidentUrl residentID =
   "http://localhost:4000/residents/" ++ residentID
@@ -70,4 +70,4 @@ residentDecoder =
     |> required "name" Decode.string
     |> required "dob" Decode.string
     |> required "age" Decode.int
-    |> required "ID" Decode.string
+    |> required "id" Decode.string

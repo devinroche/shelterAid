@@ -42,31 +42,30 @@ formName resident =
       , label [class ""] [ text (toString resident.age) ]
       ]
     , div [ class "column is-3 is-offset-1" ]
-      [ increaseAge resident
-      , decreaseAge resident
+      [ btnIncreaseAge resident
+      , btnDecreaseAge resident
       ]
     ]
   ]
 
-increaseAge : Resident -> Html Msg
-increaseAge resident =
+btnIncreaseAge : Resident -> Html Msg
+btnIncreaseAge resident =
   let
-    message = Messages.ChangeAge resident 1
+    message =
+      Messages.ChangeAge resident 1
   in
-    div [ class "" ]
-      [ a[ class "", onClick message ]
-          [ i [ class "fa fa-plus-circle" ] [] ]
-      ]
+    a[ class "", onClick message ]
+      [ i [ class "fa fa-plus-circle" ] [] ]
 
-decreaseAge : Resident -> Html Msg
-decreaseAge resident =
+
+btnDecreaseAge : Resident -> Html Msg
+btnDecreaseAge resident =
   let
-    message = Messages.ChangeAge resident -1
+    message =
+      Messages.ChangeAge resident -1
   in
-    div [ class "" ]
-      [ a[ class "", onClick message ]
-          [ i [ class "fa fa-minus-circle" ] [] ]
-      ]
+    a[ class "", onClick message ]
+      [ i [ class "fa fa-minus-circle" ] [] ]
 
 listButton : Html Msg
 listButton =
