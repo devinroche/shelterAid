@@ -38,8 +38,7 @@ formName resident =
   div []
   [ div[ class "columns"]
     [ div [ class "column is-3 is-offset-3" ]
-      [ text "Age: "
-      , label [class ""] [ text (toString resident.age) ]
+      [ userInformation resident
       ]
     , div [ class "column is-3 is-offset-1" ]
       [ btnIncreaseAge resident
@@ -57,7 +56,6 @@ btnIncreaseAge resident =
     a[ class "", onClick message ]
       [ i [ class "fa fa-plus-circle" ] [] ]
 
-
 btnDecreaseAge : Resident -> Html Msg
 btnDecreaseAge resident =
   let
@@ -67,9 +65,30 @@ btnDecreaseAge resident =
     a[ class "", onClick message ]
       [ i [ class "fa fa-minus-circle" ] [] ]
 
+--Return to home button
 listButton : Html Msg
 listButton =
       a [ class "btn regular"
         , href residentsPath
         ]
         [ i [ class "fa fa-chevron-left" ] [], text "  Return to List" ]
+
+--User information table
+userInformation : Resident -> Html Msg
+userInformation resident =
+  div []
+  [ table [class "table is-striped"]
+    [ tr[class "subtitle"]
+      [ td [] [text "Age: "]
+      , td[] [ label [class ""] [ text (toString resident.age) ]]
+      ]
+    , tr[class "subtitle"]
+      [ td [] [text "Date of Birth: "]
+      , td[] [ label [class ""] [ text resident.dob ]]
+      ]
+    , tr[class "subtitle"]
+      [ td [] [text "Identification: "]
+      , td[] [ label [class ""] [ text resident.id ]]
+      ]
+    ]
+  ]

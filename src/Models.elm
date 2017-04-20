@@ -26,4 +26,5 @@ type alias Resident =
 type Route
   = ResidentsRoute
   | ResidentRoute ResidentID
+  --| NewResidentRoute
   | NoMatchingRoute

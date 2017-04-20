@@ -8,6 +8,7 @@ matchers: Parser (Route -> a) a
 matchers =
   oneOf
     [ map ResidentsRoute top
+    --, map NewResidentRoute top
     , map ResidentRoute (s "residents" </> string)
     , map ResidentsRoute (s "residents")
     ]
@@ -25,5 +26,8 @@ residentsPath: String
 residentsPath = "#residents"
 
 residentPath: ResidentID -> String
-residentPath id = 
+residentPath id =
   "#residents/" ++ id
+
+newResidentPath: String
+newResidentPath = "#newresident"

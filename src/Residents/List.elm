@@ -5,7 +5,7 @@ import Html.Attributes exposing (class, href)
 import Messages exposing (Msg)
 import Models exposing (Resident)
 import RemoteData exposing (WebData)
-import Routing exposing (residentPath)
+import Routing exposing (residentPath, newResidentPath)
 
 
 view : WebData (List Resident)-> Html Msg
@@ -19,20 +19,24 @@ nav: Html Msg
 nav =
   div [ class "hero is-primary is-bold" ]
     [ div [class "hero-body container"]
-      [ h1[class "title"][text "shelterAid"]
-      , h2[class "subtitle"] [text "Residents"]
+      [ h1[class "title is-2"][text "shelterAid"]
+      , h2[class "subtitle"] [text "Home"]
       ]
     ]
 
-
 list : List Resident -> Html Msg
 list residents =
-    div [class "columns"]
-      [
-      div[class "column is-6"]
-        [ listResident residents
+  div [class ""]
+  [ div [class "columns"]
+    [ div[class "column is-6"]
+      [ div [class "has-text-centered subtitle "]
+        [text "Residents"
         ]
+        , listResident residents
+        , addResident
       ]
+    ]
+  ]
 
 listResident : List Resident -> Html Msg
 listResident residents =
@@ -89,4 +93,17 @@ editButton resident=
       ]
       [ i [class ""] []
       , text "Details"
+      ]
+
+addResident: Html Msg
+addResident =
+  let addResPath =
+    newResidentPath
+
+  in
+    a [class "button regular"
+      , href addResPath
+      ]
+      [i [class ""] []
+      , text "New Resident"
       ]
