@@ -1,7 +1,278 @@
+var _user$project$Residents_Edit$btnDecreaseAge = function (resident) {
+	var message = A2(_user$project$Messages$ChangeAge, resident, -1);
+	return A2(
+		_elm_lang$html$Html$a,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class(''),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(message),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-minus-circle'),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Residents_Edit$btnIncreaseAge = function (resident) {
+	var message = A2(_user$project$Messages$ChangeAge, resident, 1);
+	return A2(
+		_elm_lang$html$Html$a,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class(''),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(message),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('fa fa-plus-circle'),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {ctor: '[]'}
+		});
+};
+var _user$project$Residents_Edit$editInfoContainer = function (resident) {
+	var submitEdit = _user$project$Messages$SubmitEdit(resident);
+	var nameChange = _user$project$Messages$NameChange(resident);
+	return A2(
+		_elm_lang$html$Html$div,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('card'),
+			_1: {ctor: '[]'}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('card-header'),
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$label,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('card-header-title'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html$text('Edit '),
+							_1: {ctor: '[]'}
+						}),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('card-content'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('content'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$div,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('field'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$input,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('input'),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$type_('name'),
+													_1: {
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$placeholder(resident.name),
+														_1: {
+															ctor: '::',
+															_0: _elm_lang$html$Html_Events$onInput(nameChange),
+															_1: {ctor: '[]'}
+														}
+													}
+												}
+											},
+											{ctor: '[]'}),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$div,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('field'),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$input,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$class('input'),
+													_1: {
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$type_('age'),
+														_1: {
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$placeholder(
+																_elm_lang$core$Basics$toString(resident.age)),
+															_1: {ctor: '[]'}
+														}
+													}
+												},
+												{ctor: '[]'}),
+											_1: {ctor: '[]'}
+										}),
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$div,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('field'),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$input,
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$class('input'),
+														_1: {
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$type_('dob'),
+															_1: {
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$placeholder(resident.dob),
+																_1: {ctor: '[]'}
+															}
+														}
+													},
+													{ctor: '[]'}),
+												_1: {ctor: '[]'}
+											}),
+										_1: {ctor: '[]'}
+									}
+								}
+							}),
+						_1: {ctor: '[]'}
+					}),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$div,
+						{
+							ctor: '::',
+							_0: _elm_lang$html$Html_Attributes$class('card-footer'),
+							_1: {ctor: '[]'}
+						},
+						{
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$a,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('card-footer-item'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Delete'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$a,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('card-footer-item'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Cancel'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$a,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('card-footer-item'),
+											_1: {
+												ctor: '::',
+												_0: _elm_lang$html$Html_Events$onClick(submitEdit),
+												_1: {ctor: '[]'}
+											}
+										},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Submit'),
+											_1: {ctor: '[]'}
+										}),
+									_1: {ctor: '[]'}
+								}
+							}
+						}),
+					_1: {ctor: '[]'}
+				}
+			}
+		});
+};
 var _user$project$Residents_Edit$userInformation = function (resident) {
 	return A2(
 		_elm_lang$html$Html$div,
-		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('card'),
+			_1: {ctor: '[]'}
+		},
 		{
 			ctor: '::',
 			_0: A2(
@@ -141,7 +412,51 @@ var _user$project$Residents_Edit$userInformation = function (resident) {
 										_1: {ctor: '[]'}
 									}
 								}),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$tr,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('subtitle'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$td,
+											{ctor: '[]'},
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html$text('tmp name: '),
+												_1: {ctor: '[]'}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$td,
+												{ctor: '[]'},
+												{
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$label,
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$class(''),
+															_1: {ctor: '[]'}
+														},
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html$text(resident.tmpName),
+															_1: {ctor: '[]'}
+														}),
+													_1: {ctor: '[]'}
+												}),
+											_1: {ctor: '[]'}
+										}
+									}),
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}),
@@ -175,58 +490,6 @@ var _user$project$Residents_Edit$listButton = A2(
 			_1: {ctor: '[]'}
 		}
 	});
-var _user$project$Residents_Edit$btnDecreaseAge = function (resident) {
-	var message = A2(_user$project$Messages$ChangeAge, resident, -1);
-	return A2(
-		_elm_lang$html$Html$a,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class(''),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Events$onClick(message),
-				_1: {ctor: '[]'}
-			}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$i,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('fa fa-minus-circle'),
-					_1: {ctor: '[]'}
-				},
-				{ctor: '[]'}),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Residents_Edit$btnIncreaseAge = function (resident) {
-	var message = A2(_user$project$Messages$ChangeAge, resident, 1);
-	return A2(
-		_elm_lang$html$Html$a,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class(''),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Events$onClick(message),
-				_1: {ctor: '[]'}
-			}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$i,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('fa fa-plus-circle'),
-					_1: {ctor: '[]'}
-				},
-				{ctor: '[]'}),
-			_1: {ctor: '[]'}
-		});
-};
 var _user$project$Residents_Edit$formName = function (resident) {
 	return A2(
 		_elm_lang$html$Html$div,
@@ -265,11 +528,15 @@ var _user$project$Residents_Edit$formName = function (resident) {
 							},
 							{
 								ctor: '::',
-								_0: _user$project$Residents_Edit$btnIncreaseAge(resident),
+								_0: _user$project$Residents_Edit$editInfoContainer(resident),
 								_1: {
 									ctor: '::',
-									_0: _user$project$Residents_Edit$btnDecreaseAge(resident),
-									_1: {ctor: '[]'}
+									_0: _user$project$Residents_Edit$btnIncreaseAge(resident),
+									_1: {
+										ctor: '::',
+										_0: _user$project$Residents_Edit$btnDecreaseAge(resident),
+										_1: {ctor: '[]'}
+									}
 								}
 							}),
 						_1: {ctor: '[]'}

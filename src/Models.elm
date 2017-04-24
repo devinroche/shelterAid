@@ -17,10 +17,13 @@ type alias ResidentID =
   String
 
 type alias Resident =
-  { name: String
-  , dob: String
-  , age: Int
-  , id: ResidentID
+  { name : String
+  , dob : String
+  , age : Int
+  , id : ResidentID
+  , tmpName : String
+  , tmpDob : String
+  , tmpAge : Int
   }
 
 type Route

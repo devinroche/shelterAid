@@ -53,6 +53,9 @@ residentEncoder resident =
       , ( "DOB", Encode.string resident.dob )
       , ( "age", Encode.int resident.age)
       , ( "id", Encode.string resident.id )
+      , ( "tmpName", Encode.string resident.tmpName )
+      , ( "tmpDob", Encode.string resident.tmpDob )
+      , ( "tmpAge", Encode.int resident.tmpAge )
       ]
 
   in
@@ -71,3 +74,6 @@ residentDecoder =
     |> required "dob" Decode.string
     |> required "age" Decode.int
     |> required "id" Decode.string
+    |> required "tmpName" Decode.string
+    |> required "tmpDob" Decode.string
+    |> required "tmpAge" Decode.int

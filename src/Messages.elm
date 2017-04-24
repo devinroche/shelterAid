@@ -9,4 +9,9 @@ type Msg
   = OnFetchResidents (WebData (List Resident))
   | OnLocationChange Location
   | ChangeAge Resident Int
+  | EditResident Resident String String Int
+  | NameChange Resident String
+  | SubmitEdit Resident
+  --| DobChange String
+  --| AgeChange Int
   | OnResidentSave (Result Http.Error Resident)

@@ -2,11 +2,12 @@ module Residents.Edit exposing (..)
 
 import Html exposing(..)
 import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
+import Html.Events exposing (onClick, onInput)
 import Messages exposing(Msg)
 import Models exposing(Resident)
 import Routing exposing (residentsPath)
 
+--initialize view
 view : Resident -> Html.Html Msg
 view model =
     div []
@@ -14,7 +15,7 @@ view model =
         , form model
         ]
 
-
+--set up small naviagtion
 nav : Resident -> Html.Html Msg
 nav model =
     div [ class "hero is-primary is-bold" ]
@@ -24,7 +25,7 @@ nav model =
         ]
       ]
 
-
+--body "container"
 form : Resident -> Html Msg
 form resident =
     div [ class "box" ]
@@ -32,7 +33,7 @@ form resident =
         , formName resident
         ]
 
-
+--set up body
 formName : Resident -> Html Msg
 formName resident =
   div []
@@ -41,12 +42,76 @@ formName resident =
       [ userInformation resident
       ]
     , div [ class "column is-3 is-offset-1" ]
-      [ btnIncreaseAge resident
+      [ editInfoContainer resident
+      , btnIncreaseAge resident
       , btnDecreaseAge resident
       ]
     ]
   ]
 
+--Return to home button
+listButton : Html Msg
+listButton =
+      a [ class "btn regular"
+        , href residentsPath
+        ]
+        [ i [ class "fa fa-chevron-left" ] [], text "  Return to List" ]
+
+--User information table
+userInformation : Resident -> Html Msg
+userInformation resident =
+  div [class "card"]
+  [ table [class "table is-striped"]
+    [ tr[class "subtitle"]
+      [ td [] [text "Age: "]
+      , td[] [ label [class ""] [ text (toString resident.age) ]]
+      ]
+    , tr[class "subtitle"]
+      [ td [] [text "Date of Birth: "]
+      , td[] [ label [class ""] [ text resident.dob ]]
+      ]
+    , tr[class "subtitle"]
+      [ td [] [text "Identification: "]
+      , td[] [ label [class ""] [ text resident.id ]]
+      ]
+    , tr[class "subtitle"]
+      [ td [] [text "tmp name: "]
+      , td[] [ label [class ""] [ text resident.tmpName ]]
+      ]
+    ]
+  ]
+
+--Edit information container
+editInfoContainer: Resident -> Html Msg
+editInfoContainer resident =
+--  let submitChange =
+--    Messages.EditResident resident name dob age
+  let
+    nameChange = Messages.NameChange resident
+    submitEdit = Messages.SubmitEdit resident
+
+  in
+    div [class "card"]
+    [ div [class "card-header"]
+      [label [class "card-header-title"][text "Edit "]]
+    , div [class "card-content"]
+      [ div [class "content"]
+        [ div [class "field"]
+          [ input [ class "input", type_ "name", placeholder resident.name, onInput nameChange] [] ]
+        , div [class "field"]
+          [ input [ class "input", type_ "age", placeholder (toString resident.age) ] [] ]
+        , div [class "field"]
+          [ input [ class "input", type_ "dob", placeholder resident.dob] [] ]
+        ]
+      ]
+    , div [class "card-footer"]
+      [ a [ class "card-footer-item"][text "Delete" ]
+      , a [ class "card-footer-item"] [text "Cancel"]
+      , a [ class "card-footer-item", onClick submitEdit] [text "Submit"]
+      ]
+    ]
+
+--Edit user information "functions"
 btnIncreaseAge : Resident -> Html Msg
 btnIncreaseAge resident =
   let
@@ -64,31 +129,3 @@ btnDecreaseAge resident =
   in
     a[ class "", onClick message ]
       [ i [ class "fa fa-minus-circle" ] [] ]
-
---Return to home button
-listButton : Html Msg
-listButton =
-      a [ class "btn regular"
-        , href residentsPath
-        ]
-        [ i [ class "fa fa-chevron-left" ] [], text "  Return to List" ]
-
---User information table
-userInformation : Resident -> Html Msg
-userInformation resident =
-  div []
-  [ table [class "table is-striped"]
-    [ tr[class "subtitle"]
-      [ td [] [text "Age: "]
-      , td[] [ label [class ""] [ text (toString resident.age) ]]
-      ]
-    , tr[class "subtitle"]
-      [ td [] [text "Date of Birth: "]
-      , td[] [ label [class ""] [ text resident.dob ]]
-      ]
-    , tr[class "subtitle"]
-      [ td [] [text "Identification: "]
-      , td[] [ label [class ""] [ text resident.id ]]
-      ]
-    ]
-  ]

@@ -5,9 +5,9 @@ var _user$project$Models$Model = F2(
 	function (a, b) {
 		return {residents: a, route: b};
 	});
-var _user$project$Models$Resident = F4(
-	function (a, b, c, d) {
-		return {name: a, dob: b, age: c, id: d};
+var _user$project$Models$Resident = F7(
+	function (a, b, c, d, e, f, g) {
+		return {name: a, dob: b, age: c, id: d, tmpName: e, tmpDob: f, tmpAge: g};
 	});
 var _user$project$Models$NoMatchingRoute = {ctor: 'NoMatchingRoute'};
 var _user$project$Models$ResidentRoute = function (a) {

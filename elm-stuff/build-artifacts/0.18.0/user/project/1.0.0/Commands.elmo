@@ -1,20 +1,32 @@
 var _user$project$Commands$residentDecoder = A3(
 	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-	'id',
-	_elm_lang$core$Json_Decode$string,
+	'tmpAge',
+	_elm_lang$core$Json_Decode$int,
 	A3(
 		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-		'age',
-		_elm_lang$core$Json_Decode$int,
+		'tmpDob',
+		_elm_lang$core$Json_Decode$string,
 		A3(
 			_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-			'dob',
+			'tmpName',
 			_elm_lang$core$Json_Decode$string,
 			A3(
 				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-				'name',
+				'id',
 				_elm_lang$core$Json_Decode$string,
-				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Resident)))));
+				A3(
+					_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+					'age',
+					_elm_lang$core$Json_Decode$int,
+					A3(
+						_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+						'dob',
+						_elm_lang$core$Json_Decode$string,
+						A3(
+							_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+							'name',
+							_elm_lang$core$Json_Decode$string,
+							_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Resident))))))));
 var _user$project$Commands$residentsDecoder = _elm_lang$core$Json_Decode$list(_user$project$Commands$residentDecoder);
 var _user$project$Commands$residentEncoder = function (resident) {
 	var attributes = {
@@ -45,7 +57,31 @@ var _user$project$Commands$residentEncoder = function (resident) {
 						_0: 'id',
 						_1: _elm_lang$core$Json_Encode$string(resident.id)
 					},
-					_1: {ctor: '[]'}
+					_1: {
+						ctor: '::',
+						_0: {
+							ctor: '_Tuple2',
+							_0: 'tmpName',
+							_1: _elm_lang$core$Json_Encode$string(resident.tmpName)
+						},
+						_1: {
+							ctor: '::',
+							_0: {
+								ctor: '_Tuple2',
+								_0: 'tmpDob',
+								_1: _elm_lang$core$Json_Encode$string(resident.tmpDob)
+							},
+							_1: {
+								ctor: '::',
+								_0: {
+									ctor: '_Tuple2',
+									_0: 'tmpAge',
+									_1: _elm_lang$core$Json_Encode$int(resident.tmpAge)
+								},
+								_1: {ctor: '[]'}
+							}
+						}
+					}
 				}
 			}
 		}
