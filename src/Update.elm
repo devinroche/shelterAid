@@ -19,20 +19,6 @@ update msg model =
       in
         ({model | route = newRoute}, Cmd.none)
 
-    Messages.EditResident resident nameChange dobChange ageChange ->
-      let editedResident =
-        {resident | name = nameChange, dob = dobChange, age = ageChange}
-
-      in
-        (model, saveResidentCmd editedResident)
-
-    Messages.ChangeAge resident newAge ->
-      let updatedResident =
-        {resident | age = resident.age + newAge}
-
-      in
-        (model, saveResidentCmd updatedResident)
-
     Messages.OnResidentSave (Ok resident) ->
       (updateResident model resident, Cmd.none)
 
@@ -48,11 +34,18 @@ update msg model =
 
     Messages.SubmitEdit resident ->
       let submitedResident =
-        {resident | name = resident.tmpName}
+        {resident | name = resident.tmpName, age = resident.tmpAge}
 
       in
         (model, saveResidentCmd submitedResident)
 
+
+    Messages.AgeChange resident newAge ->
+      let ageChanged =
+        {resident | tmpAge = (String.toInt newAge)}
+
+      in
+        (model, saveResidentCmd ageChanged)
 
 updateResident : Model -> Resident -> Model
 updateResident model editedResident =

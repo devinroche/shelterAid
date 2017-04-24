@@ -8,8 +8,7 @@ import Http
 type Msg
   = OnFetchResidents (WebData (List Resident))
   | OnLocationChange Location
-  | ChangeAge Resident Int
-  | EditResident Resident String String Int
+  | AgeChange Resident String
   | NameChange Resident String
   | SubmitEdit Resident
   --| DobChange String

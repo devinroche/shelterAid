@@ -8,13 +8,9 @@ var _user$project$Messages$NameChange = F2(
 	function (a, b) {
 		return {ctor: 'NameChange', _0: a, _1: b};
 	});
-var _user$project$Messages$EditResident = F4(
-	function (a, b, c, d) {
-		return {ctor: 'EditResident', _0: a, _1: b, _2: c, _3: d};
-	});
-var _user$project$Messages$ChangeAge = F2(
+var _user$project$Messages$AgeChange = F2(
 	function (a, b) {
-		return {ctor: 'ChangeAge', _0: a, _1: b};
+		return {ctor: 'AgeChange', _0: a, _1: b};
 	});
 var _user$project$Messages$OnLocationChange = function (a) {
 	return {ctor: 'OnLocationChange', _0: a};

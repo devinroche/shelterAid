@@ -40,7 +40,7 @@ var _user$project$Commands$residentEncoder = function (resident) {
 			ctor: '::',
 			_0: {
 				ctor: '_Tuple2',
-				_0: 'DOB',
+				_0: 'dob',
 				_1: _elm_lang$core$Json_Encode$string(resident.dob)
 			},
 			_1: {

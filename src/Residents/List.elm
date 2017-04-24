@@ -60,7 +60,7 @@ residentRow : Resident -> Html Msg
 residentRow resident =
     tr []
       [ td [] [ text resident.name ]
-      , td [] [ text resident.dob ]
+      , td [] [ text (toString resident.dob) ]
       , td [] [ text (toString resident.age) ]
       , td [] [ text resident.id]
       , td[]

@@ -1,57 +1,6 @@
-var _user$project$Residents_Edit$btnDecreaseAge = function (resident) {
-	var message = A2(_user$project$Messages$ChangeAge, resident, -1);
-	return A2(
-		_elm_lang$html$Html$a,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class(''),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Events$onClick(message),
-				_1: {ctor: '[]'}
-			}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$i,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('fa fa-minus-circle'),
-					_1: {ctor: '[]'}
-				},
-				{ctor: '[]'}),
-			_1: {ctor: '[]'}
-		});
-};
-var _user$project$Residents_Edit$btnIncreaseAge = function (resident) {
-	var message = A2(_user$project$Messages$ChangeAge, resident, 1);
-	return A2(
-		_elm_lang$html$Html$a,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class(''),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Events$onClick(message),
-				_1: {ctor: '[]'}
-			}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$i,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('fa fa-plus-circle'),
-					_1: {ctor: '[]'}
-				},
-				{ctor: '[]'}),
-			_1: {ctor: '[]'}
-		});
-};
 var _user$project$Residents_Edit$editInfoContainer = function (resident) {
 	var submitEdit = _user$project$Messages$SubmitEdit(resident);
+	var ageChange = _user$project$Messages$AgeChange(resident);
 	var nameChange = _user$project$Messages$NameChange(resident);
 	return A2(
 		_elm_lang$html$Html$div,
@@ -159,7 +108,11 @@ var _user$project$Residents_Edit$editInfoContainer = function (resident) {
 															ctor: '::',
 															_0: _elm_lang$html$Html_Attributes$placeholder(
 																_elm_lang$core$Basics$toString(resident.age)),
-															_1: {ctor: '[]'}
+															_1: {
+																ctor: '::',
+																_0: _elm_lang$html$Html_Events$onInput(ageChange),
+																_1: {ctor: '[]'}
+															}
 														}
 													}
 												},
@@ -342,7 +295,7 @@ var _user$project$Residents_Edit$userInformation = function (resident) {
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text('Date of Birth: '),
+										_0: _elm_lang$html$Html$text('Year of Birth: '),
 										_1: {ctor: '[]'}
 									}),
 								_1: {
@@ -361,7 +314,8 @@ var _user$project$Residents_Edit$userInformation = function (resident) {
 												},
 												{
 													ctor: '::',
-													_0: _elm_lang$html$Html$text(resident.dob),
+													_0: _elm_lang$html$Html$text(
+														_elm_lang$core$Basics$toString(resident.dob)),
 													_1: {ctor: '[]'}
 												}),
 											_1: {ctor: '[]'}
@@ -529,15 +483,7 @@ var _user$project$Residents_Edit$formName = function (resident) {
 							{
 								ctor: '::',
 								_0: _user$project$Residents_Edit$editInfoContainer(resident),
-								_1: {
-									ctor: '::',
-									_0: _user$project$Residents_Edit$btnIncreaseAge(resident),
-									_1: {
-										ctor: '::',
-										_0: _user$project$Residents_Edit$btnDecreaseAge(resident),
-										_1: {ctor: '[]'}
-									}
-								}
+								_1: {ctor: '[]'}
 							}),
 						_1: {ctor: '[]'}
 					}

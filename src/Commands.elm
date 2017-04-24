@@ -50,7 +50,7 @@ residentEncoder resident =
   let
     attributes =
       [ ( "name", Encode.string resident.name )
-      , ( "DOB", Encode.string resident.dob )
+      , ( "dob", Encode.string resident.dob )
       , ( "age", Encode.int resident.age)
       , ( "id", Encode.string resident.id )
       , ( "tmpName", Encode.string resident.tmpName )

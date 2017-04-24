@@ -43,8 +43,6 @@ formName resident =
       ]
     , div [ class "column is-3 is-offset-1" ]
       [ editInfoContainer resident
-      , btnIncreaseAge resident
-      , btnDecreaseAge resident
       ]
     ]
   ]
@@ -67,8 +65,8 @@ userInformation resident =
       , td[] [ label [class ""] [ text (toString resident.age) ]]
       ]
     , tr[class "subtitle"]
-      [ td [] [text "Date of Birth: "]
-      , td[] [ label [class ""] [ text resident.dob ]]
+      [ td [] [text "Year of Birth: "]
+      , td[] [ label [class ""] [ text (toString resident.dob )]]
       ]
     , tr[class "subtitle"]
       [ td [] [text "Identification: "]
@@ -84,10 +82,9 @@ userInformation resident =
 --Edit information container
 editInfoContainer: Resident -> Html Msg
 editInfoContainer resident =
---  let submitChange =
---    Messages.EditResident resident name dob age
   let
     nameChange = Messages.NameChange resident
+    ageChange = Messages.AgeChange resident
     submitEdit = Messages.SubmitEdit resident
 
   in
@@ -99,7 +96,7 @@ editInfoContainer resident =
         [ div [class "field"]
           [ input [ class "input", type_ "name", placeholder resident.name, onInput nameChange] [] ]
         , div [class "field"]
-          [ input [ class "input", type_ "age", placeholder (toString resident.age) ] [] ]
+          [ input [ class "input", type_ "age", placeholder (toString resident.age), onInput ageChange ] [] ]
         , div [class "field"]
           [ input [ class "input", type_ "dob", placeholder resident.dob] [] ]
         ]
@@ -112,20 +109,11 @@ editInfoContainer resident =
     ]
 
 --Edit user information "functions"
-btnIncreaseAge : Resident -> Html Msg
-btnIncreaseAge resident =
-  let
-    message =
-      Messages.ChangeAge resident 1
-  in
-    a[ class "", onClick message ]
-      [ i [ class "fa fa-plus-circle" ] [] ]
-
-btnDecreaseAge : Resident -> Html Msg
-btnDecreaseAge resident =
-  let
-    message =
-      Messages.ChangeAge resident -1
-  in
-    a[ class "", onClick message ]
-      [ i [ class "fa fa-minus-circle" ] [] ]
+--btnIncreaseAge : Resident -> Html Msg
+--btnIncreaseAge resident =
+--  let
+--    message =
+--      Messages.ChangeAge resident 1
+--  in
+--    a[ class "", onClick message ]
+--      [ i [ class "fa fa-plus-circle" ] [] ]
