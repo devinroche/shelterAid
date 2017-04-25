@@ -1,7 +1,7 @@
 var _user$project$Commands$residentDecoder = A3(
 	_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
 	'tmpAge',
-	_elm_lang$core$Json_Decode$int,
+	_elm_lang$core$Json_Decode$string,
 	A3(
 		_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
 		'tmpDob',
@@ -17,7 +17,7 @@ var _user$project$Commands$residentDecoder = A3(
 				A3(
 					_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
 					'age',
-					_elm_lang$core$Json_Decode$int,
+					_elm_lang$core$Json_Decode$string,
 					A3(
 						_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
 						'dob',
@@ -48,7 +48,7 @@ var _user$project$Commands$residentEncoder = function (resident) {
 				_0: {
 					ctor: '_Tuple2',
 					_0: 'age',
-					_1: _elm_lang$core$Json_Encode$int(resident.age)
+					_1: _elm_lang$core$Json_Encode$string(resident.age)
 				},
 				_1: {
 					ctor: '::',
@@ -76,7 +76,7 @@ var _user$project$Commands$residentEncoder = function (resident) {
 								_0: {
 									ctor: '_Tuple2',
 									_0: 'tmpAge',
-									_1: _elm_lang$core$Json_Encode$int(resident.tmpAge)
+									_1: _elm_lang$core$Json_Encode$string(resident.tmpAge)
 								},
 								_1: {ctor: '[]'}
 							}

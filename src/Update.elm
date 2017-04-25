@@ -32,20 +32,23 @@ update msg model =
       in
         (model, saveResidentCmd nameChanged)
 
-    Messages.SubmitEdit resident ->
-      let submitedResident =
-        {resident | name = resident.tmpName, age = resident.tmpAge}
-
-      in
-        (model, saveResidentCmd submitedResident)
-
-
     Messages.AgeChange resident newAge ->
-      let ageChanged =
-        {resident | tmpAge = (String.toInt newAge)}
+      let ageChanged = {resident | tmpAge = newAge}
 
       in
         (model, saveResidentCmd ageChanged)
+
+
+    Messages.SubmitEdit resident ->
+      let submitedAgeResident =
+        {resident
+        | age = resident.tmpAge
+        , name = resident.tmpName
+        , dob = resident.tmpDob
+        }
+
+      in (model, saveResidentCmd submitedAgeResident)
+
 
 updateResident : Model -> Resident -> Model
 updateResident model editedResident =

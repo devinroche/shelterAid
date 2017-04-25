@@ -51,17 +51,7 @@ var _user$project$Update$update = F2(
 					_0: model,
 					_1: _user$project$Commands$saveResidentCmd(nameChanged)
 				};
-			case 'SubmitEdit':
-				var _p1 = _p0._0;
-				var submitedResident = _elm_lang$core$Native_Utils.update(
-					_p1,
-					{name: _p1.tmpName, age: _p1.tmpAge});
-				return {
-					ctor: '_Tuple2',
-					_0: model,
-					_1: _user$project$Commands$saveResidentCmd(submitedResident)
-				};
-			default:
+			case 'AgeChange':
 				var ageChanged = _elm_lang$core$Native_Utils.update(
 					_p0._0,
 					{tmpAge: _p0._1});
@@ -69,6 +59,16 @@ var _user$project$Update$update = F2(
 					ctor: '_Tuple2',
 					_0: model,
 					_1: _user$project$Commands$saveResidentCmd(ageChanged)
+				};
+			default:
+				var _p1 = _p0._0;
+				var submitedAgeResident = _elm_lang$core$Native_Utils.update(
+					_p1,
+					{age: _p1.tmpAge, name: _p1.tmpName, dob: _p1.tmpDob});
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _user$project$Commands$saveResidentCmd(submitedAgeResident)
 				};
 		}
 	});

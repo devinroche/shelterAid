@@ -106,8 +106,7 @@ var _user$project$Residents_Edit$editInfoContainer = function (resident) {
 														_0: _elm_lang$html$Html_Attributes$type_('age'),
 														_1: {
 															ctor: '::',
-															_0: _elm_lang$html$Html_Attributes$placeholder(
-																_elm_lang$core$Basics$toString(resident.age)),
+															_0: _elm_lang$html$Html_Attributes$placeholder(resident.age),
 															_1: {
 																ctor: '::',
 																_0: _elm_lang$html$Html_Events$onInput(ageChange),
@@ -270,8 +269,7 @@ var _user$project$Residents_Edit$userInformation = function (resident) {
 											},
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html$text(
-													_elm_lang$core$Basics$toString(resident.age)),
+												_0: _elm_lang$html$Html$text(resident.age),
 												_1: {ctor: '[]'}
 											}),
 										_1: {ctor: '[]'}
@@ -295,7 +293,7 @@ var _user$project$Residents_Edit$userInformation = function (resident) {
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text('Year of Birth: '),
+										_0: _elm_lang$html$Html$text('Date of Birth: '),
 										_1: {ctor: '[]'}
 									}),
 								_1: {
@@ -314,8 +312,7 @@ var _user$project$Residents_Edit$userInformation = function (resident) {
 												},
 												{
 													ctor: '::',
-													_0: _elm_lang$html$Html$text(
-														_elm_lang$core$Basics$toString(resident.dob)),
+													_0: _elm_lang$html$Html$text(resident.dob),
 													_1: {ctor: '[]'}
 												}),
 											_1: {ctor: '[]'}
@@ -382,7 +379,7 @@ var _user$project$Residents_Edit$userInformation = function (resident) {
 											{ctor: '[]'},
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html$text('tmp name: '),
+												_0: _elm_lang$html$Html$text('Tmp Name: '),
 												_1: {ctor: '[]'}
 											}),
 										_1: {
@@ -409,7 +406,51 @@ var _user$project$Residents_Edit$userInformation = function (resident) {
 											_1: {ctor: '[]'}
 										}
 									}),
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$tr,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('subtitle'),
+											_1: {ctor: '[]'}
+										},
+										{
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$td,
+												{ctor: '[]'},
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Tmp Age: '),
+													_1: {ctor: '[]'}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$td,
+													{ctor: '[]'},
+													{
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$label,
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$class(''),
+																_1: {ctor: '[]'}
+															},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text(resident.tmpAge),
+																_1: {ctor: '[]'}
+															}),
+														_1: {ctor: '[]'}
+													}),
+												_1: {ctor: '[]'}
+											}
+										}),
+									_1: {ctor: '[]'}
+								}
 							}
 						}
 					}

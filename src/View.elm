@@ -6,7 +6,6 @@ import Models exposing(Model)
 import Models exposing(..)
 import Residents.List
 import Residents.Edit
-import Residents.Create
 import RemoteData
 
 view : Model -> Html Msg

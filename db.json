@@ -1,31 +1,31 @@
 {
   "residents": [
     {
-      "name": "devinroche",
+      "name": "32",
+      "dob": "",
+      "age": "2",
       "id": "123456",
-      "dob": "01/29/1996",
-      "age":21,
-      "tmpName": "fart face",
+      "tmpName": "32",
       "tmpDob": "",
-      "tmpAge": 0
+      "tmpAge": "2"
     },
     {
-      "name": "Sue",
+      "name": "dev",
       "dob": "08/21/1978",
-      "age":21,
+      "age": "21",
       "id": "121456",
-      "tmpName": "",
+      "tmpName": "dev",
       "tmpDob": "",
-      "tmpAge": 0
+      "tmpAge": "0"
     },
     {
       "name": "Nate",
       "dob": "11/04/1960",
-      "age":21,
+      "age": "21",
       "id": "126446",
       "tmpName": "",
       "tmpDob": "",
-      "tmpAge": 0
+      "tmpAge": "0"
     }
   ]
 }

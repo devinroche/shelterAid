@@ -62,22 +62,27 @@ userInformation resident =
   [ table [class "table is-striped"]
     [ tr[class "subtitle"]
       [ td [] [text "Age: "]
-      , td[] [ label [class ""] [ text (toString resident.age) ]]
+      , td[] [ label [class ""] [ text resident.age ]]
       ]
     , tr[class "subtitle"]
-      [ td [] [text "Year of Birth: "]
-      , td[] [ label [class ""] [ text (toString resident.dob )]]
+      [ td [] [text "Date of Birth: "]
+      , td[] [ label [class ""] [ text resident.dob ]]
       ]
     , tr[class "subtitle"]
       [ td [] [text "Identification: "]
       , td[] [ label [class ""] [ text resident.id ]]
       ]
     , tr[class "subtitle"]
-      [ td [] [text "tmp name: "]
+      [ td [] [text "Tmp Name: "]
       , td[] [ label [class ""] [ text resident.tmpName ]]
+      ]
+    , tr[class "subtitle"]
+      [ td [] [text "Tmp Age: "]
+      , td[] [ label [class ""] [ text resident.tmpAge ]]
       ]
     ]
   ]
+
 
 --Edit information container
 editInfoContainer: Resident -> Html Msg
@@ -96,7 +101,7 @@ editInfoContainer resident =
         [ div [class "field"]
           [ input [ class "input", type_ "name", placeholder resident.name, onInput nameChange] [] ]
         , div [class "field"]
-          [ input [ class "input", type_ "age", placeholder (toString resident.age), onInput ageChange ] [] ]
+          [ input [ class "input", type_ "age", placeholder resident.age, onInput ageChange ] [] ]
         , div [class "field"]
           [ input [ class "input", type_ "dob", placeholder resident.dob] [] ]
         ]
@@ -104,9 +109,14 @@ editInfoContainer resident =
     , div [class "card-footer"]
       [ a [ class "card-footer-item"][text "Delete" ]
       , a [ class "card-footer-item"] [text "Cancel"]
-      , a [ class "card-footer-item", onClick submitEdit] [text "Submit"]
+      , a [ class "card-footer-item",  onClick (submitEdit)] [text "Submit"]
       ]
     ]
+
+validateEdit : Resident -> Html Msg
+validateEdit resident =
+  if resident.tmpName == "" then
+
 
 --Edit user information "functions"
 --btnIncreaseAge : Resident -> Html Msg

@@ -51,11 +51,11 @@ residentEncoder resident =
     attributes =
       [ ( "name", Encode.string resident.name )
       , ( "dob", Encode.string resident.dob )
-      , ( "age", Encode.int resident.age)
+      , ( "age", Encode.string resident.age)
       , ( "id", Encode.string resident.id )
       , ( "tmpName", Encode.string resident.tmpName )
       , ( "tmpDob", Encode.string resident.tmpDob )
-      , ( "tmpAge", Encode.int resident.tmpAge )
+      , ( "tmpAge", Encode.string resident.tmpAge )
       ]
 
   in
@@ -72,8 +72,8 @@ residentDecoder =
   decode Resident
     |> required "name" Decode.string
     |> required "dob" Decode.string
-    |> required "age" Decode.int
+    |> required "age" Decode.string
     |> required "id" Decode.string
     |> required "tmpName" Decode.string
     |> required "tmpDob" Decode.string
-    |> required "tmpAge" Decode.int
+    |> required "tmpAge" Decode.string

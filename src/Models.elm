@@ -19,11 +19,11 @@ type alias ResidentID =
 type alias Resident =
   { name : String
   , dob : String
-  , age : Int
-  , id : ResidentID
+  , age : String
+  , id: ResidentID
   , tmpName : String
   , tmpDob : String
-  , tmpAge : Int
+  , tmpAge : String
   }
 
 type Route
