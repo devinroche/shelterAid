@@ -80,6 +80,10 @@ userInformation resident =
       [ td [] [text "Tmp Age: "]
       , td[] [ label [class ""] [ text resident.tmpAge ]]
       ]
+    , tr[class "subtitle"]
+      [ td [] [text "Tmp Dob: "]
+      , td[] [ label [class ""] [ text resident.tmpDob ]]
+      ]
     ]
   ]
 
@@ -90,6 +94,7 @@ editInfoContainer resident =
   let
     nameChange = Messages.NameChange resident
     ageChange = Messages.AgeChange resident
+    dobChange = Messages.DobChange resident
     submitEdit = Messages.SubmitEdit resident
 
   in
@@ -99,31 +104,15 @@ editInfoContainer resident =
     , div [class "card-content"]
       [ div [class "content"]
         [ div [class "field"]
-          [ input [ class "input", type_ "name", placeholder resident.name, onInput nameChange] [] ]
+          [ input [ class "input", type_ "name", placeholder resident.name, onInput nameChange ] [] ]
         , div [class "field"]
           [ input [ class "input", type_ "age", placeholder resident.age, onInput ageChange ] [] ]
         , div [class "field"]
-          [ input [ class "input", type_ "dob", placeholder resident.dob] [] ]
+          [ input [ class "input", type_ "dob", placeholder resident.dob, onInput dobChange ] [] ]
         ]
       ]
     , div [class "card-footer"]
       [ a [ class "card-footer-item"][text "Delete" ]
-      , a [ class "card-footer-item"] [text "Cancel"]
       , a [ class "card-footer-item",  onClick (submitEdit)] [text "Submit"]
       ]
     ]
-
-validateEdit : Resident -> Html Msg
-validateEdit resident =
-  if resident.tmpName == "" then
-
-
---Edit user information "functions"
---btnIncreaseAge : Resident -> Html Msg
---btnIncreaseAge resident =
---  let
---    message =
---      Messages.ChangeAge resident 1
---  in
---    a[ class "", onClick message ]
---      [ i [ class "fa fa-plus-circle" ] [] ]

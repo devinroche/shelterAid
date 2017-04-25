@@ -10,6 +10,7 @@ type Msg
   | OnLocationChange Location
   | AgeChange Resident String
   | NameChange Resident String
+  | DobChange Resident String
   | SubmitEdit Resident
   --| DobChange String
   --| AgeChange Int

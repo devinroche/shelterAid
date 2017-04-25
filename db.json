@@ -1,13 +1,13 @@
 {
   "residents": [
     {
-      "name": "32",
-      "dob": "",
-      "age": "2",
+      "name": "Jake",
+      "dob": "05/29/1401",
+      "age": "12",
       "id": "123456",
-      "tmpName": "32",
-      "tmpDob": "",
-      "tmpAge": "2"
+      "tmpName": "Jake",
+      "tmpDob": "05/29/1401",
+      "tmpAge": "12"
     },
     {
       "name": "dev",
@@ -19,13 +19,13 @@
       "tmpAge": "0"
     },
     {
-      "name": "Nate",
-      "dob": "11/04/1960",
-      "age": "21",
+      "name": "Snake",
+      "dob": "01/29/1996",
+      "age": "13",
       "id": "126446",
-      "tmpName": "",
-      "tmpDob": "",
-      "tmpAge": "0"
+      "tmpName": "Snake",
+      "tmpDob": "01/29/1996",
+      "tmpAge": "13"
     }
   ]
 }

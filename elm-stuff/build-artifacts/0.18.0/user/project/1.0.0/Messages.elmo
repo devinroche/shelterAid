@@ -4,6 +4,10 @@ var _user$project$Messages$OnResidentSave = function (a) {
 var _user$project$Messages$SubmitEdit = function (a) {
 	return {ctor: 'SubmitEdit', _0: a};
 };
+var _user$project$Messages$DobChange = F2(
+	function (a, b) {
+		return {ctor: 'DobChange', _0: a, _1: b};
+	});
 var _user$project$Messages$NameChange = F2(
 	function (a, b) {
 		return {ctor: 'NameChange', _0: a, _1: b};

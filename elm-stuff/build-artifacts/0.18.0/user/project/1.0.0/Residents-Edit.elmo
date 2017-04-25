@@ -1,5 +1,6 @@
 var _user$project$Residents_Edit$editInfoContainer = function (resident) {
 	var submitEdit = _user$project$Messages$SubmitEdit(resident);
+	var dobChange = _user$project$Messages$DobChange(resident);
 	var ageChange = _user$project$Messages$AgeChange(resident);
 	var nameChange = _user$project$Messages$NameChange(resident);
 	return A2(
@@ -140,7 +141,11 @@ var _user$project$Residents_Edit$editInfoContainer = function (resident) {
 															_1: {
 																ctor: '::',
 																_0: _elm_lang$html$Html_Attributes$placeholder(resident.dob),
-																_1: {ctor: '[]'}
+																_1: {
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Events$onInput(dobChange),
+																	_1: {ctor: '[]'}
+																}
 															}
 														}
 													},
@@ -183,33 +188,18 @@ var _user$project$Residents_Edit$editInfoContainer = function (resident) {
 									{
 										ctor: '::',
 										_0: _elm_lang$html$Html_Attributes$class('card-footer-item'),
-										_1: {ctor: '[]'}
+										_1: {
+											ctor: '::',
+											_0: _elm_lang$html$Html_Events$onClick(submitEdit),
+											_1: {ctor: '[]'}
+										}
 									},
 									{
 										ctor: '::',
-										_0: _elm_lang$html$Html$text('Cancel'),
+										_0: _elm_lang$html$Html$text('Submit'),
 										_1: {ctor: '[]'}
 									}),
-								_1: {
-									ctor: '::',
-									_0: A2(
-										_elm_lang$html$Html$a,
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html_Attributes$class('card-footer-item'),
-											_1: {
-												ctor: '::',
-												_0: _elm_lang$html$Html_Events$onClick(submitEdit),
-												_1: {ctor: '[]'}
-											}
-										},
-										{
-											ctor: '::',
-											_0: _elm_lang$html$Html$text('Submit'),
-											_1: {ctor: '[]'}
-										}),
-									_1: {ctor: '[]'}
-								}
+								_1: {ctor: '[]'}
 							}
 						}),
 					_1: {ctor: '[]'}
@@ -449,7 +439,51 @@ var _user$project$Residents_Edit$userInformation = function (resident) {
 												_1: {ctor: '[]'}
 											}
 										}),
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$tr,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class('subtitle'),
+												_1: {ctor: '[]'}
+											},
+											{
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$td,
+													{ctor: '[]'},
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('Tmp Dob: '),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$td,
+														{ctor: '[]'},
+														{
+															ctor: '::',
+															_0: A2(
+																_elm_lang$html$Html$label,
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Attributes$class(''),
+																	_1: {ctor: '[]'}
+																},
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html$text(resident.tmpDob),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {ctor: '[]'}
+														}),
+													_1: {ctor: '[]'}
+												}
+											}),
+										_1: {ctor: '[]'}
+									}
 								}
 							}
 						}

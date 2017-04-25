@@ -38,6 +38,11 @@ update msg model =
       in
         (model, saveResidentCmd ageChanged)
 
+    Messages.DobChange resident newDob ->
+      let dobChanged = {resident | tmpDob = newDob}
+
+      in
+        (model, saveResidentCmd dobChanged)
 
     Messages.SubmitEdit resident ->
       let submitedAgeResident =
