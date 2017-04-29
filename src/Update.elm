@@ -9,6 +9,7 @@ import RemoteData
 update: Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
+    --Error Handling for database connection etc
     Messages.OnFetchResidents response ->
       ({model | residents = response}, Cmd.none)
 
@@ -24,7 +25,9 @@ update msg model =
 
     Messages.OnResidentSave(Err error) ->
       (model, Cmd.none)
+    --Comments above
 
+    --Name change listener function, assigns to tmp attributes
     Messages.NameChange resident newName ->
       let nameChanged =
         {resident | tmpName = newName}
@@ -32,18 +35,21 @@ update msg model =
       in
         (model, saveResidentCmd nameChanged)
 
+    --Age change listener function, assigns to tmp attributes
     Messages.AgeChange resident newAge ->
       let ageChanged = {resident | tmpAge = newAge}
 
       in
         (model, saveResidentCmd ageChanged)
 
+    --Date of Birth change listener function, assigns to tmp attributes
     Messages.DobChange resident newDob ->
       let dobChanged = {resident | tmpDob = newDob}
 
       in
         (model, saveResidentCmd dobChanged)
 
+    --Submits Changes made to name/age/and dob change to resident.
     Messages.SubmitEdit resident ->
       let submitedAgeResident =
         {resident
@@ -54,7 +60,7 @@ update msg model =
 
       in (model, saveResidentCmd submitedAgeResident)
 
-
+--Sends changes to resident with matching ID
 updateResident : Model -> Resident -> Model
 updateResident model editedResident =
   let

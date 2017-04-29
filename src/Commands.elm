@@ -15,17 +15,14 @@ fetchResidents =
     |> RemoteData.sendRequest
     |> Cmd.map Messages.OnFetchResidents
 
-
 fetchResidentsUrl: String
 fetchResidentsUrl =
   "http://localhost:4000/residents"
-
 
 --Save Resident Edits
 saveResidentUrl: ResidentID -> String
 saveResidentUrl residentID =
   "http://localhost:4000/residents/" ++ residentID
-
 
 saveResidentRequest: Resident -> Http.Request Resident
 saveResidentRequest resident =
@@ -39,12 +36,12 @@ saveResidentRequest resident =
     , withCredentials = False
     }
 
-
 saveResidentCmd: Resident -> Cmd Msg
 saveResidentCmd resident =
   saveResidentRequest resident
     |> Http.send Messages.OnResidentSave
 
+--Encode Changes to JSON database
 residentEncoder: Resident ->Encode.Value
 residentEncoder resident =
   let
@@ -65,7 +62,6 @@ residentEncoder resident =
 residentsDecoder: Decode.Decoder (List Resident)
 residentsDecoder =
   Decode.list residentDecoder
-
 
 residentDecoder: Decode.Decoder Resident
 residentDecoder =

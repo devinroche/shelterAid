@@ -12,6 +12,4 @@ type Msg
   | NameChange Resident String
   | DobChange Resident String
   | SubmitEdit Resident
-  --| DobChange String
-  --| AgeChange Int
   | OnResidentSave (Result Http.Error Resident)

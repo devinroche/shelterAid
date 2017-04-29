@@ -112,7 +112,7 @@ editInfoContainer resident =
         ]
       ]
     , div [class "card-footer"]
-      [ a [ class "card-footer-item"][text "Delete" ]
+      [ a [ class "card-footer-item"][text "Clear" ]
       , a [ class "card-footer-item",  onClick (submitEdit)] [text "Submit"]
       ]
     ]

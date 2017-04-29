@@ -1,13 +1,13 @@
 {
   "residents": [
     {
-      "name": "Jake",
-      "dob": "05/29/1401",
-      "age": "12",
+      "name": "Sam",
+      "dob": "01/29/1996",
+      "age": "18",
       "id": "123456",
-      "tmpName": "Jake",
-      "tmpDob": "05/29/1401",
-      "tmpAge": "12"
+      "tmpName": "Sam",
+      "tmpDob": "01/29/1996",
+      "tmpAge": "18"
     },
     {
       "name": "dev",

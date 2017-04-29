@@ -5,7 +5,7 @@ import Html.Attributes exposing (class, href)
 import Messages exposing (Msg)
 import Models exposing (Resident)
 import RemoteData exposing (WebData)
-import Routing exposing (residentPath, newResidentPath)
+import Routing exposing (residentPath)
 
 
 view : WebData (List Resident)-> Html Msg
@@ -33,7 +33,6 @@ list residents =
         [text "Residents"
         ]
         , listResident residents
-        , addResident
       ]
     ]
   ]
@@ -93,17 +92,4 @@ editButton resident=
       ]
       [ i [class ""] []
       , text "Details"
-      ]
-
-addResident: Html Msg
-addResident =
-  let addResPath =
-    newResidentPath
-
-  in
-    a [class "button regular"
-      , href addResPath
-      ]
-      [i [class ""] []
-      , text "New Resident"
       ]

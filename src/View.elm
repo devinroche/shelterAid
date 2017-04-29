@@ -23,9 +23,6 @@ page model =
     Models.ResidentRoute id ->
       residentEditPage model id
 
-    --Models.NewResidentRoute ->
-      --residentCreatePage model
-
     Models.NoMatchingRoute ->
       noViewFound
 
@@ -54,21 +51,6 @@ residentEditPage model residentID =
 
           Nothing ->
             noViewFound
-
---residentCreatePage: Model -> Resident -> Html Msg
---residentCreatePage model  resident=
-  --case model.resident of
-    --RemoteData.NotAsked ->
-      --text ""
-
---    RemoteData.Loading ->
---      text "Loading....."
-
---    RemoteData.Failure err ->
---      text (toString err)
-
---    RemoteData.Success err ->
---      text (toString err)
 
 noViewFound : Html msg
 noViewFound =

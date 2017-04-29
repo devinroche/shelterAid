@@ -1,33 +1,3 @@
-var _user$project$Residents_List$addResident = function () {
-	var addResPath = _user$project$Routing$newResidentPath;
-	return A2(
-		_elm_lang$html$Html$a,
-		{
-			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('button regular'),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$href(addResPath),
-				_1: {ctor: '[]'}
-			}
-		},
-		{
-			ctor: '::',
-			_0: A2(
-				_elm_lang$html$Html$i,
-				{
-					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class(''),
-					_1: {ctor: '[]'}
-				},
-				{ctor: '[]'}),
-			_1: {
-				ctor: '::',
-				_0: _elm_lang$html$Html$text('New Resident'),
-				_1: {ctor: '[]'}
-			}
-		});
-}();
 var _user$project$Residents_List$editButton = function (resident) {
 	var path = _user$project$Routing$residentPath(resident.id);
 	return A2(
@@ -259,11 +229,7 @@ var _user$project$Residents_List$list = function (residents) {
 							_1: {
 								ctor: '::',
 								_0: _user$project$Residents_List$listResident(residents),
-								_1: {
-									ctor: '::',
-									_0: _user$project$Residents_List$addResident,
-									_1: {ctor: '[]'}
-								}
+								_1: {ctor: '[]'}
 							}
 						}),
 					_1: {ctor: '[]'}
