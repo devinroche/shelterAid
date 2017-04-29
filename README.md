@@ -17,7 +17,7 @@ yarn install
 yarn start
 ```
 
-##TODO
+## TODO
 - enable new residents
 - remove residents
 - implement inventory system
