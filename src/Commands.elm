@@ -1,6 +1,8 @@
 module Commands exposing (..)
 
 import Http
+import Task
+import Utils
 import Json.Decode as Decode
 import Json.Encode as Encode
 import Json.Decode.Pipeline exposing (decode, required)
@@ -73,3 +75,10 @@ residentDecoder =
     |> required "tmpName" Decode.string
     |> required "tmpDob" Decode.string
     |> required "tmpAge" Decode.string
+
+--Create Resident in DB
+
+--Delete Resident
+--delete: Resident -> Cmd Msg
+--delete resident =
+--  Task.attempt DeleteDone <| Utils.delete resident (singleUrl resident.id)
