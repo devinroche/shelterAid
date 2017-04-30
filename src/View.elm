@@ -4,6 +4,7 @@ import Html exposing (..)
 import Messages exposing(Msg)
 import Models exposing(Model)
 import Models exposing(..)
+import Residents.Create
 import Residents.List
 import Residents.Edit
 import RemoteData
@@ -22,6 +23,9 @@ page model =
 
     Models.ResidentRoute id ->
       residentEditPage model id
+
+    Models.CreateResidentRoute ->
+      Residents.Create.view model.newResident
 
     Models.NoMatchingRoute ->
       noViewFound
@@ -51,6 +55,10 @@ residentEditPage model residentID =
 
           Nothing ->
             noViewFound
+
+--residentCreatePage: Model -> Html Msg
+--residentCreatePage model =
+
 
 noViewFound : Html msg
 noViewFound =

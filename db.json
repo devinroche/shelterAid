@@ -1,31 +1,22 @@
 {
   "residents": [
     {
-      "name": "Sam",
-      "dob": "01/29/1996",
-      "age": "18",
-      "id": "123456",
-      "tmpName": "Sam",
-      "tmpDob": "01/29/1996",
-      "tmpAge": "18"
-    },
-    {
-      "name": "dev",
-      "dob": "08/21/1978",
+      "name": "poop",
+      "dob": "01291996",
       "age": "21",
-      "id": "121456",
-      "tmpName": "dev",
+      "id": "100",
+      "tmpName": "",
       "tmpDob": "",
-      "tmpAge": "0"
+      "tmpAge": ""
     },
     {
-      "name": "Snake",
-      "dob": "01/29/1996",
-      "age": "13",
-      "id": "126446",
-      "tmpName": "Snake",
-      "tmpDob": "01/29/1996",
-      "tmpAge": "13"
+      "name": "poop123",
+      "dob": "12321",
+      "age": "123213",
+      "id": "Sk7gVeVkb",
+      "tmpName": "",
+      "tmpDob": "",
+      "tmpAge": ""
     }
   ]
 }

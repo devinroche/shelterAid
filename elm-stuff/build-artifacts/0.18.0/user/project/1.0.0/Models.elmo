@@ -1,15 +1,24 @@
-var _user$project$Models$initialModel = function (route) {
-	return {residents: _krisajenkins$remotedata$RemoteData$Loading, route: route};
+var _user$project$Models$latestId = function (residents) {
+	return _elm_lang$core$Basics$toString(
+		_elm_lang$core$List$length(residents) + 100);
 };
-var _user$project$Models$Model = F2(
-	function (a, b) {
-		return {residents: a, route: b};
+var _user$project$Models$Model = F3(
+	function (a, b, c) {
+		return {residents: a, route: b, newResident: c};
 	});
 var _user$project$Models$Resident = F7(
 	function (a, b, c, d, e, f, g) {
 		return {name: a, dob: b, age: c, id: d, tmpName: e, tmpDob: f, tmpAge: g};
 	});
+var _user$project$Models$initialModel = function (route) {
+	return {
+		residents: _krisajenkins$remotedata$RemoteData$Loading,
+		newResident: A7(_user$project$Models$Resident, '', '', '', '', '', '', ''),
+		route: route
+	};
+};
 var _user$project$Models$NoMatchingRoute = {ctor: 'NoMatchingRoute'};
+var _user$project$Models$CreateResidentRoute = {ctor: 'CreateResidentRoute'};
 var _user$project$Models$ResidentRoute = function (a) {
 	return {ctor: 'ResidentRoute', _0: a};
 };

@@ -1,5 +1,20 @@
+var _user$project$Messages$OnResidentCreated = function (a) {
+	return {ctor: 'OnResidentCreated', _0: a};
+};
 var _user$project$Messages$OnResidentSave = function (a) {
 	return {ctor: 'OnResidentSave', _0: a};
+};
+var _user$project$Messages$SaveNewResident = function (a) {
+	return {ctor: 'SaveNewResident', _0: a};
+};
+var _user$project$Messages$NewResidentDob = function (a) {
+	return {ctor: 'NewResidentDob', _0: a};
+};
+var _user$project$Messages$NewResidentAge = function (a) {
+	return {ctor: 'NewResidentAge', _0: a};
+};
+var _user$project$Messages$NewResidentName = function (a) {
+	return {ctor: 'NewResidentName', _0: a};
 };
 var _user$project$Messages$SubmitEdit = function (a) {
 	return {ctor: 'SubmitEdit', _0: a};

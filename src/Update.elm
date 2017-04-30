@@ -3,7 +3,7 @@ module Update exposing (..)
 import Messages exposing(Msg)
 import Models exposing(Model, Resident)
 import Routing exposing(parseLocation)
-import Commands exposing (saveResidentCmd)
+import Commands exposing (saveResidentCmd, newResidentCmd)
 import RemoteData
 
 update: Msg -> Model -> (Model, Cmd Msg)
@@ -20,12 +20,43 @@ update msg model =
       in
         ({model | route = newRoute}, Cmd.none)
 
+    --Save resident
     Messages.OnResidentSave (Ok resident) ->
       (updateResident model resident, Cmd.none)
 
     Messages.OnResidentSave(Err error) ->
       (model, Cmd.none)
-    --Comments above
+
+    --Creates new resident
+    Messages.OnResidentCreated (Ok resident) ->
+      (addToResidents model resident, Cmd.none)
+
+    Messages.OnResidentCreated (Err error) ->
+      (model, Cmd.none)
+
+    Messages.NewResidentName name ->
+      let newRes =
+        Resident name model.newResident.age model.newResident.dob "" "" "" ""
+
+      in
+        ( { model | newResident = newRes }, Cmd.none )
+
+    Messages.NewResidentAge age ->
+      let newRes =
+        Resident model.newResident.name age model.newResident.dob "" "" "" ""
+
+      in
+        ( { model | newResident = newRes }, Cmd.none )
+
+    Messages.NewResidentDob dob ->
+      let newRes =
+        Resident model.newResident.name model.newResident.age dob "" "" "" ""
+
+      in
+        ( { model | newResident = newRes }, Cmd.none )
+
+    Messages.SaveNewResident resident ->
+      ({model|newResident = resident}, newResidentCmd resident)
 
     --Name change listener function, assigns to tmp attributes
     Messages.NameChange resident newName ->
@@ -78,3 +109,23 @@ updateResident model editedResident =
 
   in
     {model | residents = updatedResidents}
+
+--add new resident to db
+addToResidents: Model -> Resident -> Model
+addToResidents model newResident =
+  let
+    pick currentResident =
+      if newResident.id == currentResident.id then
+        newResident
+
+      else
+        currentResident
+
+    updateResidentList residents =
+      List.append (List.map pick residents) [newResident]
+
+    updatedResidents =
+      RemoteData.map updateResidentList model.residents
+
+  in
+    {model | residents = updatedResidents }

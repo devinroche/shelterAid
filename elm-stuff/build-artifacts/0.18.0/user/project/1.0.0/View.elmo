@@ -40,6 +40,8 @@ var _user$project$View$page = function (model) {
 			return _user$project$Residents_List$view(model.residents);
 		case 'ResidentRoute':
 			return A2(_user$project$View$residentEditPage, model, _p2._0);
+		case 'CreateResidentRoute':
+			return _user$project$Residents_Create$view(model.newResident);
 		default:
 			return _user$project$View$noViewFound;
 	}

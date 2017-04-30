@@ -1,3 +1,23 @@
+var _user$project$Update$addToResidents = F2(
+	function (model, newResident) {
+		var pick = function (currentResident) {
+			return _elm_lang$core$Native_Utils.eq(newResident.id, currentResident.id) ? newResident : currentResident;
+		};
+		var updateResidentList = function (residents) {
+			return A2(
+				_elm_lang$core$List$append,
+				A2(_elm_lang$core$List$map, pick, residents),
+				{
+					ctor: '::',
+					_0: newResident,
+					_1: {ctor: '[]'}
+				});
+		};
+		var updatedResidents = A2(_krisajenkins$remotedata$RemoteData$map, updateResidentList, model.residents);
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{residents: updatedResidents});
+	});
 var _user$project$Update$updateResident = F2(
 	function (model, editedResident) {
 		var pick = function (currentResident) {
@@ -42,6 +62,52 @@ var _user$project$Update$update = F2(
 				} else {
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
+			case 'OnResidentCreated':
+				if (_p0._0.ctor === 'Ok') {
+					return {
+						ctor: '_Tuple2',
+						_0: A2(_user$project$Update$addToResidents, model, _p0._0._0),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
+				}
+			case 'NewResidentName':
+				var newRes = A7(_user$project$Models$Resident, _p0._0, model.newResident.age, model.newResident.dob, '', '', '', '');
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{newResident: newRes}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'NewResidentAge':
+				var newRes = A7(_user$project$Models$Resident, model.newResident.name, _p0._0, model.newResident.dob, '', '', '', '');
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{newResident: newRes}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'NewResidentDob':
+				var newRes = A7(_user$project$Models$Resident, model.newResident.name, model.newResident.age, _p0._0, '', '', '', '');
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{newResident: newRes}),
+					_1: _elm_lang$core$Platform_Cmd$none
+				};
+			case 'SaveNewResident':
+				var _p1 = _p0._0;
+				return {
+					ctor: '_Tuple2',
+					_0: _elm_lang$core$Native_Utils.update(
+						model,
+						{newResident: _p1}),
+					_1: _user$project$Commands$newResidentCmd(_p1)
+				};
 			case 'NameChange':
 				var nameChanged = _elm_lang$core$Native_Utils.update(
 					_p0._0,
@@ -70,10 +136,10 @@ var _user$project$Update$update = F2(
 					_1: _user$project$Commands$saveResidentCmd(dobChanged)
 				};
 			default:
-				var _p1 = _p0._0;
+				var _p2 = _p0._0;
 				var submitedAgeResident = _elm_lang$core$Native_Utils.update(
-					_p1,
-					{age: _p1.tmpAge, name: _p1.tmpName, dob: _p1.tmpDob});
+					_p2,
+					{age: _p2.tmpAge, name: _p2.tmpName, dob: _p2.tmpDob});
 				return {
 					ctor: '_Tuple2',
 					_0: model,

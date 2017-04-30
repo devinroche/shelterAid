@@ -68,7 +68,7 @@ var _user$project$Residents_Edit$editInfoContainer = function (resident) {
 											_elm_lang$html$Html$input,
 											{
 												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$class('input'),
+												_0: _elm_lang$html$Html_Attributes$class('input is-medium'),
 												_1: {
 													ctor: '::',
 													_0: _elm_lang$html$Html_Attributes$type_('name'),
@@ -101,7 +101,7 @@ var _user$project$Residents_Edit$editInfoContainer = function (resident) {
 												_elm_lang$html$Html$input,
 												{
 													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$class('input'),
+													_0: _elm_lang$html$Html_Attributes$class('input is-medium'),
 													_1: {
 														ctor: '::',
 														_0: _elm_lang$html$Html_Attributes$type_('age'),
@@ -134,7 +134,7 @@ var _user$project$Residents_Edit$editInfoContainer = function (resident) {
 													_elm_lang$html$Html$input,
 													{
 														ctor: '::',
-														_0: _elm_lang$html$Html_Attributes$class('input'),
+														_0: _elm_lang$html$Html_Attributes$class('input is-medium'),
 														_1: {
 															ctor: '::',
 															_0: _elm_lang$html$Html_Attributes$type_('dob'),
@@ -496,7 +496,7 @@ var _user$project$Residents_Edit$listButton = A2(
 	_elm_lang$html$Html$a,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('btn regular'),
+		_0: _elm_lang$html$Html_Attributes$class('subtitle'),
 		_1: {
 			ctor: '::',
 			_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$residentsPath),
@@ -509,13 +509,13 @@ var _user$project$Residents_Edit$listButton = A2(
 			_elm_lang$html$Html$i,
 			{
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class('fa fa-chevron-left'),
+				_0: _elm_lang$html$Html_Attributes$class(''),
 				_1: {ctor: '[]'}
 			},
 			{ctor: '[]'}),
 		_1: {
 			ctor: '::',
-			_0: _elm_lang$html$Html$text('  Return to List'),
+			_0: _elm_lang$html$Html$text('< Return Home'),
 			_1: {ctor: '[]'}
 		}
 	});
@@ -600,7 +600,7 @@ var _user$project$Residents_Edit$nav = function (model) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-bold'),
+			_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-info is-bold'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -623,7 +623,7 @@ var _user$project$Residents_Edit$nav = function (model) {
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Edit Information'),
+							_0: _elm_lang$html$Html$text('Edit Resident'),
 							_1: {ctor: '[]'}
 						}),
 					_1: {

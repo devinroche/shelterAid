@@ -1,8 +1,6 @@
 module Commands exposing (..)
 
 import Http
-import Task
-import Utils
 import Json.Decode as Decode
 import Json.Encode as Encode
 import Json.Decode.Pipeline exposing (decode, required)
@@ -44,7 +42,7 @@ saveResidentCmd resident =
     |> Http.send Messages.OnResidentSave
 
 --Encode Changes to JSON database
-residentEncoder: Resident ->Encode.Value
+residentEncoder: Resident -> Encode.Value
 residentEncoder resident =
   let
     attributes =
@@ -77,7 +75,22 @@ residentDecoder =
     |> required "tmpAge" Decode.string
 
 --Create Resident in DB
+newResidentRequest: Resident -> Http.Request Resident
+newResidentRequest resident =
+  Http.request
+    { body = residentEncoder resident |> Http.jsonBody
+    , expect = Http.expectJson residentDecoder
+    , headers = []
+    , method = "POST"
+    , timeout = Nothing
+    , url = fetchResidentsUrl
+    , withCredentials = False
+    }
 
+newResidentCmd : Resident -> Cmd Msg
+newResidentCmd resident =
+    newResidentRequest resident
+        |> Http.send Messages.OnResidentCreated
 --Delete Resident
 --delete: Resident -> Cmd Msg
 --delete resident =

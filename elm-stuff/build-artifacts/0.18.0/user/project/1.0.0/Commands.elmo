@@ -111,6 +111,25 @@ var _user$project$Commands$saveResidentCmd = function (resident) {
 		_user$project$Commands$saveResidentRequest(resident));
 };
 var _user$project$Commands$fetchResidentsUrl = 'http://localhost:4000/residents';
+var _user$project$Commands$newResidentRequest = function (resident) {
+	return _elm_lang$http$Http$request(
+		{
+			body: _elm_lang$http$Http$jsonBody(
+				_user$project$Commands$residentEncoder(resident)),
+			expect: _elm_lang$http$Http$expectJson(_user$project$Commands$residentDecoder),
+			headers: {ctor: '[]'},
+			method: 'POST',
+			timeout: _elm_lang$core$Maybe$Nothing,
+			url: _user$project$Commands$fetchResidentsUrl,
+			withCredentials: false
+		});
+};
+var _user$project$Commands$newResidentCmd = function (resident) {
+	return A2(
+		_elm_lang$http$Http$send,
+		_user$project$Messages$OnResidentCreated,
+		_user$project$Commands$newResidentRequest(resident));
+};
 var _user$project$Commands$fetchResidents = A2(
 	_elm_lang$core$Platform_Cmd$map,
 	_user$project$Messages$OnFetchResidents,

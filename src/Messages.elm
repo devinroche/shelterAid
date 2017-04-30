@@ -12,4 +12,9 @@ type Msg
   | NameChange Resident String
   | DobChange Resident String
   | SubmitEdit Resident
+  | NewResidentName String
+  | NewResidentAge String
+  | NewResidentDob String 
+  | SaveNewResident Resident
   | OnResidentSave (Result Http.Error Resident)
+  | OnResidentCreated (Result Http.Error Resident)

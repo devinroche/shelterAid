@@ -18,9 +18,9 @@ view model =
 --set up small naviagtion
 nav : Resident -> Html.Html Msg
 nav model =
-    div [ class "hero is-primary is-bold" ]
+    div [ class "hero is-primary is-info is-bold" ]
       [ div [class "hero-body container"]
-        [ h1 [class "title"] [text "Edit Information"]
+        [ h1 [class "title"] [text "Edit Resident"]
         , listButton
         ]
       ]
@@ -50,10 +50,8 @@ formName resident =
 --Return to home button
 listButton : Html Msg
 listButton =
-      a [ class "btn regular"
-        , href residentsPath
-        ]
-        [ i [ class "fa fa-chevron-left" ] [], text "  Return to List" ]
+      a [ class "subtitle", href residentsPath]
+        [ i [ class "" ] [], text "< Return Home" ]
 
 --User information table
 userInformation : Resident -> Html Msg
@@ -104,11 +102,11 @@ editInfoContainer resident =
     , div [class "card-content"]
       [ div [class "content"]
         [ div [class "field"]
-          [ input [ class "input", type_ "name", placeholder resident.name, onInput nameChange ] [] ]
+          [ input [ class "input is-medium", type_ "name", placeholder resident.name, onInput nameChange ] [] ]
         , div [class "field"]
-          [ input [ class "input", type_ "age", placeholder resident.age, onInput ageChange ] [] ]
+          [ input [ class "input is-medium", type_ "age", placeholder resident.age, onInput ageChange ] [] ]
         , div [class "field"]
-          [ input [ class "input", type_ "dob", placeholder resident.dob, onInput dobChange ] [] ]
+          [ input [ class "input is-medium", type_ "dob", placeholder resident.dob, onInput dobChange ] [] ]
         ]
       ]
     , div [class "card-footer"]

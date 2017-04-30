@@ -1,13 +1,13 @@
-var _user$project$Residents_List$editButton = function (resident) {
-	var path = _user$project$Routing$residentPath(resident.id);
+var _user$project$Residents_List$createResidentBtn = function () {
+	var createpath = _user$project$Routing$createResidentPath;
 	return A2(
 		_elm_lang$html$Html$a,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('btn regular'),
+			_0: _elm_lang$html$Html_Attributes$class('button is-success regular'),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$href(path),
+				_0: _elm_lang$html$Html_Attributes$href(createpath),
 				_1: {ctor: '[]'}
 			}
 		},
@@ -23,7 +23,60 @@ var _user$project$Residents_List$editButton = function (resident) {
 				{ctor: '[]'}),
 			_1: {
 				ctor: '::',
-				_0: _elm_lang$html$Html$text('Details'),
+				_0: _elm_lang$html$Html$text('Add Resident'),
+				_1: {ctor: '[]'}
+			}
+		});
+}();
+var _user$project$Residents_List$deleteResidentBtn = A2(
+	_elm_lang$html$Html$a,
+	{
+		ctor: '::',
+		_0: _elm_lang$html$Html_Attributes$class('button is-outlined is-danger'),
+		_1: {ctor: '[]'}
+	},
+	{
+		ctor: '::',
+		_0: A2(
+			_elm_lang$html$Html$i,
+			{
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$class(''),
+				_1: {ctor: '[]'}
+			},
+			{ctor: '[]'}),
+		_1: {
+			ctor: '::',
+			_0: _elm_lang$html$Html$text('Delete'),
+			_1: {ctor: '[]'}
+		}
+	});
+var _user$project$Residents_List$editResidentBtn = function (resident) {
+	var editpath = _user$project$Routing$residentPath(resident.id);
+	return A2(
+		_elm_lang$html$Html$a,
+		{
+			ctor: '::',
+			_0: _elm_lang$html$Html_Attributes$class('button is-info is-outlined'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Attributes$href(editpath),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class(''),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Edit'),
 				_1: {ctor: '[]'}
 			}
 		});
@@ -79,10 +132,21 @@ var _user$project$Residents_List$residentRow = function (resident) {
 								{ctor: '[]'},
 								{
 									ctor: '::',
-									_0: _user$project$Residents_List$editButton(resident),
+									_0: _user$project$Residents_List$editResidentBtn(resident),
 									_1: {ctor: '[]'}
 								}),
-							_1: {ctor: '[]'}
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$td,
+									{ctor: '[]'},
+									{
+										ctor: '::',
+										_0: _user$project$Residents_List$deleteResidentBtn,
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
 						}
 					}
 				}
@@ -166,7 +230,18 @@ var _user$project$Residents_List$listResident = function (residents) {
 															_0: _elm_lang$html$Html$text('Actions'),
 															_1: {ctor: '[]'}
 														}),
-													_1: {ctor: '[]'}
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$th,
+															{ctor: '[]'},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text(''),
+																_1: {ctor: '[]'}
+															}),
+														_1: {ctor: '[]'}
+													}
 												}
 											}
 										}
@@ -229,7 +304,11 @@ var _user$project$Residents_List$list = function (residents) {
 							_1: {
 								ctor: '::',
 								_0: _user$project$Residents_List$listResident(residents),
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: _user$project$Residents_List$createResidentBtn,
+									_1: {ctor: '[]'}
+								}
 							}
 						}),
 					_1: {ctor: '[]'}
@@ -255,7 +334,7 @@ var _user$project$Residents_List$nav = A2(
 	_elm_lang$html$Html$div,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-bold'),
+		_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-info is-bold'),
 		_1: {ctor: '[]'}
 	},
 	{
@@ -278,7 +357,7 @@ var _user$project$Residents_List$nav = A2(
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('shelterAid'),
+						_0: _elm_lang$html$Html$text('shelter Aid'),
 						_1: {ctor: '[]'}
 					}),
 				_1: {
