@@ -19,7 +19,9 @@ yarn start
 
 ## TODO
 - [x]enable new residents
+- [x]improve navigation
 - [] remove residents
+- [] login page/home screen
 - [] implement inventory system
 - [] add some sick styles!!!
 - [] add about page

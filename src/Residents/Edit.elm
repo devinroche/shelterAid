@@ -17,7 +17,7 @@ view model =
 
 nav: Resident -> Html Msg
 nav resident  =
-  div [class "hero is-info"]
+  div [class "hero is-primary is-info"]
     [ div [ class "hero-body" ]
       [ div [class "container"]
         [ h1 [class "title is-2"][text "shelter Aid"]
@@ -27,12 +27,11 @@ nav resident  =
     , div [class "hero-foot"]
       [ div[class "tabs is-boxed"]
         [ div[class "container"]
-          [ a[class "", href residentsPath]
-                [i [][], text "Home"]
-            , a[class "", href createResidentPath]
-                [i [][], text "New Resident"]
-            , a[class ""]
-                [i [][], text "About"]
+          [ ul[]
+            [ li[class ""][a[href residentsPath][text "Home"]]
+            , li[class ""][a[href createResidentPath][text "New Resident"]]
+            , li[class ""][a[][text "About"]]
+            ]
           ]
         ]
       ]

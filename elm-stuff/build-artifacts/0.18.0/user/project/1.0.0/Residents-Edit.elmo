@@ -468,7 +468,7 @@ var _user$project$Residents_Edit$nav = function (resident) {
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('hero is-info'),
+			_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-info'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -552,57 +552,12 @@ var _user$project$Residents_Edit$nav = function (resident) {
 									{
 										ctor: '::',
 										_0: A2(
-											_elm_lang$html$Html$a,
-											{
-												ctor: '::',
-												_0: _elm_lang$html$Html_Attributes$class(''),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$residentsPath),
-													_1: {ctor: '[]'}
-												}
-											},
+											_elm_lang$html$Html$ul,
+											{ctor: '[]'},
 											{
 												ctor: '::',
 												_0: A2(
-													_elm_lang$html$Html$i,
-													{ctor: '[]'},
-													{ctor: '[]'}),
-												_1: {
-													ctor: '::',
-													_0: _elm_lang$html$Html$text('Home'),
-													_1: {ctor: '[]'}
-												}
-											}),
-										_1: {
-											ctor: '::',
-											_0: A2(
-												_elm_lang$html$Html$a,
-												{
-													ctor: '::',
-													_0: _elm_lang$html$Html_Attributes$class(''),
-													_1: {
-														ctor: '::',
-														_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$createResidentPath),
-														_1: {ctor: '[]'}
-													}
-												},
-												{
-													ctor: '::',
-													_0: A2(
-														_elm_lang$html$Html$i,
-														{ctor: '[]'},
-														{ctor: '[]'}),
-													_1: {
-														ctor: '::',
-														_0: _elm_lang$html$Html$text('New Resident'),
-														_1: {ctor: '[]'}
-													}
-												}),
-											_1: {
-												ctor: '::',
-												_0: A2(
-													_elm_lang$html$Html$a,
+													_elm_lang$html$Html$li,
 													{
 														ctor: '::',
 														_0: _elm_lang$html$Html_Attributes$class(''),
@@ -611,18 +566,70 @@ var _user$project$Residents_Edit$nav = function (resident) {
 													{
 														ctor: '::',
 														_0: A2(
-															_elm_lang$html$Html$i,
-															{ctor: '[]'},
-															{ctor: '[]'}),
-														_1: {
-															ctor: '::',
-															_0: _elm_lang$html$Html$text('About'),
-															_1: {ctor: '[]'}
-														}
+															_elm_lang$html$Html$a,
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$residentsPath),
+																_1: {ctor: '[]'}
+															},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text('Home'),
+																_1: {ctor: '[]'}
+															}),
+														_1: {ctor: '[]'}
 													}),
-												_1: {ctor: '[]'}
-											}
-										}
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$li,
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$class(''),
+															_1: {ctor: '[]'}
+														},
+														{
+															ctor: '::',
+															_0: A2(
+																_elm_lang$html$Html$a,
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$createResidentPath),
+																	_1: {ctor: '[]'}
+																},
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html$text('New Resident'),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {ctor: '[]'}
+														}),
+													_1: {
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$li,
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$class(''),
+																_1: {ctor: '[]'}
+															},
+															{
+																ctor: '::',
+																_0: A2(
+																	_elm_lang$html$Html$a,
+																	{ctor: '[]'},
+																	{
+																		ctor: '::',
+																		_0: _elm_lang$html$Html$text('About'),
+																		_1: {ctor: '[]'}
+																	}),
+																_1: {ctor: '[]'}
+															}),
+														_1: {ctor: '[]'}
+													}
+												}
+											}),
+										_1: {ctor: '[]'}
 									}),
 								_1: {ctor: '[]'}
 							}),
