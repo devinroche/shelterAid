@@ -18,7 +18,7 @@ yarn start
 ```
 
 ## TODO
-- [x]enable new residents
+- [ x ]enable new residents
 - [ ] remove residents
 - [ ] implement inventory system
 - [ ] add some sick styles!!!
