@@ -18,6 +18,7 @@ yarn start
 ```
 
 ## TODO
+<<<<<<< HEAD
 - [x]enable new residents
 - [x]improve navigation
 - [] remove residents
@@ -25,3 +26,10 @@ yarn start
 - [] implement inventory system
 - [] add some sick styles!!!
 - [] add about page
+=======
+* [x] enable new residents
+* [ ] remove residents
+* [ ] implement inventory system
+* [ ] add some sick styles!!!
+* [ ] add about page
+>>>>>>> f0609720f5991f0190a70601900d6b0f527d6aeb
