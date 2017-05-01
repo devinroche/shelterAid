@@ -18,6 +18,8 @@ yarn start
 ```
 
 ## TODO
-- enable new residents
-- remove residents
-- implement inventory system
+- [x]enable new residents
+- [] remove residents
+- [] implement inventory system
+- [] add some sick styles!!!
+- [] add about page
