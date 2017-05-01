@@ -5,7 +5,7 @@ import Html.Attributes exposing (class, href)
 import Messages exposing (Msg)
 import Models exposing (Resident, Model, latestId)
 import RemoteData exposing (WebData)
-import Routing exposing (residentPath, createResidentPath)
+import Routing exposing (residentPath, createResidentPath, residentsPath)
 import Residents.Create exposing (..)
 
 view : WebData (List Resident)-> Html Msg
@@ -14,13 +14,31 @@ view response =
       [ nav
       , maybeList response
       ]
-
 nav: Html Msg
 nav =
-  div [ class "hero is-primary is-info is-bold" ]
-    [ div [class "hero-body container"]
-      [ h1[class "title is-2"][text "shelter Aid"]
-      , h2[class "subtitle"] [text "Home"]
+  div [class "hero is-primary is-info"]
+    [ div [ class "hero-body" ]
+      [ div [class "container"]
+        [ h1 [class "title is-2"][text "shelter Aid"]
+        , h2 [class "subtitle"] [text "Edit Resident"]
+        ]
+      ]
+    , div [class "hero-foot"]
+      [ div[class "tabs is-boxed"]
+        [ div[class "container"]
+          [ ul[]
+            [ li[class "is-active"][a[href residentsPath][text "Home"]]
+            , li[class ""][a[href createResidentPath][text "New Resident"]]
+            , li[class ""][a[][text "About"]]
+            ]
+        --  a[class "button is-info is-inverted", href residentsPath]
+        --        [i [][], text "Home"]
+        --    , a[class "button is-info", href createResidentPath]
+        --        [i [][], text "New Resident"]
+        --    , a[class "button is-info"]
+        --        [i [][], text "About"]
+          ]
+        ]
       ]
     ]
 
@@ -28,10 +46,9 @@ list : List Resident -> Html Msg
 list residents =
   div [class ""]
   [ div [class "columns"]
-    [ div[class "column is-6"]
+    [ div[class "column is-8 is-offset-2"]
       [ div [class "has-text-centered subtitle "]
-        [text "Residents"
-        ]
+        [h3[][text "Residents"]]
         , listResident residents
         , createResidentBtn
       ]

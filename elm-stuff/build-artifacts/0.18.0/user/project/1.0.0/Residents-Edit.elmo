@@ -364,7 +364,7 @@ var _user$project$Residents_Edit$listButton = A2(
 	_elm_lang$html$Html$a,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('subtitle'),
+		_0: _elm_lang$html$Html_Attributes$class('subtitle button is-dark'),
 		_1: {
 			ctor: '::',
 			_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$residentsPath),
@@ -383,7 +383,7 @@ var _user$project$Residents_Edit$listButton = A2(
 			{ctor: '[]'}),
 		_1: {
 			ctor: '::',
-			_0: _elm_lang$html$Html$text('< Return Home'),
+			_0: _elm_lang$html$Html$text('Back'),
 			_1: {ctor: '[]'}
 		}
 	});
@@ -463,12 +463,12 @@ var _user$project$Residents_Edit$form = function (resident) {
 			}
 		});
 };
-var _user$project$Residents_Edit$nav = function (model) {
+var _user$project$Residents_Edit$nav = function (resident) {
 	return A2(
 		_elm_lang$html$Html$div,
 		{
 			ctor: '::',
-			_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-info is-bold'),
+			_0: _elm_lang$html$Html_Attributes$class('hero is-info'),
 			_1: {ctor: '[]'}
 		},
 		{
@@ -477,30 +477,159 @@ var _user$project$Residents_Edit$nav = function (model) {
 				_elm_lang$html$Html$div,
 				{
 					ctor: '::',
-					_0: _elm_lang$html$Html_Attributes$class('hero-body container'),
+					_0: _elm_lang$html$Html_Attributes$class('hero-body'),
 					_1: {ctor: '[]'}
 				},
 				{
 					ctor: '::',
 					_0: A2(
-						_elm_lang$html$Html$h1,
+						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('title'),
+							_0: _elm_lang$html$Html_Attributes$class('container'),
 							_1: {ctor: '[]'}
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Edit Resident'),
-							_1: {ctor: '[]'}
+							_0: A2(
+								_elm_lang$html$Html$h1,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('title is-2'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('shelter Aid'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$h2,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('subtitle'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html$text('Edit Resident'),
+										_1: {ctor: '[]'}
+									}),
+								_1: {ctor: '[]'}
+							}
 						}),
-					_1: {
-						ctor: '::',
-						_0: _user$project$Residents_Edit$listButton,
-						_1: {ctor: '[]'}
-					}
+					_1: {ctor: '[]'}
 				}),
-			_1: {ctor: '[]'}
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$div,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Attributes$class('hero-foot'),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('tabs is-boxed'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: A2(
+									_elm_lang$html$Html$div,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('container'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$a,
+											{
+												ctor: '::',
+												_0: _elm_lang$html$Html_Attributes$class(''),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$residentsPath),
+													_1: {ctor: '[]'}
+												}
+											},
+											{
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$i,
+													{ctor: '[]'},
+													{ctor: '[]'}),
+												_1: {
+													ctor: '::',
+													_0: _elm_lang$html$Html$text('Home'),
+													_1: {ctor: '[]'}
+												}
+											}),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$a,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$class(''),
+													_1: {
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$createResidentPath),
+														_1: {ctor: '[]'}
+													}
+												},
+												{
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$i,
+														{ctor: '[]'},
+														{ctor: '[]'}),
+													_1: {
+														ctor: '::',
+														_0: _elm_lang$html$Html$text('New Resident'),
+														_1: {ctor: '[]'}
+													}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$a,
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$class(''),
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$i,
+															{ctor: '[]'},
+															{ctor: '[]'}),
+														_1: {
+															ctor: '::',
+															_0: _elm_lang$html$Html$text('About'),
+															_1: {ctor: '[]'}
+														}
+													}),
+												_1: {ctor: '[]'}
+											}
+										}
+									}),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
 		});
 };
 var _user$project$Residents_Edit$view = function (model) {

@@ -5,7 +5,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
 import Messages exposing(Msg)
 import Models exposing(Resident)
-import Routing exposing (residentsPath)
+import Routing exposing (residentsPath, createResidentPath)
 
 --initialize view
 view : Resident -> Html.Html Msg
@@ -15,15 +15,28 @@ view model =
         , form model
         ]
 
---set up small naviagtion
-nav : Resident -> Html.Html Msg
-nav model =
-    div [ class "hero is-primary is-info is-bold" ]
-      [ div [class "hero-body container"]
-        [ h1 [class "title"] [text "Edit Resident"]
-        , listButton
+nav: Resident -> Html Msg
+nav resident  =
+  div [class "hero is-info"]
+    [ div [ class "hero-body" ]
+      [ div [class "container"]
+        [ h1 [class "title is-2"][text "shelter Aid"]
+        , h2 [class "subtitle"] [text "Edit Resident"]
         ]
       ]
+    , div [class "hero-foot"]
+      [ div[class "tabs is-boxed"]
+        [ div[class "container"]
+          [ a[class "", href residentsPath]
+                [i [][], text "Home"]
+            , a[class "", href createResidentPath]
+                [i [][], text "New Resident"]
+            , a[class ""]
+                [i [][], text "About"]
+          ]
+        ]
+      ]
+    ]
 
 --body "container"
 form : Resident -> Html Msg
@@ -50,8 +63,8 @@ formName resident =
 --Return to home button
 listButton : Html Msg
 listButton =
-      a [ class "subtitle", href residentsPath]
-        [ i [ class "" ] [], text "< Return Home" ]
+      a [ class "subtitle button is-dark", href residentsPath]
+        [ i [ class "" ] [], text "Back" ]
 
 --User information table
 userInformation : Resident -> Html Msg

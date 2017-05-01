@@ -284,7 +284,7 @@ var _user$project$Residents_List$list = function (residents) {
 						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('column is-6'),
+							_0: _elm_lang$html$Html_Attributes$class('column is-8 is-offset-2'),
 							_1: {ctor: '[]'}
 						},
 						{
@@ -298,7 +298,14 @@ var _user$project$Residents_List$list = function (residents) {
 								},
 								{
 									ctor: '::',
-									_0: _elm_lang$html$Html$text('Residents'),
+									_0: A2(
+										_elm_lang$html$Html$h3,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html$text('Residents'),
+											_1: {ctor: '[]'}
+										}),
 									_1: {ctor: '[]'}
 								}),
 							_1: {
@@ -334,7 +341,7 @@ var _user$project$Residents_List$nav = A2(
 	_elm_lang$html$Html$div,
 	{
 		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-info is-bold'),
+		_0: _elm_lang$html$Html_Attributes$class('hero is-primary is-info'),
 		_1: {ctor: '[]'}
 	},
 	{
@@ -343,41 +350,166 @@ var _user$project$Residents_List$nav = A2(
 			_elm_lang$html$Html$div,
 			{
 				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class('hero-body container'),
+				_0: _elm_lang$html$Html_Attributes$class('hero-body'),
 				_1: {ctor: '[]'}
 			},
 			{
 				ctor: '::',
 				_0: A2(
-					_elm_lang$html$Html$h1,
+					_elm_lang$html$Html$div,
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html_Attributes$class('title is-2'),
+						_0: _elm_lang$html$Html_Attributes$class('container'),
 						_1: {ctor: '[]'}
 					},
 					{
 						ctor: '::',
-						_0: _elm_lang$html$Html$text('shelter Aid'),
-						_1: {ctor: '[]'}
+						_0: A2(
+							_elm_lang$html$Html$h1,
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html_Attributes$class('title is-2'),
+								_1: {ctor: '[]'}
+							},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text('shelter Aid'),
+								_1: {ctor: '[]'}
+							}),
+						_1: {
+							ctor: '::',
+							_0: A2(
+								_elm_lang$html$Html$h2,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('subtitle'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html$text('Edit Resident'),
+									_1: {ctor: '[]'}
+								}),
+							_1: {ctor: '[]'}
+						}
 					}),
-				_1: {
+				_1: {ctor: '[]'}
+			}),
+		_1: {
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class('hero-foot'),
+					_1: {ctor: '[]'}
+				},
+				{
 					ctor: '::',
 					_0: A2(
-						_elm_lang$html$Html$h2,
+						_elm_lang$html$Html$div,
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html_Attributes$class('subtitle'),
+							_0: _elm_lang$html$Html_Attributes$class('tabs is-boxed'),
 							_1: {ctor: '[]'}
 						},
 						{
 							ctor: '::',
-							_0: _elm_lang$html$Html$text('Home'),
+							_0: A2(
+								_elm_lang$html$Html$div,
+								{
+									ctor: '::',
+									_0: _elm_lang$html$Html_Attributes$class('container'),
+									_1: {ctor: '[]'}
+								},
+								{
+									ctor: '::',
+									_0: A2(
+										_elm_lang$html$Html$ul,
+										{ctor: '[]'},
+										{
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$li,
+												{
+													ctor: '::',
+													_0: _elm_lang$html$Html_Attributes$class('is-active'),
+													_1: {ctor: '[]'}
+												},
+												{
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$a,
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$residentsPath),
+															_1: {ctor: '[]'}
+														},
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html$text('Home'),
+															_1: {ctor: '[]'}
+														}),
+													_1: {ctor: '[]'}
+												}),
+											_1: {
+												ctor: '::',
+												_0: A2(
+													_elm_lang$html$Html$li,
+													{
+														ctor: '::',
+														_0: _elm_lang$html$Html_Attributes$class(''),
+														_1: {ctor: '[]'}
+													},
+													{
+														ctor: '::',
+														_0: A2(
+															_elm_lang$html$Html$a,
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$createResidentPath),
+																_1: {ctor: '[]'}
+															},
+															{
+																ctor: '::',
+																_0: _elm_lang$html$Html$text('New Resident'),
+																_1: {ctor: '[]'}
+															}),
+														_1: {ctor: '[]'}
+													}),
+												_1: {
+													ctor: '::',
+													_0: A2(
+														_elm_lang$html$Html$li,
+														{
+															ctor: '::',
+															_0: _elm_lang$html$Html_Attributes$class(''),
+															_1: {ctor: '[]'}
+														},
+														{
+															ctor: '::',
+															_0: A2(
+																_elm_lang$html$Html$a,
+																{ctor: '[]'},
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html$text('About'),
+																	_1: {ctor: '[]'}
+																}),
+															_1: {ctor: '[]'}
+														}),
+													_1: {ctor: '[]'}
+												}
+											}
+										}),
+									_1: {ctor: '[]'}
+								}),
 							_1: {ctor: '[]'}
 						}),
 					_1: {ctor: '[]'}
-				}
-			}),
-		_1: {ctor: '[]'}
+				}),
+			_1: {ctor: '[]'}
+		}
 	});
 var _user$project$Residents_List$view = function (response) {
 	return A2(
