@@ -21,8 +21,18 @@ yarn start
 
 * [x] enable new residents
 * [x] improve navigation
-* [ ] remove residents
+* [x] remove residents (buggy)
 * [ ] login page/home screen
-* [ ] implement inventory system
 * [ ] add some sick styles!!!
 * [ ] add about page
+
+## Bugs
+- removing last resident from list then adding a new one causes a bad payload.
+- ID generator is actually just a bug in sending data to server.
+
+## Future Extensions
+- Verify changes to user (i.e. dob is actually a dob, Age is a number etc etc)
+- Inventory System, track which resident is gifted each donation
+- Allow user to upload profile images for each person.
+
+![Stevie](http://cdn4.thr.com/sites/default/files/2014/11/steve_buscemi.jpg "Saving Lives since 1959")

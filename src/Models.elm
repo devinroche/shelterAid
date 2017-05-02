@@ -15,9 +15,9 @@ initialModel route =
   , route = route
   }
 
-latestId : List Resident -> String
-latestId residents =
-    (toString ((List.length residents) + 100))
+listLen : List Resident -> String
+listLen residents =
+    (toString (List.length residents))
 
 type alias ResidentID =
   String

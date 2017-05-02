@@ -92,7 +92,7 @@ update msg model =
       ( model, deleteResidentCmd resident)
 
     Messages.OnResidentDeleted (Ok resident) ->
-      (rmFromResidents model resident, Cmd.none )
+      (rmFromResidents model resident, reload )
 
     Messages.OnResidentDeleted (Err error) ->
       ( model, reload)
@@ -151,8 +151,9 @@ rmFromResidents model rmResident =
 
       updatedResidents =
         RemoteData.map updateResidentList model.residents
+
     in
-      { model | residents = updatedResidents }
+      {model | residents=updatedResidents}
 
 isNotResident: Resident -> Resident -> Bool
 isNotResident resident r =

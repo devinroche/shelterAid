@@ -4,7 +4,7 @@ import Html exposing(..)
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
 import Messages exposing(Msg)
-import Models exposing(Resident, latestId, Model)
+import Models exposing(Resident, Model)
 import Routing exposing (residentsPath, createResidentPath)
 
 --initialize view

@@ -1,10 +1,10 @@
 {
   "residents": [
     {
-      "name": "steve",
-      "dob": "1121",
-      "age": "11212",
-      "id": "r1ZPlVIJW",
+      "name": "Steve",
+      "dob": "01/20/1959",
+      "age": "67",
+      "id": "dsafadf",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg",
       "tmpName": "",
       "tmpDob": "",

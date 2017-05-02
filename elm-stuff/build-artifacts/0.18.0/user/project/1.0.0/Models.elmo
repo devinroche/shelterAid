@@ -1,6 +1,6 @@
-var _user$project$Models$latestId = function (residents) {
+var _user$project$Models$listLen = function (residents) {
 	return _elm_lang$core$Basics$toString(
-		_elm_lang$core$List$length(residents) + 100);
+		_elm_lang$core$List$length(residents));
 };
 var _user$project$Models$Model = F3(
 	function (a, b, c) {
