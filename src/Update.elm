@@ -2,8 +2,9 @@ module Update exposing (..)
 
 import Messages exposing(Msg)
 import Models exposing(Model, Resident)
+import Navigation exposing (reload)
 import Routing exposing(parseLocation)
-import Commands exposing (saveResidentCmd, newResidentCmd)
+import Commands exposing (saveResidentCmd, newResidentCmd, deleteResidentCmd)
 import RemoteData
 
 update: Msg -> Model -> (Model, Cmd Msg)
@@ -36,21 +37,21 @@ update msg model =
 
     Messages.NewResidentName name ->
       let newRes =
-        Resident name model.newResident.age model.newResident.dob "" "" "" ""
+        Resident name model.newResident.age model.newResident.dob "" "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg" "" "" ""
 
       in
         ( { model | newResident = newRes }, Cmd.none )
 
     Messages.NewResidentAge age ->
       let newRes =
-        Resident model.newResident.name age model.newResident.dob "" "" "" ""
+        Resident model.newResident.name age model.newResident.dob "" "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg" "" "" ""
 
       in
         ( { model | newResident = newRes }, Cmd.none )
 
     Messages.NewResidentDob dob ->
       let newRes =
-        Resident model.newResident.name model.newResident.age dob "" "" "" ""
+        Resident model.newResident.name model.newResident.age dob "" "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg" "" "" ""
 
       in
         ( { model | newResident = newRes }, Cmd.none )
@@ -83,13 +84,18 @@ update msg model =
     --Submits Changes made to name/age/and dob change to resident.
     Messages.SubmitEdit resident ->
       let submitedAgeResident =
-        {resident
-        | age = resident.tmpAge
-        , name = resident.tmpName
-        , dob = resident.tmpDob
-        }
+        {resident | age = resident.tmpAge, name = resident.tmpName, dob = resident.tmpDob}
 
       in (model, saveResidentCmd submitedAgeResident)
+
+    Messages.DeleteResident resident ->
+      ( model, deleteResidentCmd resident)
+
+    Messages.OnResidentDeleted (Ok resident) ->
+      (rmFromResidents model resident, Cmd.none )
+
+    Messages.OnResidentDeleted (Err error) ->
+      ( model, reload)
 
 --Sends changes to resident with matching ID
 updateResident : Model -> Resident -> Model
@@ -129,3 +135,25 @@ addToResidents model newResident =
 
   in
     {model | residents = updatedResidents }
+
+rmFromResidents : Model -> Resident -> Model
+rmFromResidents model rmResident =
+    let
+      pick currentResident =
+        if rmResident.id == currentResident.id then
+          rmResident
+        else
+          currentResident
+
+      updateResidentList residents =
+        (List.map pick residents)
+        |> List.filter(isNotResident rmResident)
+
+      updatedResidents =
+        RemoteData.map updateResidentList model.residents
+    in
+      { model | residents = updatedResidents }
+
+isNotResident: Resident -> Resident -> Bool
+isNotResident resident r =
+  resident.id == r.id

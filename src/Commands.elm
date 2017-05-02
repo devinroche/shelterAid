@@ -5,6 +5,7 @@ import Json.Decode as Decode
 import Json.Encode as Encode
 import Json.Decode.Pipeline exposing (decode, required)
 import Messages exposing (Msg)
+import Navigation
 import Models exposing (ResidentID, Resident)
 import RemoteData
 
@@ -50,6 +51,7 @@ residentEncoder resident =
       , ( "dob", Encode.string resident.dob )
       , ( "age", Encode.string resident.age)
       , ( "id", Encode.string resident.id )
+      , ( "img", Encode.string resident.img)
       , ( "tmpName", Encode.string resident.tmpName )
       , ( "tmpDob", Encode.string resident.tmpDob )
       , ( "tmpAge", Encode.string resident.tmpAge )
@@ -70,6 +72,7 @@ residentDecoder =
     |> required "dob" Decode.string
     |> required "age" Decode.string
     |> required "id" Decode.string
+    |> required "img" Decode.string
     |> required "tmpName" Decode.string
     |> required "tmpDob" Decode.string
     |> required "tmpAge" Decode.string
@@ -91,7 +94,23 @@ newResidentCmd : Resident -> Cmd Msg
 newResidentCmd resident =
     newResidentRequest resident
         |> Http.send Messages.OnResidentCreated
+
 --Delete Resident
---delete: Resident -> Cmd Msg
---delete resident =
+deleteResidentRequest: Resident -> Http.Request Resident
+deleteResidentRequest resident =
+  Http.request
+    { body = residentEncoder resident |> Http.jsonBody
+    , expect = Http.expectJson residentDecoder
+    , headers = []
+    , method = "DELETE"
+    , timeout = Nothing
+    , url = saveResidentUrl resident.id
+    , withCredentials = False
+    }
+
+deleteResidentCmd: Resident -> Cmd Msg
+deleteResidentCmd resident =
+  deleteResidentRequest resident
+    |> Http.send Messages.OnResidentDeleted
+
 --  Task.attempt DeleteDone <| Utils.delete resident (singleUrl resident.id)

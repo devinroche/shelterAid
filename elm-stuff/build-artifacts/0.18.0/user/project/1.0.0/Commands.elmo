@@ -12,21 +12,25 @@ var _user$project$Commands$residentDecoder = A3(
 			_elm_lang$core$Json_Decode$string,
 			A3(
 				_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-				'id',
+				'img',
 				_elm_lang$core$Json_Decode$string,
 				A3(
 					_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-					'age',
+					'id',
 					_elm_lang$core$Json_Decode$string,
 					A3(
 						_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-						'dob',
+						'age',
 						_elm_lang$core$Json_Decode$string,
 						A3(
 							_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
-							'name',
+							'dob',
 							_elm_lang$core$Json_Decode$string,
-							_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Resident))))))));
+							A3(
+								_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$required,
+								'name',
+								_elm_lang$core$Json_Decode$string,
+								_NoRedInk$elm_decode_pipeline$Json_Decode_Pipeline$decode(_user$project$Models$Resident)))))))));
 var _user$project$Commands$residentsDecoder = _elm_lang$core$Json_Decode$list(_user$project$Commands$residentDecoder);
 var _user$project$Commands$residentEncoder = function (resident) {
 	var attributes = {
@@ -61,24 +65,32 @@ var _user$project$Commands$residentEncoder = function (resident) {
 						ctor: '::',
 						_0: {
 							ctor: '_Tuple2',
-							_0: 'tmpName',
-							_1: _elm_lang$core$Json_Encode$string(resident.tmpName)
+							_0: 'img',
+							_1: _elm_lang$core$Json_Encode$string(resident.img)
 						},
 						_1: {
 							ctor: '::',
 							_0: {
 								ctor: '_Tuple2',
-								_0: 'tmpDob',
-								_1: _elm_lang$core$Json_Encode$string(resident.tmpDob)
+								_0: 'tmpName',
+								_1: _elm_lang$core$Json_Encode$string(resident.tmpName)
 							},
 							_1: {
 								ctor: '::',
 								_0: {
 									ctor: '_Tuple2',
-									_0: 'tmpAge',
-									_1: _elm_lang$core$Json_Encode$string(resident.tmpAge)
+									_0: 'tmpDob',
+									_1: _elm_lang$core$Json_Encode$string(resident.tmpDob)
 								},
-								_1: {ctor: '[]'}
+								_1: {
+									ctor: '::',
+									_0: {
+										ctor: '_Tuple2',
+										_0: 'tmpAge',
+										_1: _elm_lang$core$Json_Encode$string(resident.tmpAge)
+									},
+									_1: {ctor: '[]'}
+								}
 							}
 						}
 					}
@@ -109,6 +121,25 @@ var _user$project$Commands$saveResidentCmd = function (resident) {
 		_elm_lang$http$Http$send,
 		_user$project$Messages$OnResidentSave,
 		_user$project$Commands$saveResidentRequest(resident));
+};
+var _user$project$Commands$deleteResidentRequest = function (resident) {
+	return _elm_lang$http$Http$request(
+		{
+			body: _elm_lang$http$Http$jsonBody(
+				_user$project$Commands$residentEncoder(resident)),
+			expect: _elm_lang$http$Http$expectJson(_user$project$Commands$residentDecoder),
+			headers: {ctor: '[]'},
+			method: 'DELETE',
+			timeout: _elm_lang$core$Maybe$Nothing,
+			url: _user$project$Commands$saveResidentUrl(resident.id),
+			withCredentials: false
+		});
+};
+var _user$project$Commands$deleteResidentCmd = function (resident) {
+	return A2(
+		_elm_lang$http$Http$send,
+		_user$project$Messages$OnResidentDeleted,
+		_user$project$Commands$deleteResidentRequest(resident));
 };
 var _user$project$Commands$fetchResidentsUrl = 'http://localhost:4000/residents';
 var _user$project$Commands$newResidentRequest = function (resident) {

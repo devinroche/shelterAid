@@ -6,14 +6,14 @@ var _user$project$Models$Model = F3(
 	function (a, b, c) {
 		return {residents: a, route: b, newResident: c};
 	});
-var _user$project$Models$Resident = F7(
-	function (a, b, c, d, e, f, g) {
-		return {name: a, dob: b, age: c, id: d, tmpName: e, tmpDob: f, tmpAge: g};
+var _user$project$Models$Resident = F8(
+	function (a, b, c, d, e, f, g, h) {
+		return {name: a, dob: b, age: c, id: d, img: e, tmpName: f, tmpDob: g, tmpAge: h};
 	});
 var _user$project$Models$initialModel = function (route) {
 	return {
 		residents: _krisajenkins$remotedata$RemoteData$Loading,
-		newResident: A7(_user$project$Models$Resident, '', '', '', '', '', '', ''),
+		newResident: A8(_user$project$Models$Resident, '', '', '', '', '', '', '', ''),
 		route: route
 	};
 };

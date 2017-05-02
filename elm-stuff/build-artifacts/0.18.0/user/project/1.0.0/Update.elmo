@@ -1,3 +1,23 @@
+var _user$project$Update$isNotResident = F2(
+	function (resident, r) {
+		return _elm_lang$core$Native_Utils.eq(resident.id, r.id);
+	});
+var _user$project$Update$rmFromResidents = F2(
+	function (model, rmResident) {
+		var pick = function (currentResident) {
+			return _elm_lang$core$Native_Utils.eq(rmResident.id, currentResident.id) ? rmResident : currentResident;
+		};
+		var updateResidentList = function (residents) {
+			return A2(
+				_elm_lang$core$List$filter,
+				_user$project$Update$isNotResident(rmResident),
+				A2(_elm_lang$core$List$map, pick, residents));
+		};
+		var updatedResidents = A2(_krisajenkins$remotedata$RemoteData$map, updateResidentList, model.residents);
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{residents: updatedResidents});
+	});
 var _user$project$Update$addToResidents = F2(
 	function (model, newResident) {
 		var pick = function (currentResident) {
@@ -73,7 +93,7 @@ var _user$project$Update$update = F2(
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
 			case 'NewResidentName':
-				var newRes = A7(_user$project$Models$Resident, _p0._0, model.newResident.age, model.newResident.dob, '', '', '', '');
+				var newRes = A8(_user$project$Models$Resident, _p0._0, model.newResident.age, model.newResident.dob, '', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg', '', '', '');
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -82,7 +102,7 @@ var _user$project$Update$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'NewResidentAge':
-				var newRes = A7(_user$project$Models$Resident, model.newResident.name, _p0._0, model.newResident.dob, '', '', '', '');
+				var newRes = A8(_user$project$Models$Resident, model.newResident.name, _p0._0, model.newResident.dob, '', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg', '', '', '');
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -91,7 +111,7 @@ var _user$project$Update$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'NewResidentDob':
-				var newRes = A7(_user$project$Models$Resident, model.newResident.name, model.newResident.age, _p0._0, '', '', '', '');
+				var newRes = A8(_user$project$Models$Resident, model.newResident.name, model.newResident.age, _p0._0, '', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg', '', '', '');
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -135,7 +155,7 @@ var _user$project$Update$update = F2(
 					_0: model,
 					_1: _user$project$Commands$saveResidentCmd(dobChanged)
 				};
-			default:
+			case 'SubmitEdit':
 				var _p2 = _p0._0;
 				var submitedAgeResident = _elm_lang$core$Native_Utils.update(
 					_p2,
@@ -145,5 +165,21 @@ var _user$project$Update$update = F2(
 					_0: model,
 					_1: _user$project$Commands$saveResidentCmd(submitedAgeResident)
 				};
+			case 'DeleteResident':
+				return {
+					ctor: '_Tuple2',
+					_0: model,
+					_1: _user$project$Commands$deleteResidentCmd(_p0._0)
+				};
+			default:
+				if (_p0._0.ctor === 'Ok') {
+					return {
+						ctor: '_Tuple2',
+						_0: A2(_user$project$Update$rmFromResidents, model, _p0._0._0),
+						_1: _elm_lang$core$Platform_Cmd$none
+					};
+				} else {
+					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$navigation$Navigation$reload};
+				}
 		}
 	});

@@ -31,33 +31,12 @@ nav resident  =
             [ li[class ""][a[href residentsPath][text "Home"]]
             , li[class ""][a[href createResidentPath][text "New Resident"]]
             , li[class ""][a[][text "About"]]
+            , li[class "is-active"][a[][text "Edit"]]
             ]
           ]
         ]
       ]
     ]
-
---body "container"
-form : Resident -> Html Msg
-form resident =
-    div [ class "box" ]
-        [ h1 [class "title has-text-centered"] [text resident.name]
-        , formName resident
-        ]
-
---set up body
-formName : Resident -> Html Msg
-formName resident =
-  div []
-  [ div[ class "columns"]
-    [ div [ class "column is-3 is-offset-3" ]
-      [ userInformation resident
-      ]
-    , div [ class "column is-3 is-offset-1" ]
-      [ editInfoContainer resident
-      ]
-    ]
-  ]
 
 --Return to home button
 listButton : Html Msg
@@ -65,25 +44,50 @@ listButton =
       a [ class "subtitle button is-dark", href residentsPath]
         [ i [ class "" ] [], text "Back" ]
 
---User information table
-userInformation : Resident -> Html Msg
-userInformation resident =
-  div [class "card"]
-  [ table [class "table is-striped"]
-    [ tr[class "subtitle"]
-      [ td [] [text "Age: "]
-      , td[] [ label [class ""] [ text resident.age ]]
+--body "container"
+form : Resident -> Html Msg
+form resident =
+    div [ class "box" ]
+        [ formName resident ]
+
+--set up body
+formName : Resident -> Html Msg
+formName resident =
+  div []
+  [ div[ class "columns"]
+    [ div [ class "column is-6 is-offset-1" ]
+      [ userInformation resident
       ]
-    , tr[class "subtitle"]
-      [ td [] [text "Date of Birth: "]
-      , td[] [ label [class ""] [ text resident.dob ]]
-      ]
-    , tr[class "subtitle"]
-      [ td [] [text "ID: "]
-      , td[] [ label [class ""] [ text resident.id ]]
+    , div [ class "column is-4 is-offset-1" ]
+      [ editInfoContainer resident
       ]
     ]
   ]
+
+--User information table
+userInformation : Resident -> Html Msg
+userInformation resident =
+  div[class "media"]
+  [ div[class "media-left"]
+    [ div[class "image"]
+      [ p [class "image"]
+        [ img[imgStyle,src (resident.img)][] ]
+      ]
+    ]
+  , div[class "media-content"]
+    [ div [class "content"]
+      [ p[titleStyle][text resident.name]
+      , hr[hrStyle][]
+      , p[subtitleStyle][text ("Age: " ++ resident.age)]
+      , hr[hrStyle][]
+      , p[subtitleStyle][text ("Date of Birth: " ++ resident.dob)]
+      , hr[hrStyle][]
+      , p[subtitleStyle][text ("ID: " ++ resident.id)]
+      , hr[hrStyle][]
+      ]
+    ]
+  ]
+
 
 
 --Edit information container
@@ -96,21 +100,53 @@ editInfoContainer resident =
     submitEdit = Messages.SubmitEdit resident
 
   in
-    div [class "card"]
-    [ div [class "card-header"]
-      [label [class "card-header-title"][text "Edit "]]
-    , div [class "card-content"]
-      [ div [class "content"]
-        [ div [class "field"]
-          [ input [ class "input is-medium", type_ "name", placeholder resident.name, onInput nameChange ] [] ]
-        , div [class "field"]
-          [ input [ class "input is-medium", type_ "age", placeholder resident.age, onInput ageChange ] [] ]
-        , div [class "field"]
-          [ input [ class "input is-medium", type_ "dob", placeholder resident.dob, onInput dobChange ] [] ]
+    div [class "box"]
+    [ div [class ""]
+      [ div [class "field"]
+        [ input [ class "input is-medium", type_ "name", placeholder "Name", onInput nameChange ] [] ]
+      , div [class "field"]
+        [ input [ class "input is-medium", type_ "age", placeholder "Age", onInput ageChange ] [] ]
+      , div [class "field"]
+        [ input [ class "input is-medium", type_ "dob", placeholder "Date of Birth", onInput dobChange ] [] ]
+
+      , div [class "field"]
+        [ div [class "control"]
+          [ a [ class "button is-medium is-success",  onClick (submitEdit)] [text "Submit Changes"]]
         ]
       ]
-    , div [class "card-footer"]
-      [ a [ class "card-footer-item"][text "Clear" ]
-      , a [ class "card-footer-item",  onClick (submitEdit)] [text "Submit"]
-      ]
+    ]
+
+
+--STYLES FOR ABOVE
+imgStyle: Attribute Msg
+imgStyle =
+  style
+    [ ("height", "256px"), ("width", "auto")]
+
+hrStyle: Attribute Msg
+hrStyle =
+  style
+    [ ("padding-top", "0")
+    , ("margin-top", "0")
+    ]
+
+titleStyle: Attribute Msg
+titleStyle =
+  style
+    [ ("color", "#363636")
+    , ("font-size", "2rem")
+    , ("font-weight", "300")
+    , ("line-height", "1.125")
+    , ("margin-bottom", "10px")
+    ]
+
+subtitleStyle: Attribute Msg
+subtitleStyle =
+  style
+    [ ("color", "#4a4a4a")
+    , ("font-size", "1.25rem")
+    , ("font-weight",  "300")
+    , ("line-height", "1.25")
+    , ("margin-bottom", "10px")
+    , ("margin-top", "25px")
     ]

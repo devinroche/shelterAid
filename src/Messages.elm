@@ -14,7 +14,9 @@ type Msg
   | SubmitEdit Resident
   | NewResidentName String
   | NewResidentAge String
-  | NewResidentDob String 
+  | NewResidentDob String
   | SaveNewResident Resident
+  | DeleteResident Resident
+  | OnResidentDeleted (Result Http.Error Resident)
   | OnResidentSave (Result Http.Error Resident)
   | OnResidentCreated (Result Http.Error Resident)

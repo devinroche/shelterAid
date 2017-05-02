@@ -11,7 +11,7 @@ type alias Model =
 initialModel: Route -> Model
 initialModel route =
   { residents = RemoteData.Loading
-  , newResident = Resident "" "" "" "" "" "" ""
+  , newResident = Resident "" "" "" "" "" "" "" ""
   , route = route
   }
 
@@ -27,6 +27,7 @@ type alias Resident =
   , dob : String
   , age : String
   , id: ResidentID
+  , img: String
   , tmpName : String
   , tmpDob : String
   , tmpAge : String

@@ -4,6 +4,12 @@ var _user$project$Messages$OnResidentCreated = function (a) {
 var _user$project$Messages$OnResidentSave = function (a) {
 	return {ctor: 'OnResidentSave', _0: a};
 };
+var _user$project$Messages$OnResidentDeleted = function (a) {
+	return {ctor: 'OnResidentDeleted', _0: a};
+};
+var _user$project$Messages$DeleteResident = function (a) {
+	return {ctor: 'DeleteResident', _0: a};
+};
 var _user$project$Messages$SaveNewResident = function (a) {
 	return {ctor: 'SaveNewResident', _0: a};
 };

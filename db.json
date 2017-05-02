@@ -1,28 +1,11 @@
 {
   "residents": [
     {
-      "name": "poop",
-      "dob": "01291996",
-      "age": "21",
-      "id": "100",
-      "tmpName": "",
-      "tmpDob": "",
-      "tmpAge": ""
-    },
-    {
-      "name": "poop123",
-      "dob": "12321",
-      "age": "123213",
-      "id": "Sk7gVeVkb",
-      "tmpName": "",
-      "tmpDob": "",
-      "tmpAge": ""
-    },
-    {
-      "name": "devin",
-      "dob": "121",
-      "age": "1212",
-      "id": "HyR9CzVyb",
+      "name": "steve",
+      "dob": "1121",
+      "age": "11212",
+      "id": "r1ZPlVIJW",
+      "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg",
       "tmpName": "",
       "tmpDob": "",
       "tmpAge": ""

@@ -1,12 +1,13 @@
 module Residents.List exposing (..)
 
 import Html exposing (..)
-import Html.Attributes exposing (class, href)
+import Html.Attributes exposing (..)
 import Messages exposing (Msg)
+import Navigation exposing (reload)
 import Models exposing (Resident, Model, latestId)
 import RemoteData exposing (WebData)
+import Html.Events exposing (onClick)
 import Routing exposing (residentPath, createResidentPath, residentsPath)
-import Residents.Create exposing (..)
 
 view : WebData (List Resident)-> Html Msg
 view response =
@@ -31,12 +32,6 @@ nav =
             , li[class ""][a[href createResidentPath][text "New Resident"]]
             , li[class ""][a[][text "About"]]
             ]
-        --  a[class "button is-info is-inverted", href residentsPath]
-        --        [i [][], text "Home"]
-        --    , a[class "button is-info", href createResidentPath]
-        --        [i [][], text "New Resident"]
-        --    , a[class "button is-info"]
-        --        [i [][], text "About"]
           ]
         ]
       ]
@@ -48,9 +43,12 @@ list residents =
   [ div [class "columns"]
     [ div[class "column is-8 is-offset-2"]
       [ div [class "has-text-centered subtitle "]
-        [h3[][text "Residents"]]
-        , listResident residents
-        , createResidentBtn
+        [ h2[class "title"][text "Residents"], hr[][]]
+        , div[class "box"]
+          [ listResident residents
+          , hr[][]
+          , createResidentBtn
+          ]
       ]
     ]
   ]
@@ -81,7 +79,7 @@ residentRow resident =
       , td [] [ text resident.age ]
       , td [] [ text resident.id]
       , td[] [editResidentBtn resident]
-      , td[] [deleteResidentBtn]
+      , td[] [deleteResidentBtn resident]
       ]
 
 --Check if we can get data from server, if yes then list residents
@@ -111,10 +109,14 @@ editResidentBtn resident=
       [ i [class ""] [] , text "Edit"]
 
 --delete resident BUTTon
-deleteResidentBtn: Html Msg
-deleteResidentBtn =
-  a [ class "button is-outlined is-danger"]
-    [ i [class ""] [] , text "Delete" ]
+deleteResidentBtn: Resident -> Html Msg
+deleteResidentBtn resident=
+  let
+    deleteMessage = Messages.DeleteResident resident
+  in
+    a [ class "button is-outlined is-danger", onClick deleteMessage ]
+      [ i [class ""] [] , text "Delete" ]
+
 
 --Add new resident button
 createResidentBtn: Html Msg
@@ -125,3 +127,10 @@ createResidentBtn  =
   in
     a [ class "button is-success regular", href createpath]
       [ i [class ""] [] , text "Add Resident" ]
+
+btnStyle: Attribute Msg
+btnStyle =
+  style
+    [
+
+    ]

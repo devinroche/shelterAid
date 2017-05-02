@@ -7,7 +7,7 @@ Screenshots will be here in a few days (4.29)
 ## Features
 - Written using Elm, a completely functional language
 - Connects to a json database (express.js)
-- Made for free for the community
+- Made for free for the community homeless shelter
 
 ## Running
 ```

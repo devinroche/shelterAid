@@ -1,3 +1,5 @@
+var _user$project$Residents_List$btnStyle = _elm_lang$html$Html_Attributes$style(
+	{ctor: '[]'});
 var _user$project$Residents_List$createResidentBtn = function () {
 	var createpath = _user$project$Routing$createResidentPath;
 	return A2(
@@ -28,29 +30,36 @@ var _user$project$Residents_List$createResidentBtn = function () {
 			}
 		});
 }();
-var _user$project$Residents_List$deleteResidentBtn = A2(
-	_elm_lang$html$Html$a,
-	{
-		ctor: '::',
-		_0: _elm_lang$html$Html_Attributes$class('button is-outlined is-danger'),
-		_1: {ctor: '[]'}
-	},
-	{
-		ctor: '::',
-		_0: A2(
-			_elm_lang$html$Html$i,
-			{
-				ctor: '::',
-				_0: _elm_lang$html$Html_Attributes$class(''),
-				_1: {ctor: '[]'}
-			},
-			{ctor: '[]'}),
-		_1: {
+var _user$project$Residents_List$deleteResidentBtn = function (resident) {
+	var deleteMessage = _user$project$Messages$DeleteResident(resident);
+	return A2(
+		_elm_lang$html$Html$a,
+		{
 			ctor: '::',
-			_0: _elm_lang$html$Html$text('Delete'),
-			_1: {ctor: '[]'}
-		}
-	});
+			_0: _elm_lang$html$Html_Attributes$class('button is-outlined is-danger'),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html_Events$onClick(deleteMessage),
+				_1: {ctor: '[]'}
+			}
+		},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$i,
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html_Attributes$class(''),
+					_1: {ctor: '[]'}
+				},
+				{ctor: '[]'}),
+			_1: {
+				ctor: '::',
+				_0: _elm_lang$html$Html$text('Delete'),
+				_1: {ctor: '[]'}
+			}
+		});
+};
 var _user$project$Residents_List$editResidentBtn = function (resident) {
 	var editpath = _user$project$Routing$residentPath(resident.id);
 	return A2(
@@ -142,7 +151,7 @@ var _user$project$Residents_List$residentRow = function (resident) {
 									{ctor: '[]'},
 									{
 										ctor: '::',
-										_0: _user$project$Residents_List$deleteResidentBtn,
+										_0: _user$project$Residents_List$deleteResidentBtn(resident),
 										_1: {ctor: '[]'}
 									}),
 								_1: {ctor: '[]'}
@@ -299,23 +308,52 @@ var _user$project$Residents_List$list = function (residents) {
 								{
 									ctor: '::',
 									_0: A2(
-										_elm_lang$html$Html$h3,
-										{ctor: '[]'},
+										_elm_lang$html$Html$h2,
+										{
+											ctor: '::',
+											_0: _elm_lang$html$Html_Attributes$class('title'),
+											_1: {ctor: '[]'}
+										},
 										{
 											ctor: '::',
 											_0: _elm_lang$html$Html$text('Residents'),
 											_1: {ctor: '[]'}
 										}),
-									_1: {ctor: '[]'}
+									_1: {
+										ctor: '::',
+										_0: A2(
+											_elm_lang$html$Html$hr,
+											{ctor: '[]'},
+											{ctor: '[]'}),
+										_1: {ctor: '[]'}
+									}
 								}),
 							_1: {
 								ctor: '::',
-								_0: _user$project$Residents_List$listResident(residents),
-								_1: {
-									ctor: '::',
-									_0: _user$project$Residents_List$createResidentBtn,
-									_1: {ctor: '[]'}
-								}
+								_0: A2(
+									_elm_lang$html$Html$div,
+									{
+										ctor: '::',
+										_0: _elm_lang$html$Html_Attributes$class('box'),
+										_1: {ctor: '[]'}
+									},
+									{
+										ctor: '::',
+										_0: _user$project$Residents_List$listResident(residents),
+										_1: {
+											ctor: '::',
+											_0: A2(
+												_elm_lang$html$Html$hr,
+												{ctor: '[]'},
+												{ctor: '[]'}),
+											_1: {
+												ctor: '::',
+												_0: _user$project$Residents_List$createResidentBtn,
+												_1: {ctor: '[]'}
+											}
+										}
+									}),
+								_1: {ctor: '[]'}
 							}
 						}),
 					_1: {ctor: '[]'}
