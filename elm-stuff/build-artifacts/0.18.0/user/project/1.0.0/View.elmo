@@ -38,8 +38,6 @@ var _user$project$View$page = function (model) {
 	switch (_p2.ctor) {
 		case 'ResidentsRoute':
 			return _user$project$Residents_List$view(model.residents);
-		case 'LoginRoute':
-			return _user$project$Login$view;
 		case 'ResidentRoute':
 			return A2(_user$project$View$residentEditPage, model, _p2._0);
 		case 'CreateResidentRoute':

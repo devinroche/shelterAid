@@ -11,16 +11,11 @@ import Navigation exposing (Location)
 
 init: Location -> (Model, Cmd Msg)
 init location =
-  --let
-  --  currentRoute = Routing.parseLocation location
---
-  --in
-  --  (initialModel currentRoute, fetchResidents)
   let
     currentRoute = Routing.parseLocation location
 
   in
-    (initialModel )
+    (initialModel currentRoute, fetchResidents)
 
 subscriptions: Model ->Sub Msg
 subscriptions model=

@@ -1,7 +1,3 @@
-var _user$project$Models$listLen = function (residents) {
-	return _elm_lang$core$Basics$toString(
-		_elm_lang$core$List$length(residents));
-};
 var _user$project$Models$Model = F3(
 	function (a, b, c) {
 		return {residents: a, route: b, newResident: c};
@@ -24,4 +20,3 @@ var _user$project$Models$ResidentRoute = function (a) {
 	return {ctor: 'ResidentRoute', _0: a};
 };
 var _user$project$Models$ResidentsRoute = {ctor: 'ResidentsRoute'};
-var _user$project$Models$LoginRoute = {ctor: 'LoginRoute'};

@@ -1,24 +1,24 @@
 {
   "residents": [
     {
-      "name": "Steve",
-      "dob": "01/20/1959",
-      "age": "67",
-      "id": "dsafadf",
+      "name": "Jane",
+      "dob": "1/29/198",
+      "age": "1/29/1986",
+      "id": "B1zUujikW",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg",
       "tmpName": "",
       "tmpDob": "",
       "tmpAge": ""
     },
     {
-      "name": "poop",
-      "dob": "poop",
-      "age": "poop",
-      "id": "HJsOiUIJZ",
+      "name": "John",
+      "dob": "2/21/199",
+      "age": "2/21/1996",
+      "id": "H15PdsjyZ",
       "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg",
-      "tmpName": "poop",
-      "tmpDob": "poop",
-      "tmpAge": "poop"
+      "tmpName": "",
+      "tmpDob": "",
+      "tmpAge": ""
     }
   ]
 }
