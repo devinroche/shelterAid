@@ -7,7 +7,7 @@ import Navigation exposing (reload)
 import Models exposing (Resident, Model)
 import RemoteData exposing (WebData)
 import Html.Events exposing (onClick)
-import Routing exposing (residentPath, createResidentPath, residentsPath)
+import Routing exposing (residentPath, createResidentPath, residentsPath, aboutPath)
 
 view : WebData (List Resident)-> Html Msg
 view response =
@@ -30,7 +30,7 @@ nav =
           [ ul[]
             [ li[class "is-active"][a[href residentsPath][text "Home"]]
             , li[class ""][a[href createResidentPath][text "New Resident"]]
-            , li[class ""][a[][text "About"]]
+            , li[class ""][a[href aboutPath][text "About"]]
             ]
           ]
         ]
@@ -43,7 +43,7 @@ list residents =
   [ div [class "columns"]
     [ div[class "column is-8 is-offset-2"]
       [ div [class "has-text-centered subtitle "]
-        [ h2[class "title"][text "Residents"], hr[][]]
+        [ h2[class "title"][text "Residents"]]
         , div[class "box"]
           [ listResident residents
           , hr[][]
@@ -127,10 +127,3 @@ createResidentBtn  =
   in
     a [ class "button is-success regular", href createpath]
       [ i [class ""] [] , text "Add Resident" ]
-
-btnStyle: Attribute Msg
-btnStyle =
-  style
-    [
-
-    ]

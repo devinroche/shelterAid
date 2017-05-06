@@ -684,7 +684,11 @@ var _user$project$Residents_Edit$nav = function (resident) {
 																	ctor: '::',
 																	_0: A2(
 																		_elm_lang$html$Html$a,
-																		{ctor: '[]'},
+																		{
+																			ctor: '::',
+																			_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$aboutPath),
+																			_1: {ctor: '[]'}
+																		},
 																		{
 																			ctor: '::',
 																			_0: _elm_lang$html$Html$text('Edit'),

@@ -8,6 +8,7 @@ import Residents.Create
 import Residents.List
 import Residents.Edit
 import RemoteData
+import About
 
 view : Model -> Html Msg
 view model =
@@ -26,6 +27,9 @@ page model =
 
     Models.CreateResidentRoute ->
       Residents.Create.view model.newResident
+
+    Models.AboutRoute ->
+      About.view
 
     Models.NoMatchingRoute ->
       noViewFound

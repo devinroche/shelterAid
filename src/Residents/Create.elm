@@ -5,7 +5,7 @@ import Html.Attributes exposing (..)
 import Html.Events exposing (onClick, onInput)
 import Messages exposing(Msg)
 import Models exposing(Resident, Model)
-import Routing exposing (residentsPath, createResidentPath)
+import Routing exposing (residentsPath, createResidentPath, aboutPath)
 
 --initialize view
 view : Resident -> Html Msg
@@ -31,7 +31,7 @@ nav resident  =
           [ ul[]
             [ li[class ""][a[href residentsPath][text "Home"]]
             , li[class "is-active"][a[href createResidentPath][text "New Resident"]]
-            , li[class ""][a[][text "About"]]
+            , li[class ""][a[href aboutPath][text "About"]]
             ]
           ]
         ]

@@ -1,5 +1,3 @@
-var _user$project$Residents_List$btnStyle = _elm_lang$html$Html_Attributes$style(
-	{ctor: '[]'});
 var _user$project$Residents_List$createResidentBtn = function () {
 	var createpath = _user$project$Routing$createResidentPath;
 	return A2(
@@ -319,14 +317,7 @@ var _user$project$Residents_List$list = function (residents) {
 											_0: _elm_lang$html$Html$text('Residents'),
 											_1: {ctor: '[]'}
 										}),
-									_1: {
-										ctor: '::',
-										_0: A2(
-											_elm_lang$html$Html$hr,
-											{ctor: '[]'},
-											{ctor: '[]'}),
-										_1: {ctor: '[]'}
-									}
+									_1: {ctor: '[]'}
 								}),
 							_1: {
 								ctor: '::',
@@ -528,7 +519,11 @@ var _user$project$Residents_List$nav = A2(
 															ctor: '::',
 															_0: A2(
 																_elm_lang$html$Html$a,
-																{ctor: '[]'},
+																{
+																	ctor: '::',
+																	_0: _elm_lang$html$Html_Attributes$href(_user$project$Routing$aboutPath),
+																	_1: {ctor: '[]'}
+																},
 																{
 																	ctor: '::',
 																	_0: _elm_lang$html$Html$text('About'),

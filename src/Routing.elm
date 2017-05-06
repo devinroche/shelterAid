@@ -10,6 +10,7 @@ matchers =
     [ map ResidentsRoute top
     , map CreateResidentRoute (s "newresident")
     , map ResidentRoute (s "residents" </> string)
+    , map AboutRoute (s "aboutShelterAid")
     , map ResidentsRoute (s "residents")
     ]
 
@@ -31,3 +32,6 @@ residentPath id =
 
 createResidentPath: String
 createResidentPath = "#newresident"
+
+aboutPath: String
+aboutPath = "#aboutShelterAid"

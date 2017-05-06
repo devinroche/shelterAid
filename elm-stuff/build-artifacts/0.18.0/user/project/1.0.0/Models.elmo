@@ -18,8 +18,10 @@ var _user$project$Models$initialModel = function (route) {
 	};
 };
 var _user$project$Models$NoMatchingRoute = {ctor: 'NoMatchingRoute'};
+var _user$project$Models$AboutRoute = {ctor: 'AboutRoute'};
 var _user$project$Models$CreateResidentRoute = {ctor: 'CreateResidentRoute'};
 var _user$project$Models$ResidentRoute = function (a) {
 	return {ctor: 'ResidentRoute', _0: a};
 };
 var _user$project$Models$ResidentsRoute = {ctor: 'ResidentsRoute'};
+var _user$project$Models$LoginRoute = {ctor: 'LoginRoute'};

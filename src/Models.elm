@@ -15,10 +15,6 @@ initialModel route =
   , route = route
   }
 
-listLen : List Resident -> String
-listLen residents =
-    (toString (List.length residents))
-
 type alias ResidentID =
   String
 
@@ -37,4 +33,5 @@ type Route
   = ResidentsRoute
   | ResidentRoute ResidentID
   | CreateResidentRoute
+  | AboutRoute
   | NoMatchingRoute
