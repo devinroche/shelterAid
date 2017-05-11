@@ -93,7 +93,7 @@ var _user$project$Update$update = F2(
 					return {ctor: '_Tuple2', _0: model, _1: _elm_lang$core$Platform_Cmd$none};
 				}
 			case 'NewResidentName':
-				var newRes = A8(_user$project$Models$Resident, _p0._0, model.newResident.age, model.newResident.dob, '', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg', '', '', '');
+				var newRes = A8(_user$project$Models$Resident, _p0._0, model.newResident.dob, model.newResident.age, '', 'http://the360experiment.com/wp-content/uploads/2015/07/09/Bob-Ross-257x380.png', '', '', '');
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -102,7 +102,7 @@ var _user$project$Update$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'NewResidentAge':
-				var newRes = A8(_user$project$Models$Resident, model.newResident.name, _p0._0, model.newResident.dob, '', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg', '', '', '');
+				var newRes = A8(_user$project$Models$Resident, model.newResident.name, model.newResident.dob, _p0._0, '', 'http://the360experiment.com/wp-content/uploads/2015/07/09/Bob-Ross-257x380.png', '', '', '');
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(
@@ -111,7 +111,7 @@ var _user$project$Update$update = F2(
 					_1: _elm_lang$core$Platform_Cmd$none
 				};
 			case 'NewResidentDob':
-				var newRes = A8(_user$project$Models$Resident, model.newResident.name, model.newResident.age, _p0._0, '', 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg', '', '', '');
+				var newRes = A8(_user$project$Models$Resident, model.newResident.name, _p0._0, model.newResident.age, '', 'http://the360experiment.com/wp-content/uploads/2015/07/09/Bob-Ross-257x380.png', '', '', '');
 				return {
 					ctor: '_Tuple2',
 					_0: _elm_lang$core$Native_Utils.update(

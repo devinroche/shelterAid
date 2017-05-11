@@ -37,21 +37,21 @@ update msg model =
 
     Messages.NewResidentName name ->
       let newRes =
-        Resident name model.newResident.age model.newResident.dob "" "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg" "" "" ""
+        Resident name model.newResident.dob model.newResident.age "" "http://the360experiment.com/wp-content/uploads/2015/07/09/Bob-Ross-257x380.png" "" "" ""
 
       in
         ( { model | newResident = newRes }, Cmd.none )
 
     Messages.NewResidentAge age ->
       let newRes =
-        Resident model.newResident.name age model.newResident.dob "" "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg" "" "" ""
+        Resident model.newResident.name model.newResident.dob age "" "http://the360experiment.com/wp-content/uploads/2015/07/09/Bob-Ross-257x380.png" "" "" ""
 
       in
         ( { model | newResident = newRes }, Cmd.none )
 
     Messages.NewResidentDob dob ->
       let newRes =
-        Resident model.newResident.name model.newResident.age dob "" "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Steve_Buscemi_2009_portrait.jpg/1200px-Steve_Buscemi_2009_portrait.jpg" "" "" ""
+        Resident model.newResident.name dob model.newResident.age  "" "http://the360experiment.com/wp-content/uploads/2015/07/09/Bob-Ross-257x380.png" "" "" ""
 
       in
         ( { model | newResident = newRes }, Cmd.none )
